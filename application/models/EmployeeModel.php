@@ -34,6 +34,8 @@ class EmployeeModel extends CI_Model {
 	public function EmployeeInsert($dataInsert)
 	{
 
+		$this->debug->log($dataInsert);
+
 		$profile = array(
 			'profilePrefix' => $dataInsert['profilePrefix'],
 			'profileName' => $dataInsert['profileName'],
@@ -46,7 +48,12 @@ class EmployeeModel extends CI_Model {
 			'profileImage' => $dataInsert['profileImage'],
 			'profileAddress' => $dataInsert['profileAddress'],
 			'positionId' => $dataInsert['positionId'],
+			'profileLog' => "เพิ่มพนักงาน",
+			'profileLogName' => $_SESSION['profileName'],
 		);
+
+		// $this->debug->log($profile);
+
 
 		$this->db->insert('profile',$profile);
 		$id = $this->db->insert_id();
@@ -54,8 +61,13 @@ class EmployeeModel extends CI_Model {
 		$login = array(
 			'loginUsername' => $dataInsert['loginUsername'],
 			'loginPassword' => md5($dataInsert['loginPassword']),
-			'profileId' => $id
+			'profileId' => $id,
+			'loginLog' => "เพิ่มพนักงาน",
+			'loginLogName' => $_SESSION['profileName'],
 		);
+
+		// $this->debug->log($login);
+
 
 		$this->db->insert('login',$login);
 
@@ -77,32 +89,118 @@ class EmployeeModel extends CI_Model {
 	public function EmployeeUpdate($dataUpdate)
 	{
 
-		$dataUpdate = $this->db
+		$profile = array(
+			'profilePrefix' => $dataUpdate['profilePrefix'],
+			'profileName' => $dataUpdate['profileName'],
+			'profileSurname' => $dataUpdate['profileSurname'],
+			'profileNickname' => $dataUpdate['profileNickname'],
+			'profileSex' => $dataUpdate['profileSex'],
+			'profileCitizenId' => $dataUpdate['profileCitizenId'],
+			'profileEmail' => $dataUpdate['profileEmail'],
+			'profilePhone' => $dataUpdate['profilePhone'],
+			'profileImage' => $dataUpdate['profileImage'],
+			'profileAddress' => $dataUpdate['profileAddress'],
+			'positionId' => $dataUpdate['positionId'],
+			'profileLog' => "แก้ไขพนักงาน",
+			'profileLogName' => $_SESSION['profileName'],
+		);
+
+		$this->db
 		->where('profileId',$dataUpdate['profileId'])
-		->update('profile',$dataUpdate);
+		->update('profile',$profile);
+
+		$login = array(
+			'profileId' => $dataUpdate['profileId'],
+			'loginLog' => "แก้ไขพนักงาน",
+			'loginLogName' => $_SESSION['profileName'],
+		);
+
+		$this->db
+		->where('profileId',$dataUpdate['profileId'])
+		->update('login',$login);
 
 	}
 
-	public function EmployeeDelete($profileId)
+	public function EmployeeDelete($profileChoice,$profileId)
 	{
 
-		$dataDeleteProfile = array(
-			'profileId' => $profileId,
-			'profileStatus' => 2
-		);
+		// echo "<pre>";
+		// print_r($profileChoice);
+		// exit();
 
-		$this->db
-		->where('profileId',$dataDeleteProfile['profileId'])
-		->update('profile',$dataDeleteProfile);
+		if($profileChoice == "Normal"){
 
-		$dataDeleteLogin = array(
-			'profileId' => $profileId,
-			'loginStatus' => 2
-		);
+			$dataDeleteProfile = array(
+				'profileId' => $profileId,
+				'profileStatus' => 1,
+				'profileLog' => "ปกติ",
+				'profileLogName' => $_SESSION['profileName'],
+			);
 
-		$this->db
-		->where('profileId',$dataDeleteLogin['profileId'])
-		->update('login',$dataDeleteLogin);
+			$this->db
+			->where('profileId',$dataDeleteProfile['profileId'])
+			->update('profile',$dataDeleteProfile);
+
+			$dataDeleteLogin = array(
+				'profileId' => $profileId,
+				'loginStatus' => 1,
+				'loginLog' => "ปกติ",
+				'loginLogName' => $_SESSION['profileName'],
+			);
+
+			$this->db
+			->where('profileId',$dataDeleteLogin['profileId'])
+			->update('login',$dataDeleteLogin);
+
+		}else if($profileChoice == "Workbreak"){
+
+			$dataDeleteProfile = array(
+				'profileId' => $profileId,
+				'profileStatus' => 3,
+				'profileLog' => "พักงาน",
+				'profileLogName' => $_SESSION['profileName'],
+			);
+
+			$this->db
+			->where('profileId',$dataDeleteProfile['profileId'])
+			->update('profile',$dataDeleteProfile);
+
+			$dataDeleteLogin = array(
+				'profileId' => $profileId,
+				'loginStatus' => 3,
+				'loginLog' => "พักงาน",
+				'loginLogName' => $_SESSION['profileName'],
+			);
+
+			$this->db
+			->where('profileId',$dataDeleteLogin['profileId'])
+			->update('login',$dataDeleteLogin);
+
+		}else{
+
+			$dataDeleteProfile = array(
+				'profileId' => $profileId,
+				'profileStatus' => 2,
+				'profileLog' => "พ้นสภาพ",
+				'profileLogName' => $_SESSION['profileName'],
+			);
+
+			$this->db
+			->where('profileId',$dataDeleteProfile['profileId'])
+			->update('profile',$dataDeleteProfile);
+
+			$dataDeleteLogin = array(
+				'profileId' => $profileId,
+				'loginStatus' => 2,
+				'loginLog' => "พ้นสภาพ",
+				'loginLogName' => $_SESSION['profileName'],
+			);
+
+			$this->db
+			->where('profileId',$dataDeleteLogin['profileId'])
+			->update('login',$dataDeleteLogin);
+
+		}
 
 	}
 

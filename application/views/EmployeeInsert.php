@@ -26,20 +26,20 @@
             <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
-                  <label>ไอดีเข้าสู่ระบบ</label>
+                  <label>ไอดีเข้าสู่ระบบ <small style="color:red">*</small></label>
                   <input type="text" class="form-control" name="loginUsername" autocomplete="off" placeholder="ไอดีเข้าสู่ระบบ" required>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <label>รหัสผ่าน</label>
+                  <label>รหัสผ่าน <small style="color:red">*</small></label>
                   <input type="password" class="form-control" name="loginPassword" autocomplete="off" placeholder="รหัสผ่าน" required>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="exampleInputEmail1">อีเมลล์</label>
-                  <input type="email" class="form-control" name="profileEmail" autocomplete="off" placeholder="อีเมลล์" required>
+                  <input type="email" class="form-control" name="profileEmail" autocomplete="off" placeholder="อีเมลล์">
                 </div>
               </div>
             </div>
@@ -58,19 +58,19 @@
 
               <div class="col-md-3">
                 <div class="form-group">
-                  <label>ชื่อ</label>
+                  <label>ชื่อ <small style="color:red">*</small></label>
                   <input type="text" class="form-control" name="profileName" autocomplete="off" placeholder="ชื่อ" required>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
-                  <label>นามสกุล</label>
+                  <label>นามสกุล <small style="color:red">*</small></label>
                   <input type="text" class="form-control" name="profileSurname" autocomplete="off" placeholder="นามสกุล" required>
                 </div>
               </div>
               <div class="col-md-2">
                 <div class="form-group">
-                  <label>ชื่อเล่น</label>
+                  <label>ชื่อเล่น <small style="color:red">*</small></label>
                   <input type="text" class="form-control" name="profileNickname" autocomplete="off" placeholder="ชื่อเล่น" required>
                 </div>
               </div>
@@ -89,15 +89,17 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>รหัสประจำตัวประชาชน</label>
-                  <input type="text" class="form-control" name="profileCitizenId" autocomplete="off" placeholder="รหัสประจำตัวประชาชน" maxlength="13" onkeypress='validate(event)' required>
+                  <label>รหัสประจำตัวประชาชน <small style="color:red">* ไม่ต้องใส่เครื่องหมาย ( - )</small></label>
+                  <input type="text" class="form-control" name="profileCitizenId" autocomplete="off" placeholder="ตัวอย่าง : 1234567890123" maxlength="13" required
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                 </div>
               </div>
 
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>เบอร์ติดต่อ</label>
-                  <input type="text" class="form-control" name="profilePhone" placeholder="เบอร์ติดต่อ" autocomplete="off" maxlength="10" onkeypress='validate(event)' required>
+                  <label>เบอร์ติดต่อ <small style="color:red">* ไม่ต้องใส่เครื่องหมาย ( - )</small></label>
+                  <input type="text" class="form-control" name="profilePhone" placeholder="ตัวอย่าง : 0889889889" autocomplete="off" maxlength="10" required
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                 </div>
               </div>
             </div>
@@ -105,7 +107,7 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>ตำแหน่ง</label>
+                  <label>ตำแหน่ง <small style="color:red">*</small></label>
                   <select class="form-control" name="positionId">
                     <?php foreach ($dataPosition as $dataPosition): ?>
                       <option value="<?php echo $dataPosition['positionId'] ?>"><?php echo $dataPosition['positionName'] ?></option>
@@ -126,7 +128,7 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <label>ที่อยู่</label>
+                  <label>ที่อยู่ <small style="color:red">*</small></label>
                   <textarea rows="5" class="form-control" name="profileAddress" autocomplete="off" placeholder="ที่อยู่" required></textarea>
                 </div>
               </div>

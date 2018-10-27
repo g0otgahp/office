@@ -83,16 +83,27 @@ class Employee extends CI_Controller {
 
 		if($check == 0){
 
-			$pathinfo = pathinfo($_FILES['profileImage']['name'], PATHINFO_EXTENSION);
-			$new_file = date('YmdHis') . "." . $pathinfo;
-			move_uploaded_file($_FILES['profileImage']['tmp_name'], "uploads/Employees/" . $new_file);
+			if(empty($_FILES['profileImage']['name'])){
 
-			$dataInsert['profileImage'] = $new_file;
+				$dataInsert['profileImage'] = "noImg.png";
+				// $this->debug->log($dataInsert);
+				$this->EmployeeModel->EmployeeInsert($dataInsert);
 
-			$this->EmployeeModel->EmployeeInsert($dataInsert);
+				redirect("Employee");
 
-			redirect("Employee");
+			}else{
 
+				$pathinfo = pathinfo($_FILES['profileImage']['name'], PATHINFO_EXTENSION);
+				$new_file = date('YmdHis') . "." . $pathinfo;
+				move_uploaded_file($_FILES['profileImage']['tmp_name'], "uploads/Employees/" . $new_file);
+
+				$dataInsert['profileImage'] = $new_file;
+				// $this->debug->log($dataInsert);
+				$this->EmployeeModel->EmployeeInsert($dataInsert);
+
+				redirect("Employee");
+
+			}
 
 		}else{
 
@@ -112,7 +123,7 @@ class Employee extends CI_Controller {
 		$dataPosition = $this->PositionModel->PositionSelect();
 
 		$Value = array(
-			'View' => "EmployeeUpdate",
+			'View' => "EmployeeDetail",
 			'Result' => array(
 				'dataPosition' => $dataPosition,
 				'dataUpdate' => $dataUpdate,
@@ -126,9 +137,6 @@ class Employee extends CI_Controller {
 
 		$dataUpdate = $this->input->post();
 
-		// echo "<pre>";
-		// print_r($dataUpdate);
-		// exit();
 
 		if(!empty($_FILES['profileImage']['name'])){
 
@@ -137,13 +145,12 @@ class Employee extends CI_Controller {
 			move_uploaded_file($_FILES['profileImage']['tmp_name'], "uploads/Employees/" . $new_file);
 
 			$dataUpdate['profileImage'] = $new_file;
+			// $this->debug->log($dataUpdate);
+			$this->EmployeeModel->EmployeeUpdate($dataUpdate);
 
 		}
 
-		// echo "<pre>";
-		// print_r($dataUpdate);
-		// exit();
-
+		// $this->debug->log($dataUpdate);
 		$this->EmployeeModel->EmployeeUpdate($dataUpdate);
 
 		redirect("Employee");
@@ -152,8 +159,9 @@ class Employee extends CI_Controller {
 
 	public function EmployeeDelete()
 	{
-		$profileId = $this->uri->segment(3);
-		$this->EmployeeModel->EmployeeDelete($profileId);
+		$profileChoice = $this->uri->segment(3);
+		$profileId = $this->uri->segment(4);
+		$this->EmployeeModel->EmployeeDelete($profileChoice,$profileId);
 
 		redirect("Employee");
 

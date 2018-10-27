@@ -35,14 +35,10 @@
               <td><b style="color:black"><?php echo $data['positionName'] ?></b></td>
               <td class="text-center" >
                 <a href="#" style="font-size:13px;padding-left:10px;color:blue;"
+                <?php //if($_SESSION['permission'] <= 2){echo "hidden";} ?>
                   data-toggle="modal" data-target="#PositionUpdate<?php echo $data['positionId'] ?>">
                    <b>จัดการตำแหน่ง</b> <i class="fa fa-pencil"></i>
                  </a>
-                 <!-- <a href="<?php echo SITE_URL('Position/PositionDelete/'.$data['positionId']); ?>"
-                   style="font-size:13px;padding-left:10px;color:red;"
-                   onClick="javascript: return confirm('ต้องการลบตำแหน่งนี้ใช่หรือไม่')">
-                    <b>ลบ</b> <i class="glyphicon glyphicon-trash"></i>
-                  </a> -->
               </td>
             </tr>
 

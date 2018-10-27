@@ -54,7 +54,8 @@
                     <td class="text-center">
 
                       <a href="<?php echo SITE_URL('Employee/EmployeeFormUpdate/'.$dataShow['profileId']); ?>"
-                         style="font-size:13px;padding-left:10px;color:blue;" <?php if($dataShow['profileStatus'] == 2){echo "hidden";} ?>><b>จัดการพนักงาน </b><i
+                         style="font-size:13px;padding-left:10px;color:blue;"
+                         <?php // if($_SESSION['permission'] <= 2){echo "hidden";} ?>><b>จัดการพนักงาน </b><i
                          class="fa fa-pencil"></i></a>
                     </td>
 

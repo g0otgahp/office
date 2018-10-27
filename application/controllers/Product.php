@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Position extends CI_Controller {
+class Product extends CI_Controller {
 
 	/**
 	* Index Page for this controller.
@@ -38,18 +38,15 @@ class Position extends CI_Controller {
 		$this->load->view("templates/header",$data);
 		$this->load->view("templates/menu");
 		$this->load->view($Value['View']);
-		$this->load->view("PositionInsert");
-		$this->load->view("PositionDetail");
 		$this->load->view("templates/footer");
 	}
 
 	public function index()
 	{
-
-		$dataShow = $this->PositionModel->PositionSelect();
+		$dataShow = $this->ProductModel->ProductSelect();
 
 		$Value = array(
-			'View' => "Position",
+			'View' => "Product",
 			'Result' => array(
 				'dataShow' => $dataShow,
 			)
@@ -57,43 +54,72 @@ class Position extends CI_Controller {
 		$this->LoadPage($Value);
 	}
 
-	public function PositionInsert()
+	public function ProductFormInsert()
+	{
+
+		$Value = array(
+			'View' => "productInsert",
+			'Result' => array(
+				// 'dataShow' => $dataShow,
+			)
+		);
+		$this->LoadPage($Value);
+	}
+
+	public function ProductInsert()
 	{
 		$dataInsert = $this->input->post();
-		$dataInsert['positionLog'] = "เพิ่มตำแหน่ง";
-		$dataInsert['positionLogName'] = $_SESSION['profileName'];
+		$dataInsert['productLog'] = "เพิ่มสินค้า";
+		$dataInsert['productLogName'] = $_SESSION['profileName'];
 		// $this->debug->log($dataInsert);
+		$this->ProductModel->ProductInsert($dataInsert);
 
-		$this->PositionModel->PositionInsert($dataInsert);
-		redirect("Position");
+		redirect('product');
+
 	}
 
-	public function PositionUpdate()
+	public function ProductFormUpdate()
+	{
+		$productId = $this->uri->segment(3);
+		// $this->debug->log($productId);
+		$dataUpdate = $this->ProductModel->ProductSelectForUpdate($productId);
+
+		$Value = array(
+			'View' => "ProductDetail",
+			'Result' => array(
+				'dataUpdate' => $dataUpdate,
+			)
+		);
+		$this->LoadPage($Value);
+	}
+
+	public function ProductUpdate()
 	{
 		$dataUpdate = $this->input->post();
-		$dataUpdate['positionLog'] = "แก้ไขตำแหน่ง";
-		$dataUpdate['positionLogName'] = $_SESSION['profileName'];
+		$dataUpdate['productLog'] = "แก้ไขสินค้า";
+		$dataUpdate['productLogName'] = $_SESSION['profileName'];
 		// $this->debug->log($dataUpdate);
 
-		$this->PositionModel->PositionUpdate($dataUpdate);
-		redirect("Position");
+		$this->ProductModel->ProductUpdate($dataUpdate);
+
+		redirect('product');
+
 	}
 
-	public function PositionDelete()
+	public function ProductDelete()
 	{
-		$positionId = $this->uri->segment(3);
+		$productId = $this->uri->segment(3);
+		// $this->debug->log($productId);
 		$dataDelete = array(
-			'positionId' => $positionId,
-			'positionStatus' => 2,
-			'positionLog' => "ลบตำแหน่ง",
-		 	'positionLogName' => $_SESSION['profileName'],
+			'productId' => $productId,
+			'productStatus' => 2,
+			'productLog' => "ลบสินค้า",
+			'productLogName' => $_SESSION['profileName'],
 		);
-		// $this->debug->log($dataDelete);
+		$this->ProductModel->ProductDelete($dataDelete);
 
-		$this->PositionModel->PositionDelete($dataDelete);
-		redirect("Position");
+		redirect('product');
+
 	}
-
-
 
 }
