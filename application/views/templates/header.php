@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="App">
 
 <head>
 
@@ -50,6 +50,9 @@
       font-family: 'Prompt', sans-serif;
     }
 
+    table {
+      font-size: 12px;
+    }
     </style>
 
 

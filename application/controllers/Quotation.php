@@ -43,8 +43,7 @@ class Quotation extends CI_Controller {
 
 	public function index()
 	{
-
-		$Value = array(
+			$Value = array(
 			'View' => "Quotation",
 			'Result' => array(
 				// 'dataShow' => $dataShow,
@@ -53,6 +52,22 @@ class Quotation extends CI_Controller {
 		$this->LoadPage($Value);
 	}
 
+	public function quotationform()
+	{
+		$Value = array(
+		'View' => "QuotationForm",
+		'Result' => array(
+			// 'dataShow' => $dataShow,
+		)
+	);
+	$this->LoadPage($Value);
+	
+	}
+
+	public function Document()
+	{
+		$this->load->view('document/quotation');
+	}
 
 
 
