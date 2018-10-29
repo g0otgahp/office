@@ -321,24 +321,24 @@ h1,h2,h3,h4,h5{
             <div class="col-sm-12">
               <div class="row">
                 <div class="col-sm-8" style="margin-top:50px;">
-                  <h4 style="margin:0px;">บริษัท นิวซีโน (ประเทศไทย) จำกัด</h4>
-                  <p>185/4 ถนนสมเด็ถนนสมเด็จพระปิ่นเกล้า แขวงอรุณอัมรินทร์</p>
-                  <p>เขตบางกอกน้อย จังหวัดกรุงเทพมหานคร 10700</p>
-                  <p>โทรศัพท์ : 095-449-5229 แฟกซ์ : 02-435-5899</p>
+                  <h4 style="margin:0px;" class="head-quo">บริษัท นิวซีโน (ประเทศไทย) จำกัด</h4>
+                  <p class="head-quo">185/4 ถนนสมเด็ถนนสมเด็จพระปิ่นเกล้า แขวงอรุณอัมรินทร์</p>
+                  <p class="head-quo">เขตบางกอกน้อย จังหวัดกรุงเทพมหานคร 10700</p>
+                  <p class="head-quo">โทรศัพท์ : 095-449-5229 แฟกซ์ : 02-435-5899</p>
                 </div>
                 <div class="col-sm-4" style="padding:0px;">
                   <img src="<?php echo base_url('uploads/Login/logonewzeno.png')?>" width="220"  class="img-responsive" alt=""/>
                   <div class="row">
-                    <div class="col-sm-6" style="padding-right:0px;">
+                    <div class="col-sm-6 head-quo" style="padding-right:0px;">
                       <p>เลขประจำตัวผู้เสียภาษี</p>
                     </div>
-                    <div class="col-sm-6" style="padding-right:0px;">
+                    <div class="col-sm-6 head-quo" style="padding-right:0px;">
                       <p>0105552086618</p>
                     </div>
-                    <div class="col-sm-6" style="padding-right:0px;">
+                    <div class="col-sm-6 head-quo" style="padding-right:0px;">
                       <p>สาขาที่ออกเอกสาร</p>
                     </div>
-                    <div class="col-sm-6" style="padding-right:0px;">
+                    <div class="col-sm-6 head-quo" style="padding-right:0px;">
                       <p>สำนักงานใหญ่</p>
                     </div>
                   </div>
@@ -365,19 +365,23 @@ h1,h2,h3,h4,h5{
         <div class="row">
           <div class="col-sm-3 head-quo"><b>ชื่อหน่วยงาน</b>
           </div>
-          <div class="col-sm-9 head-quo">บริษัท บางจาก คอร์ปอเนชั่น จำกัด
+          <div class="col-sm-9 head-quo">&nbsp;
+          </div>
+          <div class="col-sm-3 head-quo"><b>เรียน</b>
+          </div>
+          <div class="col-sm-9 head-quo">&nbsp;
           </div>
           <div class="col-sm-3 head-quo"><b>โทร/Fax</b>
           </div>
-          <div class="col-sm-9 head-quo">02-335-8104
+          <div class="col-sm-9 head-quo">&nbsp;
           </div>
           <div class="col-sm-3 head-quo"><b>E-mail/ID Line</b>
           </div>
-          <div class="col-sm-9 head-quo">bnagjak@gmail.com
+          <div class="col-sm-9 head-quo">&nbsp;
           </div>
           <div class="col-sm-3 head-quo"><b>โปรเจค</b>
           </div>
-          <div class="col-sm-9 head-quo">
+          <div class="col-sm-9 head-quo">&nbsp;
           </div>
         </div>
       </div>
@@ -407,7 +411,10 @@ h1,h2,h3,h4,h5{
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" style="margin-top:20px;">
+      <div class="col-sm-12">
+        ทางบริษัทฯ มีความยินดีในการเสนอราคาสินค้าและบริการ ตามราคาและเงื่อนไขที่ระบุไว้ดังนี้
+      </div>
       <div class="col-md-12 table-responsive col-sm-12">
         <table width="100%" class="table invoice">
           <thead>
@@ -457,19 +464,22 @@ h1,h2,h3,h4,h5{
       <div class="row">
         <div class="col-sm-offset-7 col-sm-5">
           <div class="row">
-            <div class="col-sm-6"><b>ส่วนลดการค้า</b></div>
-            <div class="col-sm-6 text-right">0.00</div>
-            <div class="col-sm-6"><b>มูลค่าสินค้า</b></div>
-            <div class="col-sm-6 text-right">1,800.00</div>
-            <div class="col-sm-6"><b>ภาษีมูลค่าเพิ่ม</b></div>
-            <div class="col-sm-6 text-right">126.00</div>
-            <div class="col-sm-6"><b>รวมทั้งสิ้น</b></div>
-            <div class="col-sm-6 text-right">1.926.00</div>
+            <div class="col-sm-6 head-quo"><b>ส่วนลดการค้า</b></div>
+            <div class="col-sm-6 text-right head-quo">0.00</div>
+            <div class="col-sm-6 head-quo"><b>มูลค่าสินค้า</b></div>
+            <div class="col-sm-6 text-right head-quo">1,800.00</div>
+            <div class="col-sm-6 head-quo"><b>ภาษีมูลค่าเพิ่ม</b></div>
+            <div class="col-sm-6 text-right head-quo">126.00</div>
+            <div class="col-sm-6 head-quo"><b>รวมทั้งสิ้น</b></div>
+            <div class="col-sm-6 text-right head-quo">1.926.00</div>
           </div>
         </div>
       </div>
 
       <div class="row" style="margin-top:100px;">
+        <div class="col-sm-12">
+          ***ขอสงวนสิทธิในการเปลี่ยนแปลงรายละเอียดและราคาของสินค้าตลอดจนรายการส่งเสริมการขายและการลงทะเบียนโดยไม่ต้องแจ้งให้ทราบล่วงหน้า
+        </div>
         <div class="col-sm-12 text-center">
           <table class="table" border="2">
             <tbody>
@@ -513,10 +523,10 @@ h1,h2,h3,h4,h5{
       <div class="row">
         <div class="col-sm-4">
           <div class="row text-center">
-            <div class="col-sm-12">ลงชื่อ ..............................</div>
-            <div class="col-sm-12">(...........................................)<div>
+            <div class="col-sm-12">ลงชื่อ ..........................................</div>
+            <div class="col-sm-12">(...................................................)<div>
               <div class="col-sm-12">ผู้เสอนราคา<div>
-                <div class="col-sm-12">วันที่ ......./......./.........</div>
+                <div class="col-sm-12">วันที่ ............/............/............</div>
               </div>
             </div>
           </div>
@@ -525,10 +535,10 @@ h1,h2,h3,h4,h5{
     </div>
     <div class="col-sm-4">
       <div class="row text-center">
-        <div class="col-sm-12">ลงชื่อ ..............................</div>
-        <div class="col-sm-12">(...........................................)<div>
-          <div class="col-sm-12">ผู้เสอนราคา<div>
-            <div class="col-sm-12">วันที่ ......./......./.........</div>
+        <div class="col-sm-12">ลงชื่อ ..........................................</div>
+        <div class="col-sm-12">(...................................................)<div>
+          <div class="col-sm-12">ผู้อนุมัติเสนอราคา<div>
+            <div class="col-sm-12">วันที่ ............/............/............</div>
           </div>
         </div>
       </div>
@@ -537,10 +547,10 @@ h1,h2,h3,h4,h5{
 </div>
 <div class="col-sm-4">
   <div class="row text-center">
-    <div class="col-sm-12">ลงชื่อ ..............................</div>
-    <div class="col-sm-12">(...........................................)<div>
-      <div class="col-sm-12">ผู้เสอนราคา<div>
-        <div class="col-sm-12">วันที่ ......./......./.........</div>
+    <div class="col-sm-12">ลงชื่อ ..........................................</div>
+    <div class="col-sm-12">(...................................................)<div>
+      <div class="col-sm-12">ผู้อนุมัติสั่งซื้อ<div>
+        <div class="col-sm-12">วันที่ ............/............/............</div>
       </div>
     </div>
   </div>
