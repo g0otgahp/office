@@ -284,11 +284,19 @@ h1,h2,h3,h4,h5{
     border-top-right-radius: 0px;
   }
 
+  body {
+    font-size: 11px;
+  }
+
   p {
     font-size: 11px;
     padding:0px;
     margin:0px;
     font-weight: bold;
+  }
+
+  .head-quo{
+    margin-bottom: -10px;
   }
 </style>
 <body>
@@ -312,7 +320,7 @@ h1,h2,h3,h4,h5{
           <div class="row">
             <div class="col-sm-12">
               <div class="row">
-                <div class="col-sm-8">
+                <div class="col-sm-8" style="margin-top:50px;">
                   <h4 style="margin:0px;">บริษัท นิวซีโน (ประเทศไทย) จำกัด</h4>
                   <p>185/4 ถนนสมเด็ถนนสมเด็จพระปิ่นเกล้า แขวงอรุณอัมรินทร์</p>
                   <p>เขตบางกอกน้อย จังหวัดกรุงเทพมหานคร 10700</p>
@@ -349,79 +357,56 @@ h1,h2,h3,h4,h5{
       <div class="col-sm-12">
         <div class="row">
           <h4 class="text-center">ใบเสนอราคา</h4>
-          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-7">
-          <div class="row">
-            <div class="col-sm-3"><b>เรียน</b>
-            </div>
-            <div class="col-sm-9">บริษัท บางจาก คอร์ปอเนชั่น จำกัด (มาหาชน)
-            </div>
-            <div class="col-sm-3"><b>ที่อยู่</b>
-            </div>
-            <div class="col-sm-9">300/222
-            </div>
-            <div class="col-sm-3"><b>โทรศัพท์</b>
-            </div>
-            <div class="col-sm-9">02-335-8104
-            </div>
-            <div class="col-sm-3"><b>แฟกซ์</b>
-            </div>
-            <div class="col-sm-9">02-335-8104
-            </div>
-            <div class="col-sm-3"><b>E-mail</b>
-            </div>
-            <div class="col-sm-9">bnagjak@gmail.com
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-5">
-          <div class="row">
-            <div class="col-sm-5"><b>เลขที่</b>
-            </div>
-            <div class="col-sm-7">PS000003
-            </div>
-            <div class="col-sm-5"><b>วันที่</b>
-            </div>
-            <div class="col-sm-7">29/10/2561
-            </div>
-            <div class="col-sm-5"><b>กำหนดส่ง</b>
-            </div>
-            <div class="col-sm-7">29/10/2561
-            </div>
-            <div class="col-sm-5"><b>ชนิดภาษี</b>
-            </div>
-            <div class="col-sm-7">สินค้าแยกภาษี
-            </div>
-            <div class="col-sm-5"><b>อัตราภาษี</b>
-            </div>
-            <div class="col-sm-7">7.00
-            </div>
-            <div class="col-sm-5"><b>ผู้เสนอราคา</b>
-            </div>
-            <div class="col-sm-7">คุณธีรเดช บุญนภา
-            </div>
-          </div>
-        </div>
-</div>
-
-<div class="row">
-  <div class="col-sm-12">
+    </div>
     <div class="row">
-      <div class="col-sm-2"><b>เงื่อนไข :</b>
+      <div class="col-sm-7">
+        <div class="row">
+          <div class="col-sm-3 head-quo"><b>ชื่อหน่วยงาน</b>
+          </div>
+          <div class="col-sm-9 head-quo">บริษัท บางจาก คอร์ปอเนชั่น จำกัด
+          </div>
+          <div class="col-sm-3 head-quo"><b>โทร/Fax</b>
+          </div>
+          <div class="col-sm-9 head-quo">02-335-8104
+          </div>
+          <div class="col-sm-3 head-quo"><b>E-mail/ID Line</b>
+          </div>
+          <div class="col-sm-9 head-quo">bnagjak@gmail.com
+          </div>
+          <div class="col-sm-3 head-quo"><b>โปรเจค</b>
+          </div>
+          <div class="col-sm-9 head-quo">
+          </div>
+        </div>
       </div>
-      <div class="col-sm-10">1. เครดิต 30 วัน
-      </div>
-      <div class="col-sm-2">
-      </div>
-      <div class="col-sm-10">2. ยืนยันราคาภายใน 30 วัน
+      <div class="col-sm-5">
+        <div class="row">
+          <div class="col-sm-5 head-quo"><b>เลขที่</b>
+          </div>
+          <div class="col-sm-7 head-quo">PS000003
+          </div>
+          <div class="col-sm-5 head-quo"><b>วันที่</b>
+          </div>
+          <div class="col-sm-7 head-quo">29/10/2561
+          </div>
+          <div class="col-sm-5 head-quo"><b>ยื่นราคาภายใน</b>
+          </div>
+          <div class="col-sm-7 head-quo"> 30 วัน
+          </div>
+          <div class="col-sm-5 head-quo"><b>ส่งสินค้าภายใน</b>
+          </div>
+          <div class="col-sm-7 head-quo"> 30 วัน
+          </div>
+          <div class="col-sm-5 head-quo"><b>เงื่อนไขการเงิน</b>
+          </div>
+          <div class="col-sm-7 head-quo">เงินสด
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-    </div>
     <div class="row">
       <div class="col-md-12 table-responsive col-sm-12">
         <table width="100%" class="table invoice">
@@ -449,48 +434,122 @@ h1,h2,h3,h4,h5{
             </tr>
 
             <?php //if (count($AccountingDetail)<10): ?>
-            <?php
-            $row = 22 - 2;
-            for ($i=0; $i < $row; $i++) { ?>
-            <tr>
-            <td><span class="empty"></span></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <?php } ?>
-          <?php //endif; ?>
-        </tbody>
-      </table>
-    </div>
-    <!-- <div class="col-md-2 col-sm-offset-8 col-sm-2"><b>ราคาสุทธิ</div>
-      <div class="col-md-2 col-sm-2">2,000 บาท</b></div> -->
-    </div>
-  <div class="row" style="margin-top:100px">
-    <div class="col-sm-7">
+              <?php
+              $row = 10 - 2;
+              for ($i=0; $i < $row; $i++) { ?>
+                <tr>
+                  <td><span class="empty"></span></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              <?php } ?>
+              <?php //endif; ?>
+            </tbody>
+          </table>
+        </div>
+        <!-- <div class="col-md-2 col-sm-offset-8 col-sm-2"><b>ราคาสุทธิ</div>
+        <div class="col-md-2 col-sm-2">2,000 บาท</b></div> -->
+      </div>
       <div class="row">
-        <div class="col-sm-12">หมายเหตุ : สินค้าเป็นของผู้สั่งซื้อต่อเมื่อผู้สั่งซื้อชำระเงินสมบูรณ์</div>
-        <div class="col-sm-12 text-center" style="background-color:#ddd">หนึ่งพันแปดร้อนบาทถ้วน</div>
-        <div class="col-sm-12">ผู้เสนอราคา  ................................................</div>
-        <div class="col-sm-offset-2 col-sm-10">(...........................................)</div>
+        <div class="col-sm-offset-7 col-sm-5">
+          <div class="row">
+            <div class="col-sm-6"><b>ส่วนลดการค้า</b></div>
+            <div class="col-sm-6 text-right">0.00</div>
+            <div class="col-sm-6"><b>มูลค่าสินค้า</b></div>
+            <div class="col-sm-6 text-right">1,800.00</div>
+            <div class="col-sm-6"><b>ภาษีมูลค่าเพิ่ม</b></div>
+            <div class="col-sm-6 text-right">126.00</div>
+            <div class="col-sm-6"><b>รวมทั้งสิ้น</b></div>
+            <div class="col-sm-6 text-right">1.926.00</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:100px;">
+        <div class="col-sm-12 text-center">
+          <table class="table" border="2">
+            <tbody>
+              <tr>
+                <th class="text-center" colspan="5" width="100%">สามารถชำระเงินผ่านธนาคารในนาม บริษัท นิวซีโน่ (ประเทศไทย) จำกัด</th>
+              </tr>
+              <tr>
+                <th class="text-center" colspan="2">ธนาคาร</th>
+                <th class="text-center">สาขา</th>
+                <th class="text-center">ประเภทบัญชี</th>
+                <th class="text-center">เลขที่บัญชี</th>
+              </tr>
+              <tr>
+                <td class="text-center" width="4%"><img src="<?php echo base_url('uploads/Login/ktc.png')?>" width="15"  class="img-responsive" alt=""/></td>
+                <td class="text-center">กรุงเทพ</td>
+                <td class="text-center">เดอะเซอร์เคิล</td>
+                <td class="text-center">กระแสรายวัน</td>
+                <td class="text-center">089-7028999</td>
+              </tr>
+              <tr>
+                <td class="text-center"><img src="<?php echo base_url('uploads/Login/kbank.png')?>" width="15"  class="img-responsive" alt=""/></td>
+                <td class="text-center">กสิกรไทย</td>
+                <td class="text-center">ปิ่นเกล้า</td>
+                <td class="text-center">กระแสรายวัน</td>
+                <td class="text-center">706-241-3888</td>
+              </tr>
+              <tr>
+                <td class="text-center"><img src="<?php echo base_url('uploads/Login/scb.png')?>" width="15"  class="img-responsive" alt=""/></td>
+                <td class="text-center">ไทยพาณิชย์</td>
+                <td class="text-center">บางโคล่</td>
+                <td class="text-center">กระแสรายวัน</td>
+                <td class="text-center">089-7028999</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="row text-center">
+            <div class="col-sm-12">ลงชื่อ ..............................</div>
+            <div class="col-sm-12">(...........................................)<div>
+              <div class="col-sm-12">ผู้เสอนราคา<div>
+                <div class="col-sm-12">วันที่ ......./......./.........</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-sm-5">
-      <div class="row">
-        <div class="col-sm-6"><b>ส่วนลดการค้า</b></div>
-        <div class="col-sm-6 text-right">0.00</div>
-        <div class="col-sm-6"><b>มูลค่าสินค้า</b></div>
-        <div class="col-sm-6 text-right">1,800.00</div>
-        <div class="col-sm-6"><b>ภาษีมูลค่าเพิ่ม</b></div>
-        <div class="col-sm-6 text-right">126.00</div>
-        <div class="col-sm-6"><b>รวมทั้งสิ้น</b></div>
-        <div class="col-sm-6 text-right">1.926.00</div>
+    <div class="col-sm-4">
+      <div class="row text-center">
+        <div class="col-sm-12">ลงชื่อ ..............................</div>
+        <div class="col-sm-12">(...........................................)<div>
+          <div class="col-sm-12">ผู้เสอนราคา<div>
+            <div class="col-sm-12">วันที่ ......./......./.........</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</div>
+<div class="col-sm-4">
+  <div class="row text-center">
+    <div class="col-sm-12">ลงชื่อ ..............................</div>
+    <div class="col-sm-12">(...........................................)<div>
+      <div class="col-sm-12">ผู้เสอนราคา<div>
+        <div class="col-sm-12">วันที่ ......./......./.........</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
 </div>
 </div>
 </div>
