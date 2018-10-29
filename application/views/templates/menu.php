@@ -46,7 +46,7 @@
           <a href="#"><i class="fa fa-money fa-fw"></i> ผู้ผลิต/ลูกค้า<span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li>
-              <a href="<?php echo SITE_URL('Supplier'); ?>"> - การจัดการผู้จำหน่าย</a>
+              <a href="<?php echo SITE_URL('Supplier'); ?>"> - การจัดการผู้ผลิต</a>
             </li>
             <li>
               <a href="<?php echo SITE_URL('Customer'); ?>"> - การจัดการลูกค้า</a>

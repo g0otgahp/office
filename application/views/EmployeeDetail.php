@@ -129,7 +129,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>ตำแหน่ง</label>
-                    <select class="form-control" name="positionId">
+                    <select class="form-control selectpicker" name="positionId">
                       <?php foreach ($dataPosition as $dataPosition): ?>
                         <option value="<?php echo $dataPosition['positionId'] ?>"<?php if($dataPosition['positionId'] == $dataUpdate[0]['positionId']){echo "selected";} ?>><?php echo $dataPosition['positionName'] ?></option>
                       <?php endforeach; ?>

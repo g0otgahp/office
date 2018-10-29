@@ -36,13 +36,21 @@
   <!-- AngularJS -->
   <script src="<?php echo BASE_URL()?>/Service/angular-1.7.2/angular.min.js"></script>
   <script src="<?php echo BASE_URL()?>/Service/AnController.js"></script>
-    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.4.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.4.js"></script>
+
+  <script src="<?php echo BASE_URL('assets/bootstrap-select'); ?>/dist/js/bootstrap-select.js"></script>
+
 
   <script>
   $(document).ready(function() {
       $('.dataTable').DataTable({
           responsive: true
       });
+  });
+
+  $('.selectpicker').selectpicker({
+    liveSearch: true,
+    // maxOptions: 10
   });
 
   </script>

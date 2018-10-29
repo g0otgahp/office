@@ -34,6 +34,15 @@
     <!-- Custom Fonts -->
     <link href="<?php echo BASE_URL('assets/startbootstrap-sb-admin'); ?>/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="<?php echo BASE_URL('assets/bootstrap-select'); ?>/dist/css/bootstrap-select.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="<?php echo BASE_URL('assets/bootstrap-select'); ?>/dist/js/bootstrap-select.min.js"></script>
+
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <!-- <script src="<?php echo BASE_URL('assets/bootstrap-select'); ?>/dist/js/i18n/defaults-*.min.js"></script> -->
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
 

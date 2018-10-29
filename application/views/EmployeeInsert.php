@@ -108,7 +108,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label>ตำแหน่ง <small style="color:red">*</small></label>
-                  <select class="form-control" name="positionId">
+                  <select class="form-control selectpicker" name="positionId">
                     <?php foreach ($dataPosition as $dataPosition): ?>
                       <option value="<?php echo $dataPosition['positionId'] ?>"><?php echo $dataPosition['positionName'] ?></option>
                     <?php endforeach; ?>

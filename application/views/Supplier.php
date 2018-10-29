@@ -3,7 +3,7 @@
   <div id="page-wrapper">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header">การจัดการผู้จำหน่าย <a href="<?php echo SITE_URL('Supplier/SupplierFormInsert'); ?>"
+        <h1 class="page-header">การจัดการผู้ผลิต <a href="<?php echo SITE_URL('Supplier/SupplierFormInsert'); ?>"
           style="font-size:18px;padding-left:10px;color:#00b300;"> เพิ่ม   <i class="fa fa-plus"></i> </a></h1>
         </div>
         <!-- /.col-lg-12 -->
@@ -49,7 +49,7 @@
                   <td class="text-center"> <b><?php echo substr($dataShow['supplierMainPhone'],0,3) . "-" .
                                                          substr($dataShow['supplierMainPhone'],3,3) . "-" .
                                                          substr($dataShow['supplierMainPhone'],6,4)?></b> </td>
-                  <td class="text-center"> <a href="<?php echo SITE_URL('Supplier/SupplierFormUpdate/' . $dataShow['supplierId']); ?>"> <b>รายละเอียดลูกค้า</b> </a> </td>
+                  <td class="text-center"> <a href="<?php echo SITE_URL('Supplier/SupplierFormUpdate/' . $dataShow['supplierId']); ?>"> <b>รายละเอียดผู้ผลิต</b> </a> </td>
                 </tr>
 
                 <?php $i++; endforeach; ?>

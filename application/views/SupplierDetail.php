@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">การจัดการลูกค้า
+                <h1 class="page-header">การจัดการผู้ผลิต
                   <a href="<?php echo SITE_URL('Supplier/SupplierDelete/'.$dataUpdate[0]['supplierId']); ?>"
                     style="font-size:11px;padding-left:10px;color:red;"
                     onClick="javascript: return confirm('ต้องการทำสิ่งนี้ใช่หรือไม่')"><b>ลบ</b></i> </a></h1>
@@ -137,7 +137,7 @@
 
 
 
-        <button type="submit" class="btn btn-info btn-fill pull-right">แก้ไขลูกค้า</button>
+        <button type="submit" class="btn btn-info btn-fill pull-right">แก้ไขผู้ผลิต</button>
         <div class="clearfix"></div>
 
         <br>

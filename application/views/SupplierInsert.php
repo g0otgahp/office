@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">การจัดการผู้จำหน่าย</h1>
+                <h1 class="page-header">การจัดการผู้ผลิต</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -122,7 +122,7 @@
 
 
 
-        <button type="submit" class="btn btn-info btn-fill pull-right">เพิ่มผู้จำหน่าย</button>
+        <button type="submit" class="btn btn-info btn-fill pull-right">เพิ่มผู้ผลิต</button>
         <div class="clearfix"></div>
 
         <br>
