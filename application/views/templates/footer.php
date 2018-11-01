@@ -6,6 +6,8 @@
 
   <!-- jQuery -->
   <script src="<?php echo BASE_URL('assets/startbootstrap-sb-admin'); ?>/vendor/jquery/jquery.min.js"></script>
+  <script src="<?php echo BASE_URL('assets/bootstrap-select'); ?>/dist/js/bootstrap-select.js"></script>
+
 
   <!-- Bootstrap Core JavaScript -->
   <script src="<?php echo BASE_URL('assets/startbootstrap-sb-admin'); ?>/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -38,8 +40,12 @@
   <script src="<?php echo BASE_URL()?>/Service/AnController.js"></script>
   <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.4.js"></script>
 
-  <script src="<?php echo BASE_URL('assets/bootstrap-select'); ?>/dist/js/bootstrap-select.js"></script>
-
+  <!-- Angular Datatable -->
+  <script src="<?php echo BASE_URL('/Service/angular-datatables/dist/angular-datatables.min.js')?>"></script>
+  <script src="<?php echo BASE_URL('/Service/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.min.js')?>"></script>
+  <script src="<?php echo BASE_URL('/Service/angular-datatables/dist/plugins/buttons/angular-datatables.buttons.min.js')?>"></script>
+  <script src="<?php echo BASE_URL('/Service/angular-datatables/dist/plugins/select/angular-datatables.select.min.js')?>"></script>
+  <script src="<?php echo BASE_URL('/Service/angular-datatables/dist/plugins/columnfilter/angular-datatables.columnfilter.js')?>"></script>
 
   <script>
   $(document).ready(function() {

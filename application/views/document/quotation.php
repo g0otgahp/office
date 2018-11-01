@@ -365,23 +365,23 @@ h1,h2,h3,h4,h5{
         <div class="row">
           <div class="col-sm-3 head-quo"><b>ชื่อหน่วยงาน</b>
           </div>
-          <div class="col-sm-9 head-quo">&nbsp;
+          <div class="col-sm-9 head-quo">:
           </div>
           <div class="col-sm-3 head-quo"><b>เรียน</b>
           </div>
-          <div class="col-sm-9 head-quo">&nbsp;
+          <div class="col-sm-9 head-quo">:
           </div>
           <div class="col-sm-3 head-quo"><b>โทร/Fax</b>
           </div>
-          <div class="col-sm-9 head-quo">&nbsp;
+          <div class="col-sm-9 head-quo">:
           </div>
           <div class="col-sm-3 head-quo"><b>E-mail/ID Line</b>
           </div>
-          <div class="col-sm-9 head-quo">&nbsp;
+          <div class="col-sm-9 head-quo">:
           </div>
           <div class="col-sm-3 head-quo"><b>โปรเจค</b>
           </div>
-          <div class="col-sm-9 head-quo">&nbsp;
+          <div class="col-sm-9 head-quo">:
           </div>
         </div>
       </div>
@@ -389,23 +389,23 @@ h1,h2,h3,h4,h5{
         <div class="row">
           <div class="col-sm-5 head-quo"><b>เลขที่</b>
           </div>
-          <div class="col-sm-7 head-quo">PS000003
+          <div class="col-sm-7 head-quo">: PS000003
           </div>
           <div class="col-sm-5 head-quo"><b>วันที่</b>
           </div>
-          <div class="col-sm-7 head-quo">29/10/2561
+          <div class="col-sm-7 head-quo">: 29/10/2561
           </div>
           <div class="col-sm-5 head-quo"><b>ยื่นราคาภายใน</b>
           </div>
-          <div class="col-sm-7 head-quo"> 30 วัน
+          <div class="col-sm-7 head-quo">: 30 วัน
           </div>
           <div class="col-sm-5 head-quo"><b>ส่งสินค้าภายใน</b>
           </div>
-          <div class="col-sm-7 head-quo"> 30 วัน
+          <div class="col-sm-7 head-quo">: 30 วัน
           </div>
           <div class="col-sm-5 head-quo"><b>เงื่อนไขการเงิน</b>
           </div>
-          <div class="col-sm-7 head-quo">เงินสด
+          <div class="col-sm-7 head-quo">: เงินสด
           </div>
         </div>
       </div>
@@ -442,16 +442,16 @@ h1,h2,h3,h4,h5{
 
             <?php //if (count($AccountingDetail)<10): ?>
               <?php
-              $row = 10 - 2;
+              $row = 9 - 1;
               for ($i=0; $i < $row; $i++) { ?>
                 <tr>
-                  <td><span class="empty"></span></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
                 </tr>
               <?php } ?>
               <?php //endif; ?>
@@ -476,7 +476,7 @@ h1,h2,h3,h4,h5{
         </div>
       </div>
 
-      <div class="row" style="margin-top:100px;">
+      <div class="row">
         <div class="col-sm-12">
           ***ขอสงวนสิทธิในการเปลี่ยนแปลงรายละเอียดและราคาของสินค้าตลอดจนรายการส่งเสริมการขายและการลงทะเบียนโดยไม่ต้องแจ้งให้ทราบล่วงหน้า
         </div>
