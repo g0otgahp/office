@@ -37,11 +37,12 @@
   <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.4.js"></script>
 
   <!-- AngularJS -->
-  <script src="<?php echo BASE_URL()?>/Service/angular-1.7.2/angular.min.js"></script>
+  <script src="<?php echo BASE_URL()?>/AngularService/angular-1.7.2/angular.min.js"></script>
 
-  <script src="<?php echo BASE_URL()?>/Service/AnApp.js"></script>
+  <script src="<?php echo BASE_URL()?>/AngularService/App.js"></script>
   <!-- Controller -->
-  <script src="<?php echo BASE_URL()?>/Service/QuotationController.js"></script>
+  <script src="<?php echo BASE_URL()?>/AngularService/QuotationController.js"></script>
+  <script src="<?php echo BASE_URL()?>/AngularService/CustomerController.js"></script>
 
   <!-- Angular Datatable -->
   <script src="<?php echo BASE_URL('/Service/angular-datatables/dist/angular-datatables.min.js')?>"></script>

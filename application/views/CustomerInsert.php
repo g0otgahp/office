@@ -1,4 +1,4 @@
-<div id="wrapper">
+<div id="wrapper" ng-controller="CustomerCtrl">
 
     <div id="page-wrapper">
         <div class="row">
