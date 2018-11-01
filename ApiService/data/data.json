@@ -1,0 +1,29 @@
+{
+    "tagline": "ร้านอาหาร เนเวอร์ เซโน่",
+    "exiciteline": "7 เมนูแนะนำ แคลอรี่ต่ำ",
+
+    "FeaturedProduct": "แกงเขียวหวานหมู",
+    "FeaturedProductDesc1": "แกงเขียวหวาน อาหารไทยรสชาติกลมกล่อมจัดจ้าน กลิ่นหอมไปถึงปากซอย",
+    "FeaturedProductImage": "res/images/product1.jpg",
+    "FeaturedProductCalorie": "235 แคลอรี่",
+
+    "ListProduct1Image": "res/images/product2.jpg",
+    "ListProduct1": "แกงแพนงหมู",
+    "ListProduct1Calorie": "240 แคลอรี่",
+
+    "ListProduct2Image": "res/images/product3.jpg",
+    "ListProduct2": "ต้มจืดมะระ",
+    "ListProduct2Calorie": "90 แคลอรี่",
+
+    "ListProduct3Image": "res/images/product4.jpg",
+    "ListProduct3": "ต้มจืดวุ้นเส้น",
+    "ListProduct3Calorie": "85 แคลอรี่",
+
+    "ListProduct4Image": "res/images/product5.jpg",
+    "ListProduct4": "แกงมัสมั่นไก่",
+    "ListProduct4Calorie": "295 แคลอรี่",
+
+    "ListProduct5": "แกงเผ็ดเป็ดย่าง",
+    "ListProduct5Image": "res/images/product6.jpg",
+    "ListProduct5Calorie": "220 แคลอรี่"
+}

@@ -34,10 +34,10 @@
   <script src="<?php echo BASE_URL('assets/startbootstrap-sb-admin'); ?>/dist/js/sb-admin-2.js"></script>
 
   <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.4.js"></script>
 
   <!-- AngularJS -->
   <script src="<?php echo BASE_URL()?>/AngularService/angular-1.7.2/angular.min.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.4.js"></script>
 
   <script src="<?php echo BASE_URL()?>/AngularService/App.js"></script>
   <!-- Controller -->
@@ -45,11 +45,11 @@
   <script src="<?php echo BASE_URL()?>/AngularService/CustomerController.js"></script>
 
   <!-- Angular Datatable -->
-  <script src="<?php echo BASE_URL('/Service/angular-datatables/dist/angular-datatables.min.js')?>"></script>
-  <script src="<?php echo BASE_URL('/Service/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.min.js')?>"></script>
-  <script src="<?php echo BASE_URL('/Service/angular-datatables/dist/plugins/buttons/angular-datatables.buttons.min.js')?>"></script>
-  <script src="<?php echo BASE_URL('/Service/angular-datatables/dist/plugins/select/angular-datatables.select.min.js')?>"></script>
-  <script src="<?php echo BASE_URL('/Service/angular-datatables/dist/plugins/columnfilter/angular-datatables.columnfilter.js')?>"></script>
+  <script src="<?php echo BASE_URL('/AngularService/angular-datatables/dist/angular-datatables.min.js')?>"></script>
+  <script src="<?php echo BASE_URL('/AngularService/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.min.js')?>"></script>
+  <script src="<?php echo BASE_URL('/AngularService/angular-datatables/dist/plugins/buttons/angular-datatables.buttons.min.js')?>"></script>
+  <script src="<?php echo BASE_URL('/AngularService/angular-datatables/dist/plugins/select/angular-datatables.select.min.js')?>"></script>
+  <script src="<?php echo BASE_URL('/AngularService/angular-datatables/dist/plugins/columnfilter/angular-datatables.columnfilter.js')?>"></script>
 
   <script>
   $(document).ready(function() {

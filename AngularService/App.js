@@ -7,3 +7,11 @@ var App = angular.module('App', [
   'datatables.select',
   'datatables.columnfilter',
 ]);
+
+
+  //Autoload--------------------------------------------------------------------
+  var VIEW_URL = "http://localhost/office/";
+  var URL = "http://localhost/office/ApiService/api/";
+
+  // var VIEW_URL = "http://office.newzeno.com/";
+  // var URL = "http://office.newzeno.com/ApiService/api/";

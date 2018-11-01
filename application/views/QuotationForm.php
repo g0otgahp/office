@@ -90,10 +90,11 @@
                       <tr ng-repeat="item in SelectProduct">
                         <td class="text-center">{{$index+1}}</td>
                         <td class="text-left">{{item.productBrand}} {{item.productCategory}} รุ่น {{item.productModel}}</td>
-                        <td class="text-center"><input class="form-control" type="number" min="0" max="999" placeholder="" value="0" ng-model="item.productQty"></td>
+                        <td class="text-center"><input class="form-control text-right input-sm" type="number" min="0" max="999" placeholder="จำนวน" value="0" ng-model="item.productQty"></td>
                         <td class="text-center">เครื่อง</td>
-                        <td class="text-right"><input class="form-control" type="number" min="0" max="999" placeholder="" value="0" ng-model="item.productRetail"></td>
-                        <td class="text-right"><input class="form-control" type="number" min="0" max="999" placeholder="ส่วนลด" ng-model="item.productDiscount"></td>
+                        <td class="text-right"><input class="form-control text-right input-sm" type="text" placeholder="ราคา" ng-model="item.productRetail" autocomplete="off"
+                        oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"></td>
+                        <td class="text-right"><input class="form-control text-right input-sm" type="number" min="0" max="999" placeholder="ส่วนลด" ng-model="item.productDiscount"></td>
                         <td class="text-right">
                           {{(item.productRetail - item.productDiscount) * item.productQty | number}}
                         </td>
