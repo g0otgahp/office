@@ -28,7 +28,6 @@ App.controller('QuotationCtrl', function Controller($scope, $http, $uibModal) {
       templateUrl: VIEW_URL+'Modal/CustomerModal',
       scope: $scope,
       size: 'lg',
-
       controller: function ($scope, $uibModalInstance) {
         $scope.ok = function (customer) {
           $uibModalInstance.close(customer);
@@ -39,8 +38,8 @@ App.controller('QuotationCtrl', function Controller($scope, $http, $uibModal) {
         };
       }
 
-    }).result.then(function(select) {
-      $scope.SelectCustomer = select;
+    }).result.then(function(customer) {
+      $scope.SelectCustomer = customer;
       console.log($scope.SelectCustomer);
     })
   };
