@@ -1,4 +1,4 @@
-<div id="wrapper" ng-controller="Ctrl">
+<div id="wrapper" ng-controller="QuotationCtrl">
 
   <div id="page-wrapper" >
     <div class="row">

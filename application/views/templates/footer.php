@@ -34,11 +34,14 @@
   <script src="<?php echo BASE_URL('assets/startbootstrap-sb-admin'); ?>/dist/js/sb-admin-2.js"></script>
 
   <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.4.js"></script>
 
   <!-- AngularJS -->
   <script src="<?php echo BASE_URL()?>/Service/angular-1.7.2/angular.min.js"></script>
-  <script src="<?php echo BASE_URL()?>/Service/AnController.js"></script>
-  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.4.js"></script>
+
+  <script src="<?php echo BASE_URL()?>/Service/AnApp.js"></script>
+  <!-- Controller -->
+  <script src="<?php echo BASE_URL()?>/Service/QuotationController.js"></script>
 
   <!-- Angular Datatable -->
   <script src="<?php echo BASE_URL('/Service/angular-datatables/dist/angular-datatables.min.js')?>"></script>

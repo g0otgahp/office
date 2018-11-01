@@ -1,15 +1,5 @@
-// Define the `phonecatApp` module
-var App = angular.module('App', [
-  'ui.bootstrap',
-  'datatables',
-  'datatables.tabletools',
-  'datatables.buttons',
-  'datatables.select',
-  'datatables.columnfilter',
-]);
-
 // Define the `PhoneListController` controller on the `phonecatApp` module
-App.controller('Ctrl', function Controller($scope, $http, $uibModal) {
+App.controller('QuotationCtrl', function Controller($scope, $http, $uibModal) {
 
   //Autoload--------------------------------------------------------------------
   var VIEW_URL = "http://localhost/office/";
