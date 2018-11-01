@@ -3,7 +3,7 @@ App.controller('QuotationCtrl', function Controller($scope, $http, $uibModal) {
 
   //Autoload--------------------------------------------------------------------
   var VIEW_URL = "http://localhost/office/";
-  var URL = "http://localhost/RESTFUL_API/api/Service/";
+  var URL = "http://localhost/office/RESTFUL_API/api/Service/";
 
   // var VIEW_URL = "http://office.newzeno.com/";
   // var URL = "http://office.newzeno.com/RESTFUL_API/api/Service/";
