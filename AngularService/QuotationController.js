@@ -31,7 +31,6 @@ App.controller('QuotationCtrl', function Controller($scope, $http, $uibModal) {
 
     }).result.then(function(customer) {
       $scope.SelectCustomer = customer;
-      console.log($scope.SelectCustomer);
     })
   };
 
@@ -60,7 +59,6 @@ App.controller('QuotationCtrl', function Controller($scope, $http, $uibModal) {
         $scope.SelectProduct = [];
       }
       $scope.SelectProduct.push(product);
-      console.log($scope.SelectProduct);
     })
   };
 

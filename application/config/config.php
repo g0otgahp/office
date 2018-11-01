@@ -24,6 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/office';
+// $config['base_url'] = 'http://office.newzeno.com';
+
 
 /*
 |--------------------------------------------------------------------------
