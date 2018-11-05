@@ -35,7 +35,8 @@
                     <td class="text-center">088-8888888</td>
                     <td class="text-center">รออนุมัติ</td>
                     <td class="text-center">
-                      <a href="<?php echo SITE_URL('Quotation/Document');?>" target="_blank" style="font-size:13px;padding-left:10px;color:blue;"><b>จัดการใบเสนอราคา </b><i class="fa fa-pencil"></i></a>
+                      <a class="btn btn-success btn-xs" href="<?php echo SITE_URL('Quotation/Document');?>" target="_blank"><b>อนุมัติ </b><i class="fa fa-check"></i></a>
+                      <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL('Quotation/Document');?>" target="_blank"><b>พิมพ์ </b><i class="fa fa-print"></i></a>
                     </td>
                   </tr>
                 </tbody>

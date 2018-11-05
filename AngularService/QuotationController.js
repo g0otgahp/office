@@ -1,5 +1,12 @@
 // Define the `PhoneListController` controller on the `phonecatApp` module
-App.controller('QuotationCtrl', function Controller($scope, $http, $uibModal) {
+App.controller('QuotationCtrl', function Controller($scope, $http, $uibModal,$window) {
+
+
+  $scope.Forms = {
+    SelectCustomer : [],
+    SelectProduct : [],
+  };
+
   //Quotation function--------------------------------------------------------------------
   $scope.loadCustomer = function () {
     $http.get(URL+'Service/customer').then(function (res) {
@@ -10,6 +17,21 @@ App.controller('QuotationCtrl', function Controller($scope, $http, $uibModal) {
   $scope.loadProduct = function () {
     $http.get(URL+'Service/product').then(function (res) {
       $scope.product = res.data;
+    })
+  };
+
+  $scope.remove = function (data) {
+    $scope.Forms.SelectProduct.splice($scope.Forms.SelectProduct.indexOf(data), 1);
+  };
+
+  $scope.checkproduct = function () {
+    console.log($scope.Forms);
+  };
+
+  $scope.submit = function () {
+    console.log($scope.Forms);
+    $http.post(URL+'Service/quotationSubmit',$scope.Forms).then(function (res) {
+      $window.location.href = VIEW_URL+'Quotation';
     })
   };
 
@@ -30,9 +52,10 @@ App.controller('QuotationCtrl', function Controller($scope, $http, $uibModal) {
       }
 
     }).result.then(function(customer) {
-      $scope.SelectCustomer = customer;
+      $scope.Forms.SelectCustomer = customer;
     })
   };
+
 
   $scope.openProductModal = function () {
     $scope.loadProduct();
@@ -55,10 +78,8 @@ App.controller('QuotationCtrl', function Controller($scope, $http, $uibModal) {
       $scope.Select = product;
       $scope.Select.productDiscount = 0;
       $scope.Select.productQty = 1;
-      if (!$scope.SelectProduct){
-        $scope.SelectProduct = [];
-      }
-      $scope.SelectProduct.push(product);
+      $scope.Select.productName = product['productBrand']+" "+product['productCategory']+" รุ่น "+ product['productModel'];
+      $scope.Forms.SelectProduct.push($scope.Select);
     })
   };
 

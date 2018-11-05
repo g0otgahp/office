@@ -24,7 +24,7 @@ class Dashboard extends CI_Controller {
 		parent::__construct();
 		@session_start();
 		if(@$_SESSION['Status'] != "OFFICE_NEWZENO"){
-			echo "<script>alert('ไปเข้าสู่ระบบก่อนไอควาย')</script>";
+			echo "<script>alert('กรุณาเข้าสู่ระบบ')</script>";
 			echo "<script>document.location='" . SITE_URL() . "'</script>";
 			// redirect("Login");
 		}
