@@ -54,11 +54,11 @@ class Customer extends CI_Controller {
 		$this->LoadPage($Value);
 	}
 
-	public function CustomerFormInsert()
+	public function CustomerForm()
 	{
 
 		$Value = array(
-			'View' => "CustomerInsert",
+			'View' => "CustomerForm",
 			'Result' => array(
 				// 'dataShow' => $dataShow,
 			)
@@ -66,33 +66,33 @@ class Customer extends CI_Controller {
 		$this->LoadPage($Value);
 	}
 
-	public function CustomerInsert()
-	{
-		$dataInsert = $this->input->post();
-		$dataInsert['customerLog'] = "เพิ่มลูกค้า";
-		$dataInsert['customerLogName'] = $_SESSION['profileName'];
-		// $this->debug->log($dataUpdate);
+	// public function CustomerInsert()
+	// {
+	// 	$dataInsert = $this->input->post();
+	// 	$dataInsert['customerLog'] = "เพิ่มลูกค้า";
+	// 	$dataInsert['customerLogName'] = $_SESSION['profileName'];
+	// 	// $this->debug->log($dataUpdate);
+	//
+	// 	$this->CustomerModel->CustomerInsert($dataInsert);
+	//
+	// 	redirect('customer');
+	//
+	// }
 
-		$this->CustomerModel->CustomerInsert($dataInsert);
-
-		redirect('customer');
-
-	}
-
-	public function CustomerFormUpdate()
-	{
-		$customerId = $this->uri->segment(3);
-		// $this->debug->log($customerId);
-		$dataUpdate = $this->CustomerModel->CustomerSelectForUpdate($customerId);
-
-		$Value = array(
-			'View' => "CustomerDetail",
-			'Result' => array(
-				'dataUpdate' => $dataUpdate,
-			)
-		);
-		$this->LoadPage($Value);
-	}
+	// public function CustomerFormUpdate()
+	// {
+	// 	$customerId = $this->uri->segment(3);
+	// 	// $this->debug->log($customerId);
+	// 	$dataUpdate = $this->CustomerModel->CustomerSelectForUpdate($customerId);
+	//
+	// 	$Value = array(
+	// 		'View' => "CustomerDetail",
+	// 		'Result' => array(
+	// 			'dataUpdate' => $dataUpdate,
+	// 		)
+	// 	);
+	// 	$this->LoadPage($Value);
+	// }
 
 	public function CustomerUpdate()
 	{

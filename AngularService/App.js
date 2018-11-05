@@ -8,6 +8,13 @@ var App = angular.module('App', [
   'datatables.columnfilter',
 ]);
 
+App.config('$locationProvider',function($locationProvider){
+  $locationProvider.html5Mode({
+    enabled:true,
+    requireBase:false
+  });
+});
+
 
   //Autoload--------------------------------------------------------------------
   var VIEW_URL = "http://localhost/office/";

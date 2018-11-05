@@ -40,6 +40,8 @@
   <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.4.js"></script>
 
   <script src="<?php echo BASE_URL()?>/AngularService/App.js"></script>
+  <!-- Service -->
+  <!-- <script src="<?php echo BASE_URL()?>/AngularService/Service/myService.js"></script> -->
   <!-- Controller -->
   <script src="<?php echo BASE_URL()?>/AngularService/QuotationController.js"></script>
   <script src="<?php echo BASE_URL()?>/AngularService/CustomerController.js"></script>

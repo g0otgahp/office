@@ -30,11 +30,11 @@ class CustomerModel extends CI_Model {
 
 	}
 
-	public function CustomerInsert($dataInsert)
-	{
-		// $this->debug->log($dataInsert);
-		$this->db->insert('customer',$dataInsert);
-	}
+	// public function CustomerInsert($dataInsert)
+	// {
+	// 	// $this->debug->log($dataInsert);
+	// 	$this->db->insert('customer',$dataInsert);
+	// }
 
 	public function CustomerSelectForUpdate($customerId)
 	{

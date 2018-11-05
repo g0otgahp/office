@@ -12,7 +12,7 @@
         </div>
 
 
-        <?php echo form_open_multipart('Customer/CustomerUpdate') ?>
+        <form>
 
         <div class="row">
           <div class="col-lg-9 col-lg-offset-1">
@@ -137,16 +137,17 @@
 
 
 
-        <button type="submit" class="btn btn-info btn-fill pull-right">แก้ไขลูกค้า</button>
+        <button type="submit" class="btn btn-info btn-fill pull-right" ng-click="CustomerUpdate()">แก้ไขลูกค้า</button>
         <div class="clearfix"></div>
 
         <br>
         <br>
 
+        </form>
+
       </div>
     </div>
 
-        <?php echo form_close() ?>
 
     </div>
     <!-- /#page-wrapper -->
