@@ -139,5 +139,5 @@ $autoload['model'] = array(
   'CustomerModel',
   'SupplierModel',
   'ProductModel',
-
+  'QuotationModel',
 );

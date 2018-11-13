@@ -43,10 +43,12 @@ class Quotation extends CI_Controller {
 
 	public function index()
 	{
+		$QuotationList = $this->QuotationModel->LoadQuotation();
+
 			$Value = array(
 			'View' => "Quotation",
 			'Result' => array(
-				// 'dataShow' => $dataShow,
+				'QuotationList' => $QuotationList,
 			)
 		);
 		$this->LoadPage($Value);
@@ -66,7 +68,34 @@ class Quotation extends CI_Controller {
 
 	public function Document()
 	{
-		$this->load->view('document/quotation');
+		$id = base64_decode($this->uri->segment(4));
+		$Select = $this->QuotationModel->SelectQuotation($id);
+		$data = array(
+			'Select' => $Select,
+		);
+		$this->load->view('document/quotation',$data);
+	}
+
+	public function Cancel()
+	{
+		$id = base64_decode($this->uri->segment(4));
+		$input = array(
+			'quoId' => $id,
+			'quoStatus' => 3,
+		);
+		$Select = $this->QuotationModel->UpdateQuotation($input);
+		redirect('Quotation');
+	}
+
+	public function Accept()
+	{
+		$id = base64_decode($this->uri->segment(4));
+		$input = array(
+			'quoId' => $id,
+			'quoStatus' => 1,
+		);
+		$Select = $this->QuotationModel->UpdateQuotation($input);
+		redirect('Quotation');
 	}
 
 

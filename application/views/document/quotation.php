@@ -365,23 +365,23 @@ h1,h2,h3,h4,h5{
         <div class="row">
           <div class="col-sm-3 head-quo"><b>ชื่อหน่วยงาน</b>
           </div>
-          <div class="col-sm-9 head-quo">:
+          <div class="col-sm-9 head-quo">: <?php echo $Select['quotation'][0]['quoCompany'] ?>
           </div>
           <div class="col-sm-3 head-quo"><b>เรียน</b>
           </div>
-          <div class="col-sm-9 head-quo">:
+          <div class="col-sm-9 head-quo">: <?php echo $Select['customer'][0]['customerName'] ?>
           </div>
           <div class="col-sm-3 head-quo"><b>โทร/Fax</b>
           </div>
-          <div class="col-sm-9 head-quo">:
+          <div class="col-sm-9 head-quo">: <?php echo $Select['quotation'][0]['quoTel'] ?>
           </div>
           <div class="col-sm-3 head-quo"><b>E-mail/ID Line</b>
           </div>
-          <div class="col-sm-9 head-quo">:
+          <div class="col-sm-9 head-quo">: <?php echo $Select['quotation'][0]['quoEmail'] ?>
           </div>
           <div class="col-sm-3 head-quo"><b>โปรเจค</b>
           </div>
-          <div class="col-sm-9 head-quo">:
+          <div class="col-sm-9 head-quo">: <?php echo $Select['quotation'][0]['quoProject'] ?>
           </div>
         </div>
       </div>
@@ -389,23 +389,23 @@ h1,h2,h3,h4,h5{
         <div class="row">
           <div class="col-sm-5 head-quo"><b>เลขที่</b>
           </div>
-          <div class="col-sm-7 head-quo">: PS000003
+          <div class="col-sm-7 head-quo">: <?php echo $Select['quotation'][0]['quoNo'] ?>
           </div>
           <div class="col-sm-5 head-quo"><b>วันที่</b>
           </div>
-          <div class="col-sm-7 head-quo">: 29/10/2561
+          <div class="col-sm-7 head-quo">: <?php echo $Select['quotation'][0]['quoDate'] ?>
           </div>
           <div class="col-sm-5 head-quo"><b>ยื่นราคาภายใน</b>
           </div>
-          <div class="col-sm-7 head-quo">: 30 วัน
+          <div class="col-sm-7 head-quo">: <?php echo $Select['quotation'][0]['quoReachDay'] ?> วัน
           </div>
           <div class="col-sm-5 head-quo"><b>ส่งสินค้าภายใน</b>
           </div>
-          <div class="col-sm-7 head-quo">: 30 วัน
+          <div class="col-sm-7 head-quo">: <?php echo $Select['quotation'][0]['quoTransportDay'] ?> วัน
           </div>
           <div class="col-sm-5 head-quo"><b>เงื่อนไขการเงิน</b>
           </div>
-          <div class="col-sm-7 head-quo">: เงินสด
+          <div class="col-sm-7 head-quo">: <?php echo $Select['quotation'][0]['quoPayments'] ?>
           </div>
         </div>
       </div>
@@ -419,30 +419,38 @@ h1,h2,h3,h4,h5{
         <table width="100%" class="table invoice">
           <thead>
             <tr>
-              <th class="text-center" width="5%">ลำดับ</th>
-              <th width="30%">รายการ</th>
-              <th class="text-right" width="5%">จำนวน</th>
-              <th class="text-right" width="15%">หน่วยนับ</th>
-              <th class="text-right" width="15%">ราคา/หน่วย</th>
-              <th class="text-right" width="15%">ส่วนลด/หน่วย</th>
-              <th class="text-right" width="10%">รวม</th>
+              <th width="5%" class="text-center">ลำดับ</th>
+              <th width="25%" class="text-center">รายการ</th>
+              <th width="7%" class="text-center">จำนวน</th>
+              <th width="8%" class="text-center">หน่วยนับ</th>
+              <th width="8%" class="text-center">ราคาปกติ/หน่วย</th>
+              <th width="8%" class="text-center">ลดเหลือ/หน่วย</th>
+              <th width="8%" class="text-center">รวม</th>
             </tr>
           </thead>
           <tbody>
-            <tr >
-              <td class="text-center" scope="row">1</td>
-              <td>IT0001 ชุดเม้า คีบอร์ด Logitec</td>
-              <td class="text-right">1</td>
-              <td class="text-right">ชิ้น</td>
-              <td class="text-right">2,000</td>
-              <td class="text-right">200</td>
-              <td class="text-right">1,800</td>
+            <?php $i=1; $total=0; foreach ($Select['quotation_order'] as $item): ?>
+            <tr>
+              <td class="text-center" scope="row"><?php echo $i ?></td>
+              <td class="text-left"><?php echo $item['orderName'] ?>
+                <p style="color:gray"><?php echo $item['orderDetail'] ?></p>
+              </td>
+              <td class="text-right"><?php echo number_format($item['orderQty']) ?></td>
+              <td class="text-right"><?php echo $item['orderUnit'] ?></td>
+              <td class="text-right"><?php echo number_format($item['orderPrice']) ?></td>
+              <td class="text-right"><?php echo number_format($item['orderDiscount']) ?></td>
+              <?php if ($item['orderDiscount'] != 0): ?>
+                <td class="text-right"><?php $resultPrice = $item['orderDiscount'] * $item['orderQty']; echo number_format($resultPrice) ?></td>
+                <?php else: ?>
+                  <td class="text-right"><?php $resultPrice = $item['orderPrice'] *  $item['orderQty'];  echo number_format($resultPrice) ?></td>
+              <?php endif; ?>
+
               <!-- <td class="text-right"><?php //echo $PurchaseOrder['material_po_quantity']; ?> <?php //echo $PurchaseOrder['material_unit']; ?></td> -->
             </tr>
-
+          <?php $i++; $total += $resultPrice; endforeach; ?>
             <?php //if (count($AccountingDetail)<10): ?>
               <?php
-              $row = 9 - 1;
+              $row = 9 - count($Select['quotation_order']);
               for ($i=0; $i < $row; $i++) { ?>
                 <tr>
                   <td>&nbsp;</td>
@@ -464,14 +472,14 @@ h1,h2,h3,h4,h5{
       <div class="row">
         <div class="col-sm-offset-7 col-sm-5">
           <div class="row">
-            <div class="col-sm-6 head-quo"><b>ส่วนลดการค้า</b></div>
-            <div class="col-sm-6 text-right head-quo">0.00</div>
+            <!-- <div class="col-sm-6 head-quo"><b>ส่วนลดการค้า</b></div>
+            <div class="col-sm-6 text-right head-quo">0.00</div> -->
             <div class="col-sm-6 head-quo"><b>มูลค่าสินค้า</b></div>
-            <div class="col-sm-6 text-right head-quo">1,800.00</div>
-            <div class="col-sm-6 head-quo"><b>ภาษีมูลค่าเพิ่ม</b></div>
-            <div class="col-sm-6 text-right head-quo">126.00</div>
+            <div class="col-sm-6 text-right head-quo"><?php echo number_format($total); ?></div>
+            <div class="col-sm-6 head-quo"><b>ภาษีมูลค่าเพิ่ม(7%)</b></div>
+            <div class="col-sm-6 text-right head-quo"><?php $tax = ($total * 7)/100; echo number_format($tax); ?></div>
             <div class="col-sm-6 head-quo"><b>รวมทั้งสิ้น</b></div>
-            <div class="col-sm-6 text-right head-quo">1.926.00</div>
+            <div class="col-sm-6 text-right head-quo"><u><b class="h5"><?php echo number_format($total + $tax); ?></b></u></div>
           </div>
         </div>
       </div>
