@@ -47,7 +47,11 @@
                   <td class="text-center"> <b><?php echo $dataShow['productModel'] ?></b> </td>
                   <td class="text-center"> <b><?php echo $dataShow['productBrand'] ?></b> </td>
                   <td class="text-center"> <b><?php echo number_format($dataShow['productRetail']) ?> บาท</b> </td>
-                  <td class="text-center"> <a href="<?php echo SITE_URL('product/productFormUpdate/' . $dataShow['productId']); ?>"> <b>รายละเอียดลูกค้า</b> </a> </td>
+                  <?php if ($_SESSION['permission'] >= 2): ?>
+                    <td class="text-center"> <a href="<?php echo SITE_URL('product/productFormUpdate/' . $dataShow['productId']); ?>"> <b>รายละเอียดลูกค้า</b> </a> </td>
+                    <?php else: ?>
+                      <td class="text-center" style="color:red"><b>Admin Zone</b></td>
+                  <?php endif; ?>
                 </tr>
 
                 <?php $i++; endforeach; ?>

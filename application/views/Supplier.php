@@ -17,7 +17,7 @@
             <table width="100%" class="table table-striped table-bordered table-hover dataTable">
               <thead>
                 <tr>
-                    <th width="10%" class="text-center">ลำดับ</th>
+                  <th width="10%" class="text-center">ลำดับ</th>
                   <th class="text-center">ชื่อบริษัท</th>
                   <th class="text-center">ชื่อผู้ติดต่อ</th>
                   <th class="text-center">แผนก</th>
@@ -29,16 +29,16 @@
               <tbody>
 
                 <!-- <tr>
-                  <td class="text-center">1</td>
-                  <td>บริษัท LG Life's Goods</td>
-                  <td>เจ้าหน้าที่ LG</td>
-                  <td class="text-center">การตลาด</td>
-                  <td class="text-center">พนักงานขาย</td>
-                  <td class="text-center">088-234-7765</td>
-                  <td class="text-center"> <a href="#"><b>รายละเอียดผู้จำหน่าย</b></a> </td>
-                </tr> -->
+                <td class="text-center">1</td>
+                <td>บริษัท LG Life's Goods</td>
+                <td>เจ้าหน้าที่ LG</td>
+                <td class="text-center">การตลาด</td>
+                <td class="text-center">พนักงานขาย</td>
+                <td class="text-center">088-234-7765</td>
+                <td class="text-center"> <a href="#"><b>รายละเอียดผู้จำหน่าย</b></a> </td>
+              </tr> -->
 
-                <?php $i=1; foreach ($dataShow as $dataShow): ?>
+              <?php $i=1; foreach ($dataShow as $dataShow): ?>
 
                 <tr>
                   <td class="text-center"> <b><?php echo $i ?></b></td>
@@ -47,25 +47,29 @@
                   <td class="text-center"> <b><?php echo $dataShow['supplierDepartment'] ?></b> </td>
                   <td class="text-center"> <b><?php echo $dataShow['supplierPosition'] ?></b> </td>
                   <td class="text-center"> <b><?php echo substr($dataShow['supplierMainPhone'],0,3) . "-" .
-                                                         substr($dataShow['supplierMainPhone'],3,3) . "-" .
-                                                         substr($dataShow['supplierMainPhone'],6,4)?></b> </td>
-                  <td class="text-center"> <a href="<?php echo SITE_URL('Supplier/SupplierFormUpdate/' . $dataShow['supplierId']); ?>"> <b>รายละเอียดผู้ผลิต</b> </a> </td>
-                </tr>
+                  substr($dataShow['supplierMainPhone'],3,3) . "-" .
+                  substr($dataShow['supplierMainPhone'],6,4)?></b> </td>
 
+                  <?php if ($_SESSION['permission'] >= 2): ?>
+                    <td class="text-center"> <a href="<?php echo SITE_URL('Supplier/SupplierFormUpdate/' . $dataShow['supplierId']); ?>"> <b>รายละเอียดผู้ผลิต</b> </a> </td>
+                  <?php else: ?>
+                    <td class="text-center" style="color:red"><b>Admin Zone</b></td>
+                  <?php endif; ?>
+                </tr>
                 <?php $i++; endforeach; ?>
 
-                </tbody>
-              </table>
-              <!-- /.table-responsive -->
-            </div>
-            <!-- /.panel-body -->
+              </tbody>
+            </table>
+            <!-- /.table-responsive -->
           </div>
-          <!-- /.col-lg-12 -->
+          <!-- /.panel-body -->
         </div>
-
-
-
-
+        <!-- /.col-lg-12 -->
       </div>
-      <!-- /#page-wrapper -->
+
+
+
+
     </div>
+    <!-- /#page-wrapper -->
+  </div>

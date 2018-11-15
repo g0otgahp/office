@@ -1,11 +1,16 @@
 // Define the `PhoneListController` controller on the `phonecatApp` module
-App.controller('CustomerCtrl', function($scope, $http, $uibModal, $window, $location) {
+App.controller('CustomerCtrl', function($scope, $http, $window, $location) {
   //Customer function--------------------------------------------------------------------
 
-  var data = {
-    idCustomer : $location.search().idCustomer
-  }
-  console.log(data);
+  // var data = $location.search('customerId');
+  // var data = $location.search('name');
+
+  // var data = {
+  //   idCustomer : $location.search().customerId
+  // }
+
+  // console.log(searchObject);
+  // console.log(data);
 
 
   $scope.form = {};

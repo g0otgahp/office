@@ -17,7 +17,7 @@
             <table width="100%" class="table table-striped table-bordered table-hover dataTable">
               <thead>
                 <tr>
-                    <th width="10%" class="text-center">ลำดับ</th>
+                  <th width="10%" class="text-center">ลำดับ</th>
                   <th class="text-center">ชื่อบริษัท</th>
                   <th class="text-center">ชื่อผู้ติดต่อ</th>
                   <th class="text-center">แผนก</th>
@@ -30,19 +30,24 @@
 
                 <?php $i=1; foreach ($dataShow as $dataShow): ?>
 
-                <tr>
-                  <td class="text-center"> <b><?php echo $i ?></b></td>
-                  <td> <b><?php echo $dataShow['customerCompany'] ?></b> </td>
-                  <td> <b>คุณ <?php echo $dataShow['customerName'] ?></b> </td>
-                  <td class="text-center"> <b><?php echo $dataShow['customerDepartment'] ?></b> </td>
-                  <td class="text-center"> <b><?php echo $dataShow['customerPosition'] ?></b> </td>
-                  <td class="text-center"> <b><?php echo substr($dataShow['customerMainPhone'],0,3) . "-" .
-                                                         substr($dataShow['customerMainPhone'],3,3) . "-" .
-                                                         substr($dataShow['customerMainPhone'],6,4)?></b> </td>
-                  <td class="text-center"> <a href="<?php echo SITE_URL('Customer/CustomerForm/?id=' . $dataShow['customerId']); ?>"> <b>รายละเอียดลูกค้า</b> </a> </td>
-                </tr>
+                  <tr>
+                    <td class="text-center"> <b><?php echo $i ?></b></td>
+                    <td> <b><?php echo $dataShow['customerCompany'] ?></b> </td>
+                    <td> <b>คุณ <?php echo $dataShow['customerName'] ?></b> </td>
+                    <td class="text-center"> <b><?php echo $dataShow['customerDepartment'] ?></b> </td>
+                    <td class="text-center"> <b><?php echo $dataShow['customerPosition'] ?></b> </td>
+                    <td class="text-center"> <b><?php echo substr($dataShow['customerMainPhone'],0,3) . "-" .
+                    substr($dataShow['customerMainPhone'],3,3) . "-" .
+                    substr($dataShow['customerMainPhone'],6,4)?></b> </td>
 
-                <?php $i++; endforeach; ?>
+                    <?php if ($_SESSION['permission'] >= 2): ?>
+                      <td class="text-center"> <a href="<?php echo SITE_URL('Customer/CustomerForm/?customerId=' . $dataShow['customerId']); ?>"> <b>รายละเอียดลูกค้า</b> </a> </td>
+                      <?php else: ?>
+                        <td class="text-center" style="color:red"><b>Admin Zone</b></td>
+                    <?php endif; ?>
+                  </tr>
+
+                  <?php $i++; endforeach; ?>
 
                 </tbody>
               </table>

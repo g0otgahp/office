@@ -25,7 +25,7 @@
 
       <!-- แบ่งสิทธิ์ การเข้าถึง -->
 
-      <?php // if ($_SESSION['permission'] >= 3): ?>
+      <?php  if ($_SESSION['permission'] >= 3): ?>
 
         <li>
           <a href="#"><i class="fa fa-user fa-fw"></i> ฝ่ายบุคคล<span class="fa arrow"></span></a>
@@ -40,7 +40,7 @@
           <!-- /.nav-second-level -->
         </li>
 
-        <?php // endif; ?>
+        <?php  endif; ?>
 
         <li>
           <a href="#"><i class="fa fa-money fa-fw"></i> ผู้ผลิต/ลูกค้า<span class="fa arrow"></span></a>
