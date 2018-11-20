@@ -1,3 +1,6 @@
+if (typeof jQuery === "undefined") {
+  throw new Error("jQuery plugins need to be before this file");
+}
 // Define the `phonecatApp` module
 var App = angular.module('App', [
   'ui.bootstrap',
@@ -8,6 +11,12 @@ var App = angular.module('App', [
   'datatables.columnfilter',
 ]);
 
+App.config([
+  '$locationProvider',
+  function($locationProvider) {
+    $locationProvider.html5Mode({enabled: true, requireBase: false});
+  }
+]);
 
 
 

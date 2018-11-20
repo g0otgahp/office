@@ -1,6 +1,6 @@
 <div id="wrapper" ng-controller="QuotationCtrl">
 
-  <div id="page-wrapper" >
+  <div id="page-wrapper" style="margin:0px">
     <div class="row">
       <div class="col-lg-12">
         <h1 class="page-header"> <a href="<?php echo SITE_URL('Quotation'); ?>">ใบเสนอราคา</a>
@@ -42,8 +42,8 @@
                   <tr>
                     <td width="10%">เรียน</td>
                     <td> : <input placeholder="กรอก ชื่อลูกค้า" ng-model="Forms.SelectCustomer.customerName" ></td>
-                    <td width="10%">วันที่</td>
-                    <td> : <input placeholder="กรอก เลขที่" ng-model="Forms.SelectCustomer.quoDate" ></td>
+                    <td width="10%">เลขที่</td>
+                    <td> : <input placeholder="กรอก เลขที่บิล" ng-model="Forms.SelectCustomer.quoNo" ></td>
                   </tr>
 
                   <tr>
@@ -86,8 +86,8 @@
                         <th width="25%" class="text-center">รายการ</th>
                         <th width="7%" class="text-center">จำนวน</th>
                         <th width="8%" class="text-center">หน่วยนับ</th>
-                        <th width="8%" class="text-center">ราคาปกติ/หน่วย</th>
-                        <th width="8%" class="text-center">ลดเหลือ/หน่วย</th>
+                        <th width="8%" class="text-center">ราคา/หน่วย</th>
+                        <th width="8%" class="text-center">เหลือ/หน่วย</th>
                         <th width="8%" class="text-center">รวม</th>
                       </tr>
                     </thead>
@@ -128,7 +128,7 @@
                 || Forms.SelectCustomer.customerName === undefined
                 || Forms.SelectCustomer.customerMainPhone === undefined
                 || Forms.SelectCustomer.customerEmail === undefined
-                || Forms.SelectCustomer.quoDate === undefined
+                || Forms.SelectCustomer.quoNo === undefined
                 || Forms.SelectCustomer.quoPayments === undefined
                 || Forms.SelectCustomer.quoProject === undefined
                 || Forms.SelectCustomer.quoReachDay === undefined

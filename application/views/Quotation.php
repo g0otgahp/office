@@ -3,7 +3,7 @@
   <div id="page-wrapper">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header">ใบเสนอราคา <a href="<?php echo SITE_URL('Quotation/quotationform'); ?>"
+        <h1 class="page-header">ใบเสนอราคา <a target="_blank" href="<?php echo SITE_URL('Quotation/quotationform/'.$_SESSION['profileId'].'?sid='.$_SESSION['profileId']); ?>"
           style="font-size:18px;padding-left:10px;color:#00b300;"> เพิ่ม   <i class="fa fa-plus"></i> </a></h1>
         </div>
         <!-- /.col-lg-12 -->

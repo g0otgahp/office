@@ -34,18 +34,23 @@ class Quotation extends CI_Controller {
 	{
 
 		$data = $Value['Result'];
-
-		$this->load->view("templates/header",$data);
-		$this->load->view("templates/menu");
-		$this->load->view($Value['View']);
-		$this->load->view("templates/footer");
+		if ($Value['View'] == 'QuotationForm') {
+			$this->load->view("templates/header",$data);
+			$this->load->view($Value['View']);
+			$this->load->view("templates/footer");
+		} else {
+			$this->load->view("templates/header",$data);
+			$this->load->view("templates/menu");
+			$this->load->view($Value['View']);
+			$this->load->view("templates/footer");
+		}
 	}
 
 	public function index()
 	{
 		$QuotationList = $this->QuotationModel->LoadQuotation();
 
-			$Value = array(
+		$Value = array(
 			'View' => "Quotation",
 			'Result' => array(
 				'QuotationList' => $QuotationList,
@@ -56,14 +61,19 @@ class Quotation extends CI_Controller {
 
 	public function quotationform()
 	{
-		$Value = array(
-		'View' => "QuotationForm",
-		'Result' => array(
-			// 'dataShow' => $dataShow,
-		)
-	);
-	$this->LoadPage($Value);
-
+		$employeeID = $this->uri->segment(3);
+		if ($_SESSION['profileId'] == $employeeID) {
+			$Value = array(
+				'View' => "QuotationForm",
+				'Result' => array(
+					// 'dataShow' => $dataShow,
+				)
+			);
+			$this->LoadPage($Value);
+		} else {
+			echo "<script>alert('สิทธิการออกใบเสนอราคาไม่ตรงกัน')</script>";
+			echo "<script>document.location='" . SITE_URL() . "'</script>";
+		}
 	}
 
 	public function Document()

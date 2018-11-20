@@ -50,8 +50,7 @@ class Service extends REST_Controller {
   public function quotationSubmit_post() {
     $data = $this->post();
     $quotation = array(
-      'quoNo' => 'QU0001',
-      'quoDate' => $data['SelectCustomer']['quoDate'],
+      'quoNo' => $data['SelectCustomer']['quoNo'],
       'quoCompany' => $data['SelectCustomer']['customerCompany'],
       'quoCustomerId' => $data['SelectCustomer']['customerId'],
       'quoTel' => $data['SelectCustomer']['customerMainPhone'],
