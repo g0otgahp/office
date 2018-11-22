@@ -44,24 +44,8 @@ class Supplier extends CI_Controller {
 	public function index()
 	{
 
-		$dataShow = $this->SupplierModel->SupplierSelect();
-		// $this->debug->log($dataShow);
-
-
 		$Value = array(
 			'View' => "Supplier",
-			'Result' => array(
-				'dataShow' => $dataShow,
-			)
-		);
-		$this->LoadPage($Value);
-	}
-
-	public function SupplierFormInsert()
-	{
-
-		$Value = array(
-			'View' => "SupplierInsert",
 			'Result' => array(
 				// 'dataShow' => $dataShow,
 			)
@@ -69,60 +53,18 @@ class Supplier extends CI_Controller {
 		$this->LoadPage($Value);
 	}
 
-	public function SupplierInsert()
+	public function SupplierForm()
 	{
-		$dataInsert = $this->input->post();
-		$dataInsert['supplierLog'] = "เพิ่มผู้จำหน่าย";
-		$dataInsert['supplierLogName'] = $_SESSION['profileName'];
-		// $this->debug->log($dataInsert);
-
-		$this->SupplierModel->SupplierInsert($dataInsert);
-
-		redirect('Supplier');
-	}
-
-	public function SupplierFormUpdate()
-	{
-		$supplierId = $this->uri->segment(3);
-		$dataUpdate = $this->SupplierModel->SupplierSelectForUpdate($supplierId);
-		// $this->debug->log($dataUpdate);
 
 		$Value = array(
-			'View' => "SupplierDetail",
+			'View' => "SupplierForm",
 			'Result' => array(
-				'dataUpdate' => $dataUpdate,
+				// 'dataShow' => $dataShow,
 			)
 		);
 		$this->LoadPage($Value);
 	}
 
-	public function SupplierUpdate()
-	{
-		$dataUpdate = $this->input->post();
-		$dataUpdate['supplierLog'] = "แก้ไขผู้จำหน่าย";
-		$dataUpdate['supplierLogName'] = $_SESSION['profileName'];
-		// $this->debug->log($dataUpdate);
-
-		$this->SupplierModel->SupplierUpdate($dataUpdate);
-
-		redirect('Supplier');
-	}
-
-	public function SupplierDelete()
-	{
-		$supplierId = $this->uri->segment(3);
-		// $this->debug->log($supplierId);
-		$dataDelete = array(
-			'supplierId' => $supplierId,
-			'supplierStatus' => 2,
-			'supplierLog' => "ลบผู้จำหน่าย",
-			'supplierLogName' => $_SESSION['profileName'],
-		);
-		$this->SupplierModel->SupplierDelete($dataDelete);
-
-		redirect('supplier');
-
-	}
 
 
 }

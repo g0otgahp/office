@@ -1,9 +1,9 @@
-<div id="wrapper">
+<div id="wrapper" ng-controller="SupplierCtrl">
 
   <div id="page-wrapper">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header">การจัดการผู้ผลิต <a href="<?php echo SITE_URL('Supplier/SupplierFormInsert'); ?>"
+        <h1 class="page-header">การจัดการผู้ผลิต <a href="#" ng-Click="onClickInsert()"
           style="font-size:18px;padding-left:10px;color:#00b300;"> เพิ่ม   <i class="fa fa-plus"></i> </a></h1>
         </div>
         <!-- /.col-lg-12 -->
@@ -17,46 +17,35 @@
             <table width="100%" class="table table-striped table-bordered table-hover dataTable">
               <thead>
                 <tr>
-                  <th width="10%" class="text-center">ลำดับ</th>
+                  <th width="5%" class="text-center">ลำดับ</th>
                   <th class="text-center">ชื่อบริษัท</th>
                   <th class="text-center">ชื่อผู้ติดต่อ</th>
-                  <th class="text-center">แผนก</th>
-                  <th class="text-center">ตำแหน่ง</th>
-                  <th class="text-center">เบอร์ติดต่อ</th>
-                  <th class="text-center" width="15%">ตัวเลือก</th>
+                  <th class="text-center" width="10%">ชื่อเล่น</th>
+                  <th class="text-center" width="12%">ตำแหน่งงาน</th>
+                  <th class="text-center" width="10%">ฝ่ายงาน</th>
+                  <th class="text-center" width="10%">เบอร์ติดต่อ</th>
+                  <th class="text-center" width="10%">ตัวเลือก</th>
                 </tr>
               </thead>
               <tbody>
 
-                <!-- <tr>
-                <td class="text-center">1</td>
-                <td>บริษัท LG Life's Goods</td>
-                <td>เจ้าหน้าที่ LG</td>
-                <td class="text-center">การตลาด</td>
-                <td class="text-center">พนักงานขาย</td>
-                <td class="text-center">088-234-7765</td>
-                <td class="text-center"> <a href="#"><b>รายละเอียดผู้จำหน่าย</b></a> </td>
-              </tr> -->
-
-              <?php $i=1; foreach ($dataShow as $dataShow): ?>
-
-                <tr>
-                  <td class="text-center"> <b><?php echo $i ?></b></td>
-                  <td> <b><?php echo $dataShow['supplierCompany'] ?></b> </td>
-                  <td> <b>คุณ <?php echo $dataShow['supplierName'] ?></b> </td>
-                  <td class="text-center"> <b><?php echo $dataShow['supplierDepartment'] ?></b> </td>
-                  <td class="text-center"> <b><?php echo $dataShow['supplierPosition'] ?></b> </td>
-                  <td class="text-center"> <b><?php echo substr($dataShow['supplierMainPhone'],0,3) . "-" .
-                  substr($dataShow['supplierMainPhone'],3,3) . "-" .
-                  substr($dataShow['supplierMainPhone'],6,4)?></b> </td>
+                <tr ng-repeat="supplier in dataSupplier">
+                  <td class="text-center"> <b>{{$index+1}}</b></td>
+                  <td> <b>{{supplier.supplierCompany}}</b> </td>
+                  <td> <b>คุณ {{supplier.supplierName}}</b> </td>
+                  <td class="text-left"> <b>คุณ {{supplier.supplierNickname}}</b> </td>
+                  <td class="text-left"> <b>{{supplier.supplierPosition}}</b> </td>
+                  <td class="text-left"> <b>{{supplier.supplierDepartment}}</b> </td>
+                  <td class="text-left"> <b>{{supplier.supplierMainPhone.substr(0,3)}}-{{supplier.supplierMainPhone.substr(3,3)}}-{{supplier.supplierMainPhone.substr(6,4)}}</b> </td>
 
                   <?php if ($_SESSION['permission'] >= 2): ?>
-                    <td class="text-center"> <a href="<?php echo SITE_URL('Supplier/SupplierFormUpdate/' . $dataShow['supplierId']); ?>"> <b>รายละเอียดผู้ผลิต</b> </a> </td>
-                  <?php else: ?>
-                    <td class="text-center" style="color:red"><b>Admin Zone</b></td>
+                    <td class="text-center">
+                       <a href="#" ng-Click="onClickUpdate(supplier)"> <b>รายละเอียด</b> </a>
+                     </td>
+                    <?php else: ?>
+                      <td class="text-center" style="color:red"><b>Admin Zone</b></td>
                   <?php endif; ?>
                 </tr>
-                <?php $i++; endforeach; ?>
 
               </tbody>
             </table>

@@ -45,6 +45,9 @@
   <!-- Controller -->
   <script src="<?php echo BASE_URL()?>/AngularService/QuotationController.js"></script>
   <script src="<?php echo BASE_URL()?>/AngularService/CustomerController.js"></script>
+  <script src="<?php echo BASE_URL()?>/AngularService/CustomerFormController.js"></script>
+  <script src="<?php echo BASE_URL()?>/AngularService/SupplierController.js"></script>
+  <script src="<?php echo BASE_URL()?>/AngularService/SupplierFormController.js"></script>
 
   <!-- Angular Datatable -->
   <script src="<?php echo BASE_URL('/AngularService/angular-datatables/dist/angular-datatables.min.js')?>"></script>

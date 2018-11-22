@@ -4,7 +4,7 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 //include Rest Controller library
 require APPPATH . '/libraries/REST_Controller.php';
 
-class Customer extends REST_Controller {
+class Supplier extends REST_Controller {
 
   public function __construct() {
     parent::__construct();
@@ -12,14 +12,14 @@ class Customer extends REST_Controller {
 
   }
 
-  public function SelectCustomer_get() {
+  public function SelectSupplier_get() {
 
-    $dataCustomer = $this->CustomerModel->SelectCustomer();
+    $dataSupplier = $this->SupplierModel->SelectSupplier();
 
     //check if the user data exists
-    if(!empty($dataCustomer)){
+    if(!empty($dataSupplier)){
       //set the response and exit
-      $this->response($dataCustomer, REST_Controller::HTTP_OK);
+      $this->response($dataSupplier, REST_Controller::HTTP_OK);
     }else{
       //set the response and exit
       $this->response([
@@ -31,7 +31,7 @@ class Customer extends REST_Controller {
 
   public function Provinces_get() {
 
-    $dataProvinces = $this->CustomerModel->SelectProvinces();
+    $dataProvinces = $this->SupplierModel->SelectProvinces();
 
     //check if the user data exists
     if(!empty($dataProvinces)){
@@ -48,9 +48,9 @@ class Customer extends REST_Controller {
 
   public function Districts_post() {
 
-    $dataIdDistricts = $this->post();
+    $idProvinces = $this->post();
 
-    $dataDistricts = $this->CustomerModel->SelectDistricts($dataIdDistricts['idDistricts']);
+    $dataDistricts = $this->SupplierModel->SelectDistricts($idProvinces['idProvinces']);
 
     //check if the user data exists
     if(!empty($dataDistricts)){
@@ -67,9 +67,9 @@ class Customer extends REST_Controller {
 
   public function Subdistricts_post() {
 
-    $dataIdSubDistricts = $this->post();
+    $idDistricts = $this->post();
 
-    $dataSubDistricts = $this->CustomerModel->SelectSubDistricts($dataIdSubDistricts['idSubDistricts']);
+    $dataSubDistricts = $this->SupplierModel->SelectSubDistricts($idDistricts['idDistricts']);
 
     //check if the user data exists
     if(!empty($dataSubDistricts)){
@@ -86,18 +86,18 @@ class Customer extends REST_Controller {
 
   public function Zipcode_post() {
 
-    $dataSelectZipcode = $this->post();
+    $idSubDistricts = $this->post();
     //
     // echo "<pre>";
     // print_r($dataSelectZipcode);
     // exit();
 
-    $dataSelectZipcode = $this->CustomerModel->SelectZipcode($dataSelectZipcode['idZipcode']);
+    $dataZipcode = $this->SupplierModel->SelectZipcode($idSubDistricts['idSubDistricts']);
 
     //check if the user data exists
-    if(!empty($dataSelectZipcode)){
+    if(!empty($dataZipcode)){
       //set the response and exit
-      $this->response($dataSelectZipcode, REST_Controller::HTTP_OK);
+      $this->response($dataZipcode, REST_Controller::HTTP_OK);
     }else{
       //set the response and exit
       $this->response([
@@ -107,16 +107,20 @@ class Customer extends REST_Controller {
     }
   }
 
-  public function CustomerInsert_post() {
+  public function SupplierInsert_post() {
 
     $data = $this->post();
 
     // $dataInsert = json_decode($data);
-    $data['dataInsert']['customerLog'] = "เพิ่มลูกค้า";
-    $data['dataInsert']['customerLogName'] = $_SESSION['profileName'];
+    $data['dataInsert']['supplierLog'] = "เพิ่มผู้ผลิต";
+    $data['dataInsert']['supplierLogName'] = $_SESSION['profileName'];
+
+    // echo "<pre>";
+    // print_r($data['dataInsert']);
+    // exit();
 
 
-    $this->CustomerModel->CustomerInsert($data['dataInsert']);
+    $this->SupplierModel->SupplierInsert($data['dataInsert']);
 
     $this->response(REST_Controller::HTTP_OK);
 
@@ -126,12 +130,12 @@ class Customer extends REST_Controller {
 
     $data = $this->post();
 
-    $dataCustomer = $this->CustomerModel->SelectForUpdate($data['customerId']);
+    $dataSupplier = $this->SupplierModel->SelectForUpdate($data['supplierId']);
 
     //check if the user data exists
-    if(!empty($dataCustomer)){
+    if(!empty($dataSupplier)){
       //set the response and exit
-      $this->response($dataCustomer, REST_Controller::HTTP_OK);
+      $this->response($dataSupplier, REST_Controller::HTTP_OK);
     }else{
       //set the response and exit
       $this->response([
@@ -142,36 +146,36 @@ class Customer extends REST_Controller {
 
   }
 
-  public function CustomerUpdate_post() {
+  public function SupplierUpdate_post() {
 
     $data = $this->post();
 
-    $data['dataUpdate']['customerLog'] = "แก้ไขลูกค้า";
-    $data['dataUpdate']['customerLogName'] = $_SESSION['profileName'];
+    $data['dataUpdate']['supplierLog'] = "แก้ไขผู้ผลิต";
+    $data['dataUpdate']['supplierLogName'] = $_SESSION['profileName'];
 
     // echo "<pre>";
     // print_r($data['dataUpdate']);
     // exit();
 
-    $this->CustomerModel->CustomerUpdate($data['dataUpdate']);
+    $this->SupplierModel->SupplierUpdate($data['dataUpdate']);
 
     $this->response(REST_Controller::HTTP_OK);
 
 
   }
 
-  public function CustomerDelete_post() {
+  public function SupplierDelete_post() {
 
     $data = $this->post();
 
     $dataDelete = array(
-      'customerId' => $data['customerId'],
-      'customerStatus' => 2,
-      'customerLog' => "ลบลูกค้า",
-      'customerLogName' => $_SESSION['profileName'],
+      'supplierId' => $data['supplierId'],
+      'supplierStatus' => 2,
+      'supplierLog' => "ลบผู้ผลิต",
+      'supplierLogName' => $_SESSION['profileName'],
     );
 
-    $this->CustomerModel->CustomerDelete($dataDelete);
+    $this->SupplierModel->SupplierDelete($dataDelete);
 
     $this->response(REST_Controller::HTTP_OK);
 

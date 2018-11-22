@@ -43,12 +43,10 @@ class Customer extends CI_Controller {
 
 	public function index()
 	{
-		$dataShow = $this->CustomerModel->CustomerSelect();
-
 		$Value = array(
 			'View' => "Customer",
 			'Result' => array(
-				'dataShow' => $dataShow,
+				// 'dataShow' => $dataShow,
 			)
 		);
 		$this->LoadPage($Value);
@@ -66,61 +64,5 @@ class Customer extends CI_Controller {
 		$this->LoadPage($Value);
 	}
 
-	// public function CustomerInsert()
-	// {
-	// 	$dataInsert = $this->input->post();
-	// 	$dataInsert['customerLog'] = "เพิ่มลูกค้า";
-	// 	$dataInsert['customerLogName'] = $_SESSION['profileName'];
-	// 	// $this->debug->log($dataUpdate);
-	//
-	// 	$this->CustomerModel->CustomerInsert($dataInsert);
-	//
-	// 	redirect('customer');
-	//
-	// }
-
-	// public function CustomerFormUpdate()
-	// {
-	// 	$customerId = $this->uri->segment(3);
-	// 	// $this->debug->log($customerId);
-	// 	$dataUpdate = $this->CustomerModel->CustomerSelectForUpdate($customerId);
-	//
-	// 	$Value = array(
-	// 		'View' => "CustomerDetail",
-	// 		'Result' => array(
-	// 			'dataUpdate' => $dataUpdate,
-	// 		)
-	// 	);
-	// 	$this->LoadPage($Value);
-	// }
-
-	public function CustomerUpdate()
-	{
-		$dataUpdate = $this->input->post();
-		$dataUpdate['customerLog'] = "แก้ไขลูกค้า";
-		$dataUpdate['customerLogName'] = $_SESSION['profileName'];
-		// $this->debug->log($dataUpdate);
-
-		$this->CustomerModel->CustomerUpdate($dataUpdate);
-
-		redirect('customer');
-
-	}
-
-	public function CustomerDelete()
-	{
-		$customerId = $this->uri->segment(3);
-		// $this->debug->log($customerId);
-		$dataDelete = array(
-			'customerId' => $customerId,
-			'customerStatus' => 2,
-			'customerLog' => "ลบลูกค้า",
-			'customerLogName' => $_SESSION['profileName'],
-		);
-		$this->CustomerModel->CustomerDelete($dataDelete);
-
-		redirect('customer');
-
-	}
 
 }
