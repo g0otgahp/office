@@ -64,6 +64,11 @@
     }
     </style>
 
+    <script>
+    function Reload() {
+        location.reload();
+    }
+    </script>
 
     <!-- Navigation -->
 

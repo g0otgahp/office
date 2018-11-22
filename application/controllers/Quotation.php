@@ -34,16 +34,10 @@ class Quotation extends CI_Controller {
 	{
 
 		$data = $Value['Result'];
-		if ($Value['View'] == 'QuotationForm') {
-			$this->load->view("templates/header",$data);
-			$this->load->view($Value['View']);
-			$this->load->view("templates/footer");
-		} else {
 			$this->load->view("templates/header",$data);
 			$this->load->view("templates/menu");
 			$this->load->view($Value['View']);
 			$this->load->view("templates/footer");
-		}
 	}
 
 	public function index()

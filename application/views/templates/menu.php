@@ -16,11 +16,11 @@
       </li>
 
       <li>
-        <a href="<?php echo SITE_URL('Dashboard'); ?>"><i class="fa fa-dashboard fa-fw"></i> ภาพรวม</a>
+        <a href="<?php echo SITE_URL('Dashboard'); ?>" onclick="Reload();"><i class="fa fa-dashboard fa-fw"></i> ภาพรวม</a>
       </li>
 
       <li>
-        <a href="<?php echo SITE_URL("Quotation"); ?>"><i class="glyphicon glyphicon-book"></i>&nbsp; ใบเสนอราคา</a>
+        <a href="<?php echo SITE_URL("Quotation"); ?>" onclick="Reload();"><i class="glyphicon glyphicon-book"></i>&nbsp; ใบเสนอราคา</a>
       </li>
 
       <!-- แบ่งสิทธิ์ การเข้าถึง -->
@@ -31,10 +31,10 @@
           <a href="#"><i class="fa fa-user fa-fw"></i> ฝ่ายบุคคล<span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li>
-              <a href="<?php echo SITE_URL('Employee'); ?>"> - การจัดการพนักงาน</a>
+              <a href="<?php echo SITE_URL('Employee'); ?>" onclick="Reload();"> - การจัดการพนักงาน</a>
             </li>
             <li>
-              <a href="<?php echo SITE_URL('Position'); ?>"> - การจัดการตำแหน่ง</a>
+              <a href="<?php echo SITE_URL('Position'); ?>" onclick="Reload();"> - การจัดการตำแหน่ง</a>
             </li>
           </ul>
           <!-- /.nav-second-level -->
@@ -46,10 +46,10 @@
           <a href="#"><i class="fa fa-money fa-fw"></i> ผู้ผลิต/ลูกค้า<span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li>
-              <a href="<?php echo SITE_URL('Supplier'); ?>"> - การจัดการผู้ผลิต</a>
+              <a href="<?php echo SITE_URL('Supplier'); ?>" onclick="Reload();"> - การจัดการผู้ผลิต</a>
             </li>
             <li>
-              <a href="<?php echo SITE_URL('Customer'); ?>"> - การจัดการลูกค้า</a>
+              <a href="<?php echo SITE_URL('Customer'); ?>" onclick="Reload();"> - การจัดการลูกค้า</a>
             </li>
           </ul>
           <!-- /.nav-second-level -->
@@ -59,7 +59,7 @@
           <a href="#"><i class="fa fa-inbox fa-fw"></i> ฝ่ายสต็อก<span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li>
-              <a href="<?php echo SITE_URL('Product'); ?>"> - เพิ่มสินค้า</a>
+              <a href="<?php echo SITE_URL('Product'); ?>" onclick="Reload();"> - เพิ่มสินค้า</a>
             </li>
             <li>
               <a href="#"> - ใบนำสินค้าเข้า</a>

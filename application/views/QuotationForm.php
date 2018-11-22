@@ -1,6 +1,6 @@
 <div id="wrapper" ng-controller="QuotationCtrl">
 
-  <div id="page-wrapper" style="margin:0px">
+  <div id="page-wrapper">
     <div class="row">
       <div class="col-lg-12">
         <h1 class="page-header"> <a href="<?php echo SITE_URL('Quotation'); ?>">ใบเสนอราคา</a>
