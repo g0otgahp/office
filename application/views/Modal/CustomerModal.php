@@ -10,13 +10,14 @@
       <table width="100%" class="table table-striped table-bordered table-hover" datatable="ng" dt-options="dtOptions" dt-instance="dtInstance">
         <thead>
           <tr>
-          <th width="10%" class="text-center">ลำดับ</th>
+            <th width="5%" class="text-center">ลำดับ</th>
             <th class="text-center">ชื่อบริษัท</th>
             <th class="text-center">ชื่อผู้ติดต่อ</th>
-            <th class="text-center">แผนก</th>
-            <th class="text-center">ตำแหน่ง</th>
+            <th class="text-center" width="8%">ชื่อเล่น</th>
+            <th class="text-center">ตำแหน่งงาน</th>
+            <th class="text-center">ฝ่ายงาน</th>
             <th class="text-center">เบอร์ติดต่อ</th>
-            <th class="text-center" width="15%">ตัวเลือก</th>
+            <th class="text-center" width="5%">ตัวเลือก</th>
           </tr>
         </thead>
         <tbody>
@@ -24,11 +25,12 @@
           <tr ng-repeat="item in customer">
             <td class="text-center"> <b>{{$index+1}}</b></td>
             <td> <b>{{item.customerCompany}}</b> </td>
-            <td> <b>คุณ{{item.customerName}}</b> </td>
-            <td class="text-center"> <b>{{item.customerDepartment}}</b> </td>
-            <td class="text-center"> <b>{{item.customerPosition}}</b> </td>
-            <td class="text-center"> <b>{{item.customerMainPhone}}</b> </td>
-            <td class="text-center"> <button class="btn btn-link btn-xs" ng-click="ok(item)"> <b>เลือก</b> </button> </td>
+            <td> <b>คุณ {{item.customerName}}</b> </td>
+            <td class="text-left"> <b>คุณ {{item.customerNickname}}</b> </td>
+            <td class="text-left"> <b>{{item.customerPosition}}</b> </td>
+            <td class="text-left"> <b>{{item.customerDepartment}}</b> </td>
+            <td class="text-left"> <b>{{item.customerMainPhone.substr(0,3)}}-{{item.customerMainPhone.substr(3,3)}}-{{item.customerMainPhone.substr(6,4)}}</b> </td>
+            <td class="text-left"> <button class="btn btn-link btn-xs" ng-click="ok(item)"> <b>เลือก</b> </button> </td>
           </tr>
 
           </tbody>
