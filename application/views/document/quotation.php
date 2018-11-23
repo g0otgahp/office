@@ -329,10 +329,15 @@ h1,h2,h3,h4,h5{
             <div class="col-sm-12">
               <div class="row">
                 <div class="col-sm-12">
+                  <div class="row pull-right">
                   <h4><img src="<?php echo base_url('uploads/Login/logonewzeno.png')?>" width="220"  class="img-responsive" alt=""/></h4>
+                </div>
+                <div class="row">
+                  <br><br>
                   <p class="head-quo">บริษัท นิวซีโน (ประเทศไทย) จำกัด</p>
                   <p class="head-quo">185/4 ถนนสมเด็ถนนสมเด็จพระปิ่นเกล้า แขวงอรุณอัมรินทร์ เขตบางกอกน้อย จังหวัดกรุงเทพมหานคร 10700</p>
                   <p class="head-quo">โทรศัพท์ : 095-449-5229 แฟกซ์ : 02-435-5899 เลขประจำตัวผู้เสียภาษี : 0105552086618</p>
+                </div>
                 </div>
                   <!-- <div class="row">
                   <div class="col-sm-6 head-quo" style="padding-right:0px;">
@@ -424,7 +429,7 @@ h1,h2,h3,h4,h5{
   <div class="col-md-12 table-responsive col-sm-12">
     <table width="100%" class="table invoice">
       <thead>
-        <tr>
+        <tr style="border-top: 1px solid #ddd;">
           <th width="5%" class="text-center">ลำดับ</th>
           <th width="25%" class="text-center">รายการ</th>
           <th width="7%" class="text-center">จำนวน</th>
@@ -458,7 +463,7 @@ h1,h2,h3,h4,h5{
             <?php
             $row = 6 - count($Select['quotation_order']);
             for ($i=0; $i < $row; $i++) { ?>
-              <tr>
+              <tr style="border-bottom: 1px solid #ddd;">
                 <td>&nbsp;</td>
                 <td>&nbsp;<p>&nbsp;</p></td>
                 <td>&nbsp;</td>
@@ -508,10 +513,10 @@ h1,h2,h3,h4,h5{
         ***ขอสงวนสิทธิในการเปลี่ยนแปลงรายละเอียดและราคาของสินค้าตลอดจนรายการส่งเสริมการขายและการลงทะเบียนโดยไม่ต้องแจ้งให้ทราบล่วงหน้า
       </div>
       <div class="col-sm-12 text-center">
-        <table class="table table-bordered">
+        <table class="table table-bordered" style="margin-bottom:70px;">
           <tbody>
             <tr style="padding:2px;">
-              <th style="padding:2px;" class="text-center" colspan="5" width="100%">สามารถชำระเงินผ่านธนาคารในนาม บริษัท นิวซีโน่ (ประเทศไทย) จำกัด</th>
+              <th style="padding:2px;" class="text-left" colspan="5" width="100%"> &nbsp;&nbsp;&nbsp;สามารถชำระเงินผ่านธนาคารในนาม บริษัท นิวซีโน่ (ประเทศไทย) จำกัด</th>
             </tr>
             <tr>
               <th style="padding:2px;" class="text-center" colspan="2">ธนาคาร</th>
@@ -550,15 +555,13 @@ h1,h2,h3,h4,h5{
     <div class="row">
       <div class="col-sm-4">
         <div class="row text-center head-quo">
-          <div class="col-sm-12 head-quo">ลงชื่อ ..........................................</div>
+          <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ลงชื่อ ..........................................</div>
           <div class="col-sm-12 head-quo">(<?php echo $Select['employee'][0]['profileLogName'] ?>)<div>
-            <div class="col-sm-12 head-quo">ผู้เสนอราคา
-              <div>
-              <div class="col-sm-12">วันที่ ............/............/............</div>
-            </div>
+            <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ผู้เสนอราคา
           </div>
           <div class="col-sm-12 head-quo" >
             <div>
+              <div class="col-sm-12 head-quo text-left">วันที่ ............../............../..............</div>
             <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ :
               <?php echo substr($Select['employee'][0]['profilePhone'],0,3) . "-" .
                                   substr($Select['employee'][0]['profilePhone'],3,3) . "-" .
@@ -573,15 +576,13 @@ h1,h2,h3,h4,h5{
   </div>
   <div class="col-sm-4">
     <div class="row text-center head-quo">
-      <div class="col-sm-12 head-quo">ลงชื่อ ..........................................</div>
+      <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ลงชื่อ ..........................................</div>
       <div class="col-sm-12 head-quo">(...................................................)<div>
-        <div class="col-sm-12 head-quo">ผู้อนุมัติเสนอราคา
-          <div>
-          <div class="col-sm-12">วันที่ ............/............/............</div>
-        </div>
+        <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ผู้อนุมัติเสนอราคา
       </div>
       <div class="col-sm-12 head-quo" >
         <div>
+          <div class="col-sm-12 head-quo text-left">วันที่ ............../............../..............</div>
         <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ :
         <?php echo substr($Select['quotation'][0]['quoTel'],0,3) . "-" .
                             substr($Select['quotation'][0]['quoTel'],3,3) . "-" .
@@ -596,17 +597,15 @@ h1,h2,h3,h4,h5{
 </div>
 <div class="col-sm-4">
   <div class="row text-center head-quo">
-    <div class="col-sm-12 head-quo">ลงชื่อ ..........................................</div>
+    <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ลงชื่อ ..........................................</div>
     <div class="col-sm-12 head-quo">(...................................................)<div>
-      <div class="col-sm-12 head-quo">ผู้อนุมัติสั่งซื้อ
-        <div>
-        <div class="col-sm-12">วันที่ ............/............/............</div>
-      </div>
+      <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ผู้อนุมัติสั่งซื้อ
     </div>
     <div class="col-sm-12 head-quo" >
       <div>
-      <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ : ...................................................</div>
-      <div class="col-sm-12 head-quo text-left" style="font-size:9px;">Email : .................................................</div>
+        <div class="col-sm-12 head-quo text-left">วันที่ ............../............../..............</div>
+      <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ : .....................................................</div>
+      <div class="col-sm-12 head-quo text-left" style="font-size:9px;">Email : ...................................................</div>
     </div>
   </div>
   </div>

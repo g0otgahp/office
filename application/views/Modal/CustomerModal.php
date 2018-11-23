@@ -1,6 +1,6 @@
     <div class="modal-header">
       <h3 class="modal-title">ฐานข้อมูลลูกค้า
-        <a target="_blank" href="<?php echo SITE_URL('Customer/CustomerFormInsert'); ?>" style="font-size:18px;padding-left:10px;color:#00b300;"> เพิ่มใหม่   <i class="fa fa-plus"></i> </a>
+        <a target="_blank" href="<?php echo SITE_URL('Customer/CustomerForm'); ?>" style="font-size:18px;padding-left:10px;color:#00b300;"> เพิ่มใหม่   <i class="fa fa-plus"></i> </a>
         <button ng-click="loadCustomer()" class="btn btn-link pull-right loading" data-loading-text="<i class='fa fa-spinner fa-spin '></i>"><i class="fa fa-refresh"></i></button>
       </h3>
     </div>
