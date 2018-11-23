@@ -118,6 +118,43 @@
                 </div>
                 <!-- /.col-lg-12 -->
               </div>
+
+              <div ng-if="Forms.SelectCustomer != ''">
+
+                <table class="table" border="0">
+                  <tr>
+                    <td width="40%" style="border-top: 0px solid #ddd;"><input class="form-control" placeholder="หมายเหตุที่ 1" ng-model="Forms.SelectCustomer.quoRemark1" ></td>
+                    <td width="10%" style="border-top: 0px solid #ddd;"></td>
+                    <td style="border-top: 0px solid #ddd;"></td>
+                  </tr>
+                  <tr>
+                    <td width="40%" style="border-top: 0px solid #ddd;"><input class="form-control" placeholder="หมายเหตุที่ 2" ng-model="Forms.SelectCustomer.quoRemark2" ></td>
+                    <td width="10%" style="border-top: 0px solid #ddd;"></td>
+                    <td style="border-top: 0px solid #ddd;"></td>
+                  </tr>
+                  <tr>
+                    <td width="40%" style="border-top: 0px solid #ddd;"> <input class="form-control" placeholder="หมายเหตุที่ 3" ng-model="Forms.SelectCustomer.quoRemark3" ></td>
+                    <td width="10%" style="border-top: 0px solid #ddd;"></td>
+                    <td style="border-top: 0px solid #ddd;"></td>
+                  </tr>
+
+                  <tr>
+                    <td width="40%" style="border-top: 0px solid #ddd;"><textarea rows="4" class="form-control" placeholder="บันทึกช่วยจำ" ng-model="Forms.SelectCustomer.quoNote"></textarea></td>
+                    <td width="10%" style="border-top: 0px solid #ddd;"></td>
+                    <td style="border-top: 0px solid #ddd;"></td>
+                  </tr>
+
+                  <tr >
+                    <td width="40%" style="border-top: 0px solid #ddd;"></td>
+                    <td width="10%" style="border-top: 0px solid #ddd;"></td>
+                    <td style="border-top: 0px solid #ddd;"></td>
+                  </tr>
+
+                </table>
+
+              </div>
+
+
               <span class="text-center">
               <p style="color: #00b300" ng-if="Forms.SelectCustomer.length != 0 && Forms.SelectProduct.length != 0">กรุณาตรวจสอบข้อมูลอีกครั้ง</p>
               <button ng-click="submit()" class="btn btn-success btn-fill btn-block loading" data-loading-text="<i class='fa fa-spinner fa-spin'></i>"

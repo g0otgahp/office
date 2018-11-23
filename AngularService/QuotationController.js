@@ -1,9 +1,8 @@
 // Define the `PhoneListController` controller on the `phonecatApp` module
 App.controller('QuotationCtrl', function Controller($scope, $http, $uibModal, $window, $location) {
 
-  var sessionid = $location.search().sid;
+  $scope.sessionid = $location.search().sid;
 
-  console.log(sessionid);
 
   $scope.Forms = {
     SelectCustomer : [],
@@ -32,8 +31,11 @@ App.controller('QuotationCtrl', function Controller($scope, $http, $uibModal, $w
   };
 
   $scope.submit = function () {
-    console.log($scope.Forms);
-    $http.post(URL+'Service/quotationSubmit',$scope.Forms).then(function (res) {
+    data = {
+      'Forms' : $scope.Forms,
+      'sessionId' : $scope.sessionid,
+    }
+    $http.post(URL+'Service/quotationSubmit',data).then(function (res) {
       $window.location.href = VIEW_URL+'Quotation';
     })
   };

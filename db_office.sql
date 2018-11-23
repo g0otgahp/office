@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2018 at 08:41 AM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Generation Time: Nov 22, 2018 at 10:52 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -1136,8 +1134,8 @@ CREATE TABLE `profile` (
 --
 
 INSERT INTO `profile` (`profileId`, `profilePrefix`, `profileName`, `profileSurname`, `profileNickname`, `profileSex`, `profileCitizenId`, `profileEmail`, `profilePhone`, `profileImage`, `profileAddress`, `positionId`, `profileStatus`, `profileLog`, `profileLogName`, `profileLogTime`) VALUES
-(1, '', 'Administrator', 'นิวซีโน่ (ประเทศไทย)', 'Admin', '', 'Administrator', 'admin@newzeno.com', '', '20181027043445.jpg', 'นิวซีโน่ (ประเทศไทย)', 4, 1, 'แก้ไขพนักงาน', 'นาย อดิพงษ์ ธรรมนวกุล', '2018-10-27 02:37:31'),
-(2, '', 'Guest', 'นิวซีโน่ (ประเทศไทย)', 'Guest', '', 'Guest', 'Guest@newzeno.com', '', '20181027043615.jpg', 'บริษัท นิวซีโน่ (ประเทศไทย) จำกัด\r\n', 10, 1, 'แก้ไขพนักงาน', 'นาย อดิพงษ์ ธรรมนวกุล', '2018-10-27 02:37:33'),
+(1, '', 'Administrator', 'นิวซีโน่ (ประเทศไทย)', 'Admin', '', 'Administrator', 'admin@newzeno.com', '0809073005', '20181027043445.jpg', 'นิวซีโน่ (ประเทศไทย)', 4, 1, 'แก้ไขพนักงาน', 'นาย อดิพงษ์ ธรรมนวกุล', '2018-11-22 09:29:25'),
+(2, '', 'Guest', 'นิวซีโน่ (ประเทศไทย)', 'Guest', '', 'Guest', 'Guest@newzeno.com', '0809073005', '20181027043615.jpg', 'บริษัท นิวซีโน่ (ประเทศไทย) จำกัด\r\n', 10, 1, 'แก้ไขพนักงาน', 'นาย อดิพงษ์ ธรรมนวกุล', '2018-11-22 09:29:27'),
 (3, 'นาย', 'อดิพงษ์', 'ธรรมนวกุล', 'โต้ง', 'ชาย', '1102944123463', 'tong.adipong@gmail.com', '0809073005', '20181027043632.png', 'เลขที่. 200 ถนน. พุทธมณฑลสาย 3 แขวง. บางไผ่ เขต. บางแค จังหวัด. กรุงเทพมหานคร', 8, 1, 'แก้ไขพนักงาน', 'นาย อดิพงษ์ ธรรมนวกุล', '2018-10-27 02:36:32');
 
 -- --------------------------------------------------------
@@ -1254,6 +1252,10 @@ CREATE TABLE `quotation` (
   `quoReachDay` int(11) NOT NULL COMMENT 'ยื่นราคาภายในระยะวันที่',
   `quoTransportDay` int(11) NOT NULL COMMENT 'ส่งของภายในระยะวันที่',
   `quoPayments` varchar(45) NOT NULL COMMENT 'เงื่อนไขการชำระ',
+  `quoRemark1` varchar(95) NOT NULL,
+  `quoRemark2` varchar(95) NOT NULL,
+  `quoRemark3` varchar(95) NOT NULL,
+  `quoNote` varchar(500) NOT NULL,
   `quoOfferId` int(11) NOT NULL COMMENT 'ไอดีผู้ออกใบเสนอ',
   `quoStatus` int(11) NOT NULL DEFAULT '2' COMMENT 'สถานะ'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1262,14 +1264,15 @@ CREATE TABLE `quotation` (
 -- Dumping data for table `quotation`
 --
 
-INSERT INTO `quotation` (`quoId`, `quoNo`, `quoDate`, `quoCompany`, `quoCustomerId`, `quoTel`, `quoEmail`, `quoProject`, `quoReachDay`, `quoTransportDay`, `quoPayments`, `quoOfferId`, `quoStatus`) VALUES
-(1, 'QU0001', '2018-11-13 04:14:19', 'บริษัท นิวซีโน่ (ประเทศไทย)', 1, '0993254289', 'pop@newzeno.com', 'ชื่อโปรเจค', 30, 30, 'เงินสด', 1, 3),
-(2, 'QU0001', '2018-11-11 06:59:50', 'บริษัท นิวซีโน่ (ประเทศไทย)', 1, '0993254289', 'pop@newzeno.com', 'ชื่อโปรเจค', 30, 30, 'เงินสด', 1, 2),
-(3, 'QU0001', '2018-11-11 06:59:55', 'บริษัท นิวซีโน่ (ประเทศไทย)', 1, '0993254289', 'pop@newzeno.com', 'ชื่อโปรเจค', 30, 30, 'เงินสด', 1, 3),
-(4, 'QU0001', '2018-11-11 06:59:59', 'บริษัท นิวซีโน่ (ประเทศไทย)', 1, '0993254289', 'pop@newzeno.com', 'ชื่อโปรเจค', 30, 30, 'เงินสด', 1, 2),
-(5, 'QU0001', '2018-11-13 04:14:22', 'บริษัท นิวซีโน่ (ประเทศไทย)', 1, '0993254289', 'pop@newzeno.com', 'ชื่อโปรเจค', 30, 30, 'เงินสด', 1, 3),
-(6, 'QU0001', '2018-11-13 04:14:30', 'บริษัท นิวซีโน่ (ประเทศไทย)', 1, '0993254289', 'pop@newzeno.com', 'ชื่อโปรเจค', 30, 30, 'เงินสด', 1, 2),
-(7, 'QU0001', '0000-00-00 00:00:00', 'บริษัท นิวซีโน่ (ประเทศไทย)', 1, '0993254289', 'pop@newzeno.com', 'โรงเรียน A', 30, 30, 'เงินสด', 1, 2);
+INSERT INTO `quotation` (`quoId`, `quoNo`, `quoDate`, `quoCompany`, `quoCustomerId`, `quoTel`, `quoEmail`, `quoProject`, `quoReachDay`, `quoTransportDay`, `quoPayments`, `quoRemark1`, `quoRemark2`, `quoRemark3`, `quoNote`, `quoOfferId`, `quoStatus`) VALUES
+(1, 'QU0001', '2018-11-13 04:14:19', 'บริษัท นิวซีโน่ (ประเทศไทย)', 1, '0993254289', 'pop@newzeno.com', 'ชื่อโปรเจค', 30, 30, 'เงินสด', '', '', '', '', 1, 3),
+(2, 'QU0001', '2018-11-11 06:59:50', 'บริษัท นิวซีโน่ (ประเทศไทย)', 1, '0993254289', 'pop@newzeno.com', 'ชื่อโปรเจค', 30, 30, 'เงินสด', '', '', '', '', 1, 2),
+(3, 'QU0001', '2018-11-11 06:59:55', 'บริษัท นิวซีโน่ (ประเทศไทย)', 1, '0993254289', 'pop@newzeno.com', 'ชื่อโปรเจค', 30, 30, 'เงินสด', '', '', '', '', 1, 3),
+(4, 'QU0001', '2018-11-11 06:59:59', 'บริษัท นิวซีโน่ (ประเทศไทย)', 1, '0993254289', 'pop@newzeno.com', 'ชื่อโปรเจค', 30, 30, 'เงินสด', '', '', '', '', 1, 2),
+(5, 'QU0001', '2018-11-13 04:14:22', 'บริษัท นิวซีโน่ (ประเทศไทย)', 1, '0993254289', 'pop@newzeno.com', 'ชื่อโปรเจค', 30, 30, 'เงินสด', '', '', '', '', 1, 3),
+(6, 'QU0001', '2018-11-13 04:14:30', 'บริษัท นิวซีโน่ (ประเทศไทย)', 1, '0993254289', 'pop@newzeno.com', 'ชื่อโปรเจค', 30, 30, 'เงินสด', '', '', '', '', 1, 2),
+(7, 'QU0001', '0000-00-00 00:00:00', 'บริษัท นิวซีโน่ (ประเทศไทย)', 1, '0993254289', 'pop@newzeno.com', 'โรงเรียน A', 30, 30, 'เงินสด', '', '', '', '', 1, 2),
+(8, '12', '2018-11-22 09:28:35', 'บริษัท ไก่โต้ง จำกัด', 3, '0809073005', 'kaiixtongz@gmail.com', '123', 12, 12, 'เงินสด', 'เอกสารอาจมีการเปลี่ยนแปลง', '', '', 'ช่วยจำ', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -1297,7 +1300,8 @@ INSERT INTO `quotation_order` (`orderId`, `orderProductId`, `orderName`, `orderD
 (1, 1, 'LG Digital Signage รุ่น 55SE3KD', 'Full HD / HDMI x 4 / Audio : Stereo', 1, 'ชิ้น', 10000, 0, 5),
 (2, 1, 'LG Digital Signage รุ่น 55SE3KD', 'Full HD / HDMI x 4 / Audio : Stereo', 1, 'ชิ้น', 10000, 0, 6),
 (3, 1, 'LG Digital Signage รุ่น 55SE3KD', 'Full HD / HDMI x 4 / Audio : Stereo', 1, 'ชิ้น', 10000, 0, 1),
-(4, 1, 'LG Digital Signage รุ่น 55SE3KD', 'Full HD / HDMI x 4 / Audio : Stereo', 20, 'ชิ้น', 10000, 9000, 7);
+(4, 1, 'LG Digital Signage รุ่น 55SE3KD', 'Full HD / HDMI x 4 / Audio : Stereo', 20, 'ชิ้น', 10000, 9000, 7),
+(5, 1, 'LG Digital Signage รุ่น 55SE3KD', 'Full HD / HDMI x 4 / Audio : Stereo', 1, 'ชิ้น', 10000, 0, 8);
 
 -- --------------------------------------------------------
 
@@ -8822,67 +8826,56 @@ ALTER TABLE `supplier`
 --
 ALTER TABLE `customer`
   MODIFY `customerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `districts`
 --
 ALTER TABLE `districts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=929;
-
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
   MODIFY `loginId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `position`
 --
 ALTER TABLE `position`
   MODIFY `positionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
   MODIFY `profileId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `provinces`
 --
 ALTER TABLE `provinces`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
-
 --
 -- AUTO_INCREMENT for table `quotation`
 --
 ALTER TABLE `quotation`
-  MODIFY `quoId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ไอดี', AUTO_INCREMENT=8;
-
+  MODIFY `quoId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ไอดี', AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `quotation_order`
 --
 ALTER TABLE `quotation_order`
-  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ไอดี', AUTO_INCREMENT=5;
-
+  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ไอดี', AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `subdistricts`
 --
 ALTER TABLE `subdistricts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7365;
-
 --
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
   MODIFY `supplierId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- Constraints for dumped tables
 --
@@ -8898,7 +8891,6 @@ ALTER TABLE `districts`
 --
 ALTER TABLE `subdistricts`
   ADD CONSTRAINT `fk_subdistricts_districts` FOREIGN KEY (`district_id`) REFERENCES `districts` (`id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

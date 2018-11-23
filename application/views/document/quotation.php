@@ -483,9 +483,9 @@ h1,h2,h3,h4,h5{
       </div>
       <div class="col-sm-7">
         <div class="row">
-          <div class="col-sm-12 head-quo">1. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-          <div class="col-sm-12 head-quo">2. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-          <div class="col-sm-12 head-quo">3. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+          <div class="col-sm-12 head-quo">1. <?php echo $Select['quotation'][0]['quoRemark1'] ?></div>
+          <div class="col-sm-12 head-quo">2. <?php echo $Select['quotation'][0]['quoRemark2'] ?></div>
+          <div class="col-sm-12 head-quo">3. <?php echo $Select['quotation'][0]['quoRemark3'] ?></div>
         </div>
       </div>
       <div class="col-sm-4">
@@ -551,7 +551,7 @@ h1,h2,h3,h4,h5{
       <div class="col-sm-4">
         <div class="row text-center head-quo">
           <div class="col-sm-12 head-quo">ลงชื่อ ..........................................</div>
-          <div class="col-sm-12 head-quo">(...................................................)<div>
+          <div class="col-sm-12 head-quo">(<?php echo $Select['employee'][0]['profileLogName'] ?>)<div>
             <div class="col-sm-12 head-quo">ผู้เสนอราคา
               <div>
               <div class="col-sm-12">วันที่ ............/............/............</div>
@@ -559,8 +559,12 @@ h1,h2,h3,h4,h5{
           </div>
           <div class="col-sm-12 head-quo" >
             <div>
-            <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ : 099-3254289</div>
-            <div class="col-sm-12 head-quo text-left" style="font-size:9px;">Email : newzeno@newzeno.com</div>
+            <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ :
+              <?php echo substr($Select['employee'][0]['profilePhone'],0,3) . "-" .
+                                  substr($Select['employee'][0]['profilePhone'],3,3) . "-" .
+                                  substr($Select['employee'][0]['profilePhone'],6,4)?>
+            </div>
+            <div class="col-sm-12 head-quo text-left" style="font-size:9px;">Email : <?php echo $Select['employee'][0]['profileEmail'] ?></div>
           </div>
         </div>
         </div>
@@ -578,7 +582,11 @@ h1,h2,h3,h4,h5{
       </div>
       <div class="col-sm-12 head-quo" >
         <div>
-        <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ : <?php echo $Select['quotation'][0]['quoTel'] ?></div>
+        <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ :
+        <?php echo substr($Select['quotation'][0]['quoTel'],0,3) . "-" .
+                            substr($Select['quotation'][0]['quoTel'],3,3) . "-" .
+                            substr($Select['quotation'][0]['quoTel'],6,4)?>
+                            </div>
         <div class="col-sm-12 head-quo text-left" style="font-size:9px;">Email : <?php echo $Select['quotation'][0]['quoEmail'] ?></div>
       </div>
     </div>

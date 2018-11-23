@@ -37,6 +37,11 @@ class QuotationModel extends CI_Model {
 		->get('customer')
 		->result_array();
 
+		$data['employee'] = $this->db
+		->where('profileId',$data['quotation'][0]['quoOfferId'])
+		->get('profile')
+		->result_array();
+
 		$data['quotation_order'] = $this->db
 		->where('orderQuotationId',$id)
 		->get('quotation_order')
