@@ -10,7 +10,12 @@ class ProductModel extends CI_Model {
 
 	public function SelectProduct()
 	{
-		$dataProduct = $this->db->where('productStatus	',1)->get('product')->result_array();
+		$dataProduct = $this->db
+		->where('productStatus	',1)
+		->join('product_brand','product_brand.product_brandId = product.productBrand')
+		->join('product_category','product_category.product_categoryId = product.productCategory')
+		->get('product')
+		->result_array();
 		return $dataProduct;
 	}
 

@@ -83,7 +83,7 @@ App.controller('QuotationCtrl', function Controller($scope, $http, $uibModal, $w
       $scope.Select = product;
       $scope.Select.productDiscount = 0;
       $scope.Select.productQty = 1;
-      $scope.Select.productName = product['productBrand']+" "+product['productCategory']+" รุ่น "+ product['productModel'];
+      $scope.Select.productName = product['product_categoryName']+" "+product['product_brandName']+" รุ่น "+ product['productModel'];
       $scope.Forms.SelectProduct.push($scope.Select);
     })
   };

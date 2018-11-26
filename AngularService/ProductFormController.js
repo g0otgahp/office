@@ -14,7 +14,7 @@ App.controller('ProductFormCtrl', function($scope, $http, $window, $location, $u
     }).then(function(res){
       // console.log(res);
       $window.alert("เพิ่มสินค้าสำเร็จ");
-      // $window.location.href = VIEW_URL+"Product";
+      $window.location.href = VIEW_URL+"Product";
     })
   }
 
@@ -49,7 +49,7 @@ App.controller('ProductFormCtrl', function($scope, $http, $window, $location, $u
 
     }).result.then(function(category) {
       $scope.form.productCategory = category.product_categoryId;
-      $scope.form.productCategoryName = category.product_categoryName;
+      $scope.CategoryName = category.product_categoryName;
     })
   };
 
@@ -71,7 +71,7 @@ App.controller('ProductFormCtrl', function($scope, $http, $window, $location, $u
 
     }).result.then(function(brand) {
       $scope.form.productBrand = brand.product_brandId;
-      $scope.form.productBrandName = brand.product_brandName;
+      $scope.BrandName = brand.product_brandName;
     })
   };
 

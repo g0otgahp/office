@@ -29,7 +29,7 @@
               <div class="form-group row">
                 <div class="col-md-2"><b>ประเภทสินค้า <small style="color:red">*</small></b></div>
                 <div class="col-md-6">
-                  <button class="btn btn-defualt btn-fill" ng-click="openCategoryModal()">เลือกประเภท</button> <span ng-if="form.productCategory" style="color:green;"> {{form.productCategoryName}} <i class="fa fa-check-circle"></i> </span>
+                  <button class="btn btn-defualt btn-fill" ng-click="openCategoryModal()">เลือกประเภท</button> <span ng-if="form.productCategory" style="color:green;"> {{CategoryName}} <i class="fa fa-check-circle"></i> </span>
                 </div>
               </div>
 
@@ -37,7 +37,7 @@
               <div class="form-group row">
                 <div class="col-md-2"><b>ยี่ห้อ (แบรนด์) <small style="color:red">*</small></b></div>
                 <div class="col-md-6">
-                  <button class="btn btn-defualt btn-fill" ng-click="openBrandModal()">เลือกยี่ห้อ</button> <span ng-if="form.productBrand" style="color:green;"> {{form.productBrandName}} <i class="fa fa-check-circle"></i> </span>
+                  <button class="btn btn-defualt btn-fill" ng-click="openBrandModal()">เลือกยี่ห้อ</button> <span ng-if="form.productBrand" style="color:green;"> {{BrandName}} <i class="fa fa-check-circle"></i> </span>
                 </div>
               </div>
             </div>

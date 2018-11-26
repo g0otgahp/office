@@ -80,7 +80,7 @@ class Service extends REST_Controller {
         'orderName' => $value['productName'],
         'orderDetail' => $value['productDetail'],
         'orderQty' => $value['productQty'],
-        'orderUnit' => "ชิ้น",
+        'orderUnit' => $value['productUnit'],
         'orderPrice' => $value['productRetail'],
         'orderDiscount' => $value['productDiscount'],
         'orderQuotationId' => $QuoID,

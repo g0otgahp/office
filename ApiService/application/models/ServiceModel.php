@@ -22,6 +22,8 @@ class ServiceModel extends CI_Model {
 	{
 		$dataShow = $this->db
 		->where('productStatus',1)
+		->join('product_brand','product_brand.product_brandId = product.productBrand')
+		->join('product_category','product_category.product_categoryId = product.productCategory')
 		->get('product')
 		->result_array();
 		// $this->debug->log($dataShow);

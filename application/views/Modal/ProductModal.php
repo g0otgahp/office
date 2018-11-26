@@ -24,9 +24,9 @@
           <tr ng-repeat="item in product">
             <td class="text-center"> <b>{{$index+1}}</b></td>
             <td class="text-center"> <b>{{item.productCode}}</b> </td>
-            <td class="text-center"> <b>{{item.productCategory}}</b> </td>
+            <td class="text-center"> <b>{{item.product_categoryName}}</b> </td>
             <td class="text-center"> <b>{{item.productModel}}</b> </td>
-            <td class="text-center"> <b>{{item.productBrand}}</b> </td>
+            <td class="text-center"> <b>{{item.product_brandName}}</b> </td>
             <td class="text-center"> <b>{{item.productRetail | number}}</b> </td>
             <td class="text-center"> <button class="btn btn-link btn-xs" ng-click="ok(item)"> <b>เลือก</b> </button> </td>
           </tr>

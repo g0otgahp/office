@@ -42,12 +42,12 @@
                 <tr ng-repeat="product in dataProduct">
                   <td class="text-center"> <b>{{$index+1}}</b></td>
                   <td> <b>{{product.productCode}}</b> </td>
-                  <td class="text-center"> <b>{{product.productCategory}}</b> </td>
-                  <td class="text-center"> <b>{{product.productBrand}}</b> </td>
+                  <td class="text-center"> <b>{{product.product_categoryName}}</b> </td>
+                  <td class="text-center"> <b>{{product.product_brandName}}</b> </td>
                   <td class="text-center"> <b>{{product.productModel}}</b> </td>
                   <td class="text-center"> <b>{{product.productRetail | number:2}} บาท</b> </td>
                   <?php if ($_SESSION['permission'] >= 2): ?>
-                    <td class="text-center"> <a href="#" ng-Click="onClickUpdate(product)"> <b>รายละเอียดลูกค้า</b> </a> </td>
+                    <td class="text-center"> <a href="#" ng-Click="onClickUpdate(product)"> <b>รายละเอียดสินค้า</b> </a> </td>
                     <?php else: ?>
                       <td class="text-center" style="color:red"><b>Admin Zone</b></td>
                   <?php endif; ?>
