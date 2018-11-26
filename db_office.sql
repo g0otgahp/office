@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2018 at 10:52 AM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Generation Time: Nov 26, 2018 at 07:40 AM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -1085,6 +1087,7 @@ CREATE TABLE `product` (
   `productModel` varchar(100) NOT NULL,
   `productBrand` varchar(100) NOT NULL,
   `productDetail` varchar(500) NOT NULL,
+  `productUnit` varchar(50) NOT NULL,
   `productCost` int(11) NOT NULL,
   `productRetail` int(11) NOT NULL,
   `productUser1` int(11) NOT NULL,
@@ -1101,8 +1104,60 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`productId`, `productCode`, `productCategory`, `productModel`, `productBrand`, `productDetail`, `productCost`, `productRetail`, `productUser1`, `productUser2`, `productDealer1`, `productDealer2`, `productStatus`, `productLog`, `productLogName`, `productLogTime`) VALUES
-(1, 'DS-0001-LG', 'Digital Signage', '55SE3KD', 'LG', 'Full HD / HDMI x 4 / Audio : Stereo', 5000, 10000, 9000, 8000, 7000, 6000, 1, 'แก้ไขสินค้า', 'นาย อดิพงษ์ ธรรมนวกุล', '2018-11-17 02:54:45');
+INSERT INTO `product` (`productId`, `productCode`, `productCategory`, `productModel`, `productBrand`, `productDetail`, `productUnit`, `productCost`, `productRetail`, `productUser1`, `productUser2`, `productDealer1`, `productDealer2`, `productStatus`, `productLog`, `productLogName`, `productLogTime`) VALUES
+(1, 'DS-0001-LG', 'Digital Signage', '55SE3KD', 'LG', 'Full HD / HDMI x 4 / Audio : Stereo', '', 5000, 10000, 9000, 8000, 7000, 6000, 1, 'แก้ไขสินค้า', 'นาย อดิพงษ์ ธรรมนวกุล', '2018-11-17 02:54:45'),
+(2, 'DS-0002-LG', 'Digital Signage', '49SE3KD', 'LG', 'ความละเอียด : Full HD / ความสว่าง : 350cd/m²', 'เครื่อง', 4000, 8000, 7000, 6500, 6000, 5500, 1, 'เพิ่มสินค้า', 'นาย อดิพงษ์ ธรรมนวกุล', '2018-11-23 04:47:36'),
+(3, 'DS-0003-LG', 'Digital Signage', '43SE3KD', 'LG', 'ความละเอียด : Full HD / ความสว่าง : 350cd/m²', 'เครื่อง', 3000, 7000, 6000, 5500, 5000, 4500, 1, 'เพิ่มสินค้า', 'นาย อดิพงษ์ ธรรมนวกุล', '2018-11-23 04:49:37'),
+(4, 'PJ-0001-HT', 'Project', 'CP-X340', 'Hitachi', 'HDMIx4 / LANx2 / VGAx1 / DVIx1', 'เครื่อง', 5000, 13000, 0, 0, 0, 0, 1, 'เพิ่มสินค้า', 'นาย อดิพงษ์ ธรรมนวกุล', '2018-11-23 04:52:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_brand`
+--
+
+CREATE TABLE `product_brand` (
+  `product_brandId` int(11) NOT NULL,
+  `product_brandName` varchar(50) NOT NULL,
+  `product_brandStatus` int(11) NOT NULL DEFAULT '1',
+  `product_brandLog` varchar(50) NOT NULL,
+  `product_brandLogName` varchar(50) NOT NULL,
+  `product_brandLogTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `product_brand`
+--
+
+INSERT INTO `product_brand` (`product_brandId`, `product_brandName`, `product_brandStatus`, `product_brandLog`, `product_brandLogName`, `product_brandLogTime`) VALUES
+(1, 'LG', 1, 'เพิ่มยี่ห้อ', 'นาย อดิพงษ์ ธรรมนวกุล', '2018-11-23 09:21:08'),
+(2, 'Logitech', 1, 'แก้ไขยี่ห้อ', 'นาย อดิพงษ์ ธรรมนวกุล', '2018-11-23 09:33:03'),
+(3, 'Hitachi', 1, 'ลบยี่ห้อสินค้า', 'นาย อดิพงษ์ ธรรมนวกุล', '2018-11-23 09:32:48');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_category`
+--
+
+CREATE TABLE `product_category` (
+  `product_categoryId` int(11) NOT NULL,
+  `product_categoryName` varchar(50) NOT NULL,
+  `product_categoryStatus` int(11) NOT NULL DEFAULT '1',
+  `product_categoryLog` varchar(50) NOT NULL,
+  `product_categoryLogName` varchar(100) NOT NULL,
+  `product_categoryLogTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `product_category`
+--
+
+INSERT INTO `product_category` (`product_categoryId`, `product_categoryName`, `product_categoryStatus`, `product_categoryLog`, `product_categoryLogName`, `product_categoryLogTime`) VALUES
+(1, 'Digital Signage', 1, 'แก้ไขประเภทสินค้า', 'นาย อดิพงษ์ ธรรมนวกุล', '2018-11-23 06:56:18'),
+(2, 'Hotel TV', 1, 'เพิ่มประเภทสินค้า', 'นาย อดิพงษ์ ธรรมนวกุล', '2018-11-23 07:15:47'),
+(3, 'Standard', 1, 'ลบประเภทสินค้า', 'นาย อดิพงษ์ ธรรมนวกุล', '2018-11-23 08:56:40'),
+(4, 'Video Wall', 1, 'ลบประเภทสินค้า', 'นาย อดิพงษ์ ธรรมนวกุล', '2018-11-23 08:56:45');
 
 -- --------------------------------------------------------
 
@@ -8778,6 +8833,18 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`productId`);
 
 --
+-- Indexes for table `product_brand`
+--
+ALTER TABLE `product_brand`
+  ADD PRIMARY KEY (`product_brandId`);
+
+--
+-- Indexes for table `product_category`
+--
+ALTER TABLE `product_category`
+  ADD PRIMARY KEY (`product_categoryId`);
+
+--
 -- Indexes for table `profile`
 --
 ALTER TABLE `profile`
@@ -8826,56 +8893,79 @@ ALTER TABLE `supplier`
 --
 ALTER TABLE `customer`
   MODIFY `customerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `districts`
 --
 ALTER TABLE `districts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=929;
+
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
   MODIFY `loginId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `position`
 --
 ALTER TABLE `position`
   MODIFY `positionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `product_brand`
+--
+ALTER TABLE `product_brand`
+  MODIFY `product_brandId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `product_category`
+--
+ALTER TABLE `product_category`
+  MODIFY `product_categoryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
   MODIFY `profileId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `provinces`
 --
 ALTER TABLE `provinces`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+
 --
 -- AUTO_INCREMENT for table `quotation`
 --
 ALTER TABLE `quotation`
   MODIFY `quoId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ไอดี', AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `quotation_order`
 --
 ALTER TABLE `quotation_order`
   MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ไอดี', AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `subdistricts`
 --
 ALTER TABLE `subdistricts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7365;
+
 --
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
   MODIFY `supplierId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- Constraints for dumped tables
 --
@@ -8891,6 +8981,7 @@ ALTER TABLE `districts`
 --
 ALTER TABLE `subdistricts`
   ADD CONSTRAINT `fk_subdistricts_districts` FOREIGN KEY (`district_id`) REFERENCES `districts` (`id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
