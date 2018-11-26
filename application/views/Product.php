@@ -1,9 +1,9 @@
-<div id="wrapper">
+<div id="wrapper" ng-controller="ProductCtrl">
 
   <div id="page-wrapper">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header">การจัดการสินค้า <a href="<?php echo SITE_URL('Product/ProductFormInsert'); ?>"
+        <h1 class="page-header">การจัดการสินค้า <a href="#" ng-Click="onClickInsert()"
           style="font-size:18px;padding-left:10px;color:#00b300;"> เพิ่ม   <i class="fa fa-plus"></i> </a></h1>
         </div>
         <!-- /.col-lg-12 -->
@@ -20,8 +20,8 @@
                     <th width="10%" class="text-center">ลำดับ</th>
                   <th class="text-center">รหัสสินค้า</th>
                   <th class="text-center">ประเภทสินค้า</th>
-                  <th class="text-center">ชื่อรุ่น</th>
                   <th class="text-center">แบรนด์</th>
+                  <th class="text-center">ชื่อรุ่น</th>
                   <th class="text-center">ราคา</th>
                   <th class="text-center" width="15%">ตัวเลือก</th>
                 </tr>
@@ -38,23 +38,21 @@
                   <td class="text-center"> <a href="#"><b>รายละเอียดสินค้า</b></a> </td>
                 </tr> -->
 
-                <?php $i=1; foreach ($dataShow as $dataShow): ?>
 
-                <tr>
-                  <td class="text-center"> <b><?php echo $i ?></b></td>
-                  <td> <b><?php echo $dataShow['productCode'] ?></b> </td>
-                  <td class="text-center"> <b><?php echo $dataShow['productCategory'] ?></b> </td>
-                  <td class="text-center"> <b><?php echo $dataShow['productModel'] ?></b> </td>
-                  <td class="text-center"> <b><?php echo $dataShow['productBrand'] ?></b> </td>
-                  <td class="text-center"> <b><?php echo number_format($dataShow['productRetail']) ?> บาท</b> </td>
+                <tr ng-repeat="product in dataProduct">
+                  <td class="text-center"> <b>{{$index+1}}</b></td>
+                  <td> <b>{{product.productCode}}</b> </td>
+                  <td class="text-center"> <b>{{product.productCategory}}</b> </td>
+                  <td class="text-center"> <b>{{product.productBrand}}</b> </td>
+                  <td class="text-center"> <b>{{product.productModel}}</b> </td>
+                  <td class="text-center"> <b>{{product.productRetail | number:2}} บาท</b> </td>
                   <?php if ($_SESSION['permission'] >= 2): ?>
-                    <td class="text-center"> <a href="<?php echo SITE_URL('product/productFormUpdate/' . $dataShow['productId']); ?>"> <b>รายละเอียดลูกค้า</b> </a> </td>
+                    <td class="text-center"> <a href="#" ng-Click="onClickUpdate(product)"> <b>รายละเอียดลูกค้า</b> </a> </td>
                     <?php else: ?>
                       <td class="text-center" style="color:red"><b>Admin Zone</b></td>
                   <?php endif; ?>
                 </tr>
 
-                <?php $i++; endforeach; ?>
 
                 </tbody>
               </table>

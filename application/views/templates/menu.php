@@ -25,22 +25,6 @@
 
       <!-- แบ่งสิทธิ์ การเข้าถึง -->
 
-      <?php  if ($_SESSION['permission'] >= 3): ?>
-
-        <li>
-          <a href="#"><i class="fa fa-user fa-fw"></i> ฝ่ายบุคคล<span class="fa arrow"></span></a>
-          <ul class="nav nav-second-level">
-            <li>
-              <a href="<?php echo SITE_URL('Employee'); ?>" onclick="Reload();"> - การจัดการพนักงาน</a>
-            </li>
-            <li>
-              <a href="<?php echo SITE_URL('Position'); ?>" onclick="Reload();"> - การจัดการตำแหน่ง</a>
-            </li>
-          </ul>
-          <!-- /.nav-second-level -->
-        </li>
-
-        <?php  endif; ?>
 
         <li>
           <a href="#"><i class="fa fa-money fa-fw"></i> ผู้ผลิต/ลูกค้า<span class="fa arrow"></span></a>
@@ -56,11 +40,25 @@
         </li>
 
         <li>
-          <a href="#"><i class="fa fa-inbox fa-fw"></i> ฝ่ายสต็อก<span class="fa arrow"></span></a>
+          <a href="#"><i class="fa fa-shopping-cart fa-fw"></i> สินค้า<span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li>
-              <a href="<?php echo SITE_URL('Product'); ?>" onclick="Reload();"> - เพิ่มสินค้า</a>
+              <a href="<?php echo SITE_URL('Product'); ?>" onclick="Reload();"> - การจัดการสินค้า</a>
             </li>
+            <li>
+              <a href="<?php echo SITE_URL('ProductCategory'); ?>" onclick="Reload();"> - การจัดการประเภทสินค้า</a>
+            </li>
+            <li>
+              <a href="<?php echo SITE_URL('ProductBrand'); ?>" onclick="Reload();"> - การจัดการยี่ห้อสินค้า</a>
+            </li>
+          </ul>
+          <!-- /.nav-second-level -->
+        </li>
+
+        <li>
+          <a href="#"><i class="fa fa-inbox fa-fw"></i> ฝ่ายสต็อก<span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+
             <li>
               <a href="#"> - ใบนำสินค้าเข้า</a>
             </li>
@@ -76,6 +74,23 @@
           </ul>
           <!-- /.nav-second-level -->
         </li>
+
+        <?php  if ($_SESSION['permission'] >= 3): ?>
+
+          <li>
+            <a href="#"><i class="fa fa-user fa-fw"></i> ฝ่ายบุคคล<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+              <li>
+                <a href="<?php echo SITE_URL('Employee'); ?>" onclick="Reload();"> - การจัดการพนักงาน</a>
+              </li>
+              <li>
+                <a href="<?php echo SITE_URL('Position'); ?>" onclick="Reload();"> - การจัดการตำแหน่ง</a>
+              </li>
+            </ul>
+            <!-- /.nav-second-level -->
+          </li>
+
+          <?php  endif; ?>
 
         <!-- <li>
         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>

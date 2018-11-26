@@ -48,6 +48,10 @@
   <script src="<?php echo BASE_URL()?>/AngularService/CustomerFormController.js"></script>
   <script src="<?php echo BASE_URL()?>/AngularService/SupplierController.js"></script>
   <script src="<?php echo BASE_URL()?>/AngularService/SupplierFormController.js"></script>
+  <script src="<?php echo BASE_URL()?>/AngularService/ProductController.js"></script>
+  <script src="<?php echo BASE_URL()?>/AngularService/ProductFormController.js"></script>
+  <script src="<?php echo BASE_URL()?>/AngularService/ProductCategoryController.js"></script>
+  <script src="<?php echo BASE_URL()?>/AngularService/ProductBrandController.js"></script>
 
   <!-- Angular Datatable -->
   <script src="<?php echo BASE_URL('/AngularService/angular-datatables/dist/angular-datatables.min.js')?>"></script>

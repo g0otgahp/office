@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Product extends CI_Controller {
+class ProductBrand extends CI_Controller {
 
 	/**
 	* Index Page for this controller.
@@ -44,7 +44,7 @@ class Product extends CI_Controller {
 	public function index()
 	{
 		$Value = array(
-			'View' => "Product",
+			'View' => "ProductBrand",
 			'Result' => array(
 				// 'dataShow' => $dataShow,
 			)
@@ -52,17 +52,6 @@ class Product extends CI_Controller {
 		$this->LoadPage($Value);
 	}
 
-	public function ProductForm()
-	{
-
-		$Value = array(
-			'View' => "ProductForm",
-			'Result' => array(
-				// 'dataShow' => $dataShow,
-			)
-		);
-		$this->LoadPage($Value);
-	}
 
 
 }
