@@ -29,8 +29,7 @@
               <div class="form-group row">
                 <div class="col-md-2"><b>ประเภทสินค้า <small style="color:red">*</small></b></div>
                 <div class="col-md-6">
-                  <input type="text" class="form-control" ng-Model="form.productCategory"
-                  placeholder="ตัวอย่าง : Digital Signage" autocomplete="off" required>
+                  <button class="btn btn-defualt btn-fill" ng-click="openCategoryModal()">เลือกประเภท</button> <span ng-if="form.productCategory" style="color:green;"> {{form.productCategoryName}} <i class="fa fa-check-circle"></i> </span>
                 </div>
               </div>
 
@@ -38,8 +37,7 @@
               <div class="form-group row">
                 <div class="col-md-2"><b>ยี่ห้อ (แบรนด์) <small style="color:red">*</small></b></div>
                 <div class="col-md-6">
-                  <input type="text" class="form-control" ng-Model="form.productBrand"
-                  placeholder="ตัวอย่าง : LG" autocomplete="off" required>
+                  <button class="btn btn-defualt btn-fill" ng-click="openBrandModal()">เลือกยี่ห้อ</button> <span ng-if="form.productBrand" style="color:green;"> {{form.productBrandName}} <i class="fa fa-check-circle"></i> </span>
                 </div>
               </div>
             </div>
@@ -149,12 +147,12 @@
 
             <!-- <div class="row" style="padding:3em" ng-show="{{insert}}"> -->
             <div class="row" style="padding:3em">
-              <button type="submit" class="btn btn-info btn-lg btn-block" ng-Click="onClickInsert()">เพิ่มลูกค้า</button>
+              <button type="submit" class="btn btn-info btn-lg btn-block" ng-Click="onClickInsert()">เพิ่มสินค้า</button>
             </div>
 
             <div class="row" style="padding:3em" ng-show="{{update}}">
             <!-- <div class="row" style="padding:3em"> -->
-              <button type="submit" class="btn btn-warning btn-lg btn-block" ng-Click="onClickUpdate()">แก้ไขลูกค้า</button>
+              <button type="submit" class="btn btn-warning btn-lg btn-block" ng-Click="onClickUpdate()">แก้ไขสินค้า</button>
             </div>
 
           </div>

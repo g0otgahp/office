@@ -24,5 +24,15 @@ class Modal extends CI_Controller {
 		$this->load->view('Modal/ProductBrandModal');
 	}
 
+	public function BrandModal()
+	{
+		$this->load->view('Modal/BrandModal');
+	}
+
+	public function CategoryModal()
+	{
+		$this->load->view('Modal/CategoryModal');
+	}
+
 
 }
