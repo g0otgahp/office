@@ -98,18 +98,18 @@
                         <td class="text-left">{{item.productName}}
                           <p style="color:gray">({{item.productDetail}})</p>
                         </td>
-                        <td class="text-center"><input class="form-control text-right input-sm" type="number" min="0" max="999" placeholder="จำนวน" value="0" ng-model="item.productQty"></td>
+                        <td class="text-center"><input class="form-control text-right input-sm" type="tel" min="0" max="999" placeholder="จำนวน" value="0" ng-model="item.productQty"></td>
                         <td class="text-center">เครื่อง</td>
-                        <td class="text-right"><input class="form-control text-right input-sm" type="text" placeholder="ราคา" ng-model="item.productRetail" autocomplete="off"
+                        <td class="text-right"><input class="form-control text-right input-sm" type="tel" placeholder="ราคา" ng-model="item.productRetail" autocomplete="off"
                         oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"></td>
-                        <td class="text-right"><input class="form-control text-right input-sm" type="number" min="0" placeholder="ส่วนลด" ng-model="item.productDiscount"></td>
+                        <td class="text-right"><input class="form-control text-right input-sm" type="tel" min="0" placeholder="ส่วนลด" ng-model="item.productDiscount"></td>
                         <td class="text-right">
                           <span ng-if="item.productDiscount != 0 && item.productDiscount">{{item.productDiscount * item.productQty | number}}</span>
                           <span ng-if="item.productDiscount == 0 || !item.productDiscount">{{item.productRetail * item.productQty | number}}</span>
                         </td>
                       </tr>
-                      <tr>
-                        <td class="text-center" colspan="8"><button type="submit" class="btn btn-defualt btn-fill btn-link" ng-click="openProductModal()"> <i class="glyphicon glyphicon-plus"></i>เพิ่มสินค้า</button></td>
+                      <tr ng-if="Forms.SelectProduct.length != 6">
+                        <td  class="text-center"  colspan="8"><button type="submit" class="btn btn-defualt btn-fill btn-link" ng-click="openProductModal()"> <i class="glyphicon glyphicon-plus"></i>เพิ่มสินค้า</button></td>
                       </tr>
                     </tbody>
                   </table>
@@ -167,7 +167,6 @@
                 || Forms.SelectCustomer.customerEmail === undefined
                 || Forms.SelectCustomer.quoNo === undefined
                 || Forms.SelectCustomer.quoPayments === undefined
-                || Forms.SelectCustomer.quoProject === undefined
                 || Forms.SelectCustomer.quoReachDay === undefined
                 || Forms.SelectCustomer.quoTransportDay === undefined
                 )">สร้างใบเสนอราคา</button>

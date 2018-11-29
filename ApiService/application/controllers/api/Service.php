@@ -60,12 +60,24 @@ class Service extends REST_Controller {
       'quoReachDay' => $data['Forms']['SelectCustomer']['quoReachDay'],
       'quoPayments' => $data['Forms']['SelectCustomer']['quoPayments'],
       'quoTransportDay' => $data['Forms']['SelectCustomer']['quoTransportDay'],
-      'quoRemark1' => $data['Forms']['SelectCustomer']['quoRemark1'],
-      'quoRemark2' => $data['Forms']['SelectCustomer']['quoRemark2'],
-      'quoRemark3' => $data['Forms']['SelectCustomer']['quoRemark3'],
-      'quoNote' => $data['Forms']['SelectCustomer']['quoNote'],
       'quoOfferId' => $data['sessionId'],
     );
+
+    if (isset($data['Forms']['SelectCustomer']['quoRemark1'])) {
+      $quotation['quoRemark1'] = $data['Forms']['SelectCustomer']['quoRemark1'];
+    }
+
+    if (isset($data['Forms']['SelectCustomer']['quoRemark2'])) {
+      $quotation['quoRemark2'] = $data['Forms']['SelectCustomer']['quoRemark2'];
+    }
+
+    if (isset($data['Forms']['SelectCustomer']['quoRemark3'])) {
+      $quotation['quoRemark3'] = $data['Forms']['SelectCustomer']['quoRemark3'];
+    }
+
+    if (isset($data['Forms']['SelectCustomer']['quoNote'])) {
+      $quotation['quoNote'] = $data['Forms']['SelectCustomer']['quoNote'];
+    }
 
     if (!empty($data['Forms']['SelectCustomer']['quoId'])) {
       $quotation['quoId'] = $data['Forms']['SelectCustomer']['quoId'];

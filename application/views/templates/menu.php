@@ -3,7 +3,7 @@
 <div class="navbar-default sidebar" role="navigation">
   <div class="sidebar-nav navbar-collapse">
     <ul class="nav" id="side-menu">
-      <li class="sidebar-search">
+      <!-- <li class="sidebar-search">
         <div class="input-group custom-search-form">
           <input type="text" class="form-control" placeholder="Search...">
           <span class="input-group-btn">
@@ -12,12 +12,11 @@
             </button>
           </span>
         </div>
-        <!-- /input-group -->
-      </li>
+      </li> -->
 
-      <li>
+      <!-- <li>
         <a href="<?php echo SITE_URL('Dashboard'); ?>" onclick="Reload();"><i class="fa fa-dashboard fa-fw"></i> ภาพรวม</a>
-      </li>
+      </li> -->
 
       <li>
         <a href="<?php echo SITE_URL("Quotation"); ?>" onclick="Reload();"><i class="glyphicon glyphicon-book"></i>&nbsp; ใบเสนอราคา</a>

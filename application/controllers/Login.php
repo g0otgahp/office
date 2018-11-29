@@ -24,7 +24,7 @@ class Login extends CI_Controller {
 		parent::__construct();
 		@session_start();
 		if(@$_SESSION['Status'] == "OFFICE_NEWZENO"){
-			echo "<script>document.location='" . SITE_URL('Dashboard') . "'</script>";
+			echo "<script>document.location='" . SITE_URL('Quotation') . "'</script>";
 			// redirect("Dashboard");
 		}
 	}

@@ -330,29 +330,30 @@ h1,h2,h3,h4,h5{
               <div class="row">
                 <div class="col-sm-12">
                   <div class="row pull-right">
-                  <h4><img src="<?php echo base_url('uploads/Login/logonewzeno.png')?>" width="220"  class="img-responsive" alt=""/></h4>
+                    <h4><img src="<?php echo base_url('uploads/Login/logonewzeno.png')?>" width="220"  class="img-responsive" alt=""/></h4>
+                  </div>
+                  <div class="row">
+                    <br><br>
+                    <p class="head-quo">บริษัท นิวซีโน (ประเทศไทย) จำกัด</p>
+                    <p class="head-quo">82/24 หมู่ 1 ซอยโคแจ้ง ถนนราชพฤกษ์ ตำบลบางขนุน อำเภอบางกรวย จังหวัดนนทบุรี 11130</p>
+                    <p class="head-quo">โทรศัพท์ : 02-435-5508-9 แฟกซ์ : 02-435-5526-27 E-mail:newzeno@yahoo.com ID Line. 099-325-4289</p>
+                    <p class="head-quo">เลขประจำตัวผู้เสียภาษี : 0105552086618</p>
+                  </div>
                 </div>
-                <div class="row">
-                  <br><br>
-                  <p class="head-quo">บริษัท นิวซีโน (ประเทศไทย) จำกัด</p>
-                  <p class="head-quo">185/4 ถนนสมเด็ถนนสมเด็จพระปิ่นเกล้า แขวงอรุณอัมรินทร์ เขตบางกอกน้อย จังหวัดกรุงเทพมหานคร 10700</p>
-                  <p class="head-quo">โทรศัพท์ : 095-449-5229 แฟกซ์ : 02-435-5899 เลขประจำตัวผู้เสียภาษี : 0105552086618</p>
-                </div>
-                </div>
-                  <!-- <div class="row">
-                  <div class="col-sm-6 head-quo" style="padding-right:0px;">
-                  <p>เลขประจำตัวผู้เสียภาษี</p>
-                </div>
+                <!-- <div class="row">
                 <div class="col-sm-6 head-quo" style="padding-right:0px;">
-                <p>0105552086618</p>
+                <p>เลขประจำตัวผู้เสียภาษี</p>
               </div>
               <div class="col-sm-6 head-quo" style="padding-right:0px;">
-              <p>สาขาที่ออกเอกสาร</p>
+              <p>0105552086618</p>
             </div>
             <div class="col-sm-6 head-quo" style="padding-right:0px;">
-            <p>สำนักงานใหญ่</p>
+            <p>สาขาที่ออกเอกสาร</p>
           </div>
-        </div> -->
+          <div class="col-sm-6 head-quo" style="padding-right:0px;">
+          <p>สำนักงานใหญ่</p>
+        </div>
+      </div> -->
     </div>
   </div>
   <!-- <div class="col-sm-4" style="margin-bottom:20px">
@@ -378,7 +379,7 @@ h1,h2,h3,h4,h5{
       </div>
       <div class="col-sm-9 head-quo nopadding-left">: <?php echo $Select['quotation'][0]['quoCompany'] ?>
       </div>
-      <div class="col-sm-3 head-quo"><b>เรียน</b>
+      <div class="col-sm-3 head-quo"><b>เรียนคุณ</b>
       </div>
       <div class="col-sm-9 head-quo nopadding-left">: <?php echo $Select['customer'][0]['customerName'] ?>
       </div>
@@ -390,10 +391,12 @@ h1,h2,h3,h4,h5{
       </div>
       <div class="col-sm-9 head-quo nopadding-left">: <?php echo $Select['quotation'][0]['quoEmail'] ?>
       </div>
+      <?php if ($Select['quotation'][0]['quoProject'] != ''): ?>
       <div class="col-sm-3 head-quo"><b>โปรเจค</b>
       </div>
       <div class="col-sm-9 head-quo nopadding-left">: <?php echo $Select['quotation'][0]['quoProject'] ?>
       </div>
+    <?php endif; ?>
     </div>
   </div>
   <div class="col-sm-4">
@@ -425,193 +428,201 @@ h1,h2,h3,h4,h5{
 <div class="row" style="margin-top:20px;">
   <div class="col-sm-12">
     <b>ทางบริษัทฯ มีความยินดีในการเสนอราคาสินค้าและบริการ ตามราคาและเงื่อนไขที่ระบุไว้ดังนี้</p>
+    </div>
+    <div class="col-md-12 table-responsive col-sm-12">
+      <table width="100%" class="table invoice" style="padding:2px;">
+        <thead>
+          <tr style="border-top: 1px solid #ddd;">
+            <th width="5%" class="text-center">ลำดับ</th>
+            <th width="25%" class="text-center">รายการ</th>
+            <th width="7%" class="text-right">จำนวน</th>
+            <th width="8%" class="text-right">หน่วยนับ</th>
+            <th width="8%" class="text-right">ราคา/หน่วย</th>
+            <th width="8%" class="text-right">เหลือ/หน่วย</th>
+            <th width="8%" class="text-right">รวม</th>
+          </tr>
+        </thead>
+        <tbody style="padding:1px;">
+          <?php $i=1; $total=0; foreach ($Select['quotation_order'] as $item): ?>
+            <tr style="padding:1px;">
+              <td style="padding:1px;" class="text-center" scope="row" ><?php echo $i ?></td>
+              <td style="padding:1px;" class="text-left"><b><?php echo $item['orderName'] ?></b>
+                <br><?php echo $item['orderDetail'] ?>
+              </td>
+              <td style="padding:1px;" class="text-right"><?php echo number_format($item['orderQty']) ?></td>
+              <td style="padding:1px;" class="text-right"><?php echo $item['orderUnit'] ?></td>
+              <td style="padding:1px;" class="text-right"><?php echo number_format($item['orderPrice']) ?></td>
+              <td style="padding:1px;" class="text-right"><?php echo number_format($item['orderDiscount']) ?></td>
+              <?php if ($item['orderDiscount'] != 0): ?>
+                <td style="padding:1px;" class="text-right"><?php $resultPrice = $item['orderDiscount'] * $item['orderQty']; echo number_format($resultPrice) ?></td>
+              <?php else: ?>
+                <td style="padding:1px;" class="text-right"><?php $resultPrice = $item['orderPrice'] *  $item['orderQty'];  echo number_format($resultPrice) ?></td>
+              <?php endif; ?>
+
+              <!-- <td class="text-right"><?php //echo $PurchaseOrder['material_po_quantity']; ?> <?php //echo $PurchaseOrder['material_unit']; ?></td> -->
+            </tr>
+            <?php $i++; $total += $resultPrice; endforeach; ?>
+            <?php //if (count($AccountingDetail)<10): ?>
+              <?php
+              $row = 6 - count($Select['quotation_order']);
+              for ($i=0; $i < $row; $i++) { ?>
+                <tr style="border-bottom: 1px solid #ddd;">
+                  <td style="padding:1px;">&nbsp;</td>
+                  <td style="padding:1px;">&nbsp;<p>&nbsp;</p></td>
+                  <td style="padding:1px;">&nbsp;</td>
+                  <td style="padding:1px;">&nbsp;</td>
+                  <td style="padding:1px;">&nbsp;</td>
+                  <td style="padding:1px;">&nbsp;</td>
+                  <td style="padding:1px;">&nbsp;</td>
+                </tr>
+              <?php } ?>
+              <?php //endif; ?>
+            </tbody>
+          </table>
+        </div>
+        <!-- <div class="col-md-2 col-sm-offset-8 col-sm-2"><b>ราคาสุทธิ</div>
+        <div class="col-md-2 col-sm-2">2,000 บาท</b></div> -->
       </div>
-  <div class="col-md-12 table-responsive col-sm-12">
-    <table width="100%" class="table invoice">
-      <thead>
-        <tr style="border-top: 1px solid #ddd;">
-          <th width="5%" class="text-center">ลำดับ</th>
-          <th width="25%" class="text-center">รายการ</th>
-          <th width="7%" class="text-center">จำนวน</th>
-          <th width="8%" class="text-center">หน่วยนับ</th>
-          <th width="8%" class="text-center">ราคา/หน่วย</th>
-          <th width="8%" class="text-center">เหลือ/หน่วย</th>
-          <th width="8%" class="text-center">รวม</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php $i=1; $total=0; foreach ($Select['quotation_order'] as $item): ?>
-          <tr>
-            <td class="text-center" scope="row"><?php echo $i ?></td>
-            <td class="text-left"><b><?php echo $item['orderName'] ?></b>
-              <br><?php echo $item['orderDetail'] ?>
-            </td>
-            <td class="text-right"><?php echo number_format($item['orderQty']) ?></td>
-            <td class="text-right"><?php echo $item['orderUnit'] ?></td>
-            <td class="text-right"><?php echo number_format($item['orderPrice']) ?></td>
-            <td class="text-right"><?php echo number_format($item['orderDiscount']) ?></td>
-            <?php if ($item['orderDiscount'] != 0): ?>
-              <td class="text-right"><?php $resultPrice = $item['orderDiscount'] * $item['orderQty']; echo number_format($resultPrice) ?></td>
-            <?php else: ?>
-              <td class="text-right"><?php $resultPrice = $item['orderPrice'] *  $item['orderQty'];  echo number_format($resultPrice) ?></td>
+      <div class="row">
+        <div class="col-sm-1">
+          <div class="row">
+            <div class="col-sm-12 head-quo">หมายเหตุ</div>
+          </div>
+        </div>
+        <div class="col-sm-7">
+          <div class="row">
+
+            <?php if ($Select['quotation'][0]['quoRemark1'] != ''): ?>
+              <div class="col-sm-12 head-quo">1. <?php echo $Select['quotation'][0]['quoRemark1'] ?></div>
             <?php endif; ?>
 
-            <!-- <td class="text-right"><?php //echo $PurchaseOrder['material_po_quantity']; ?> <?php //echo $PurchaseOrder['material_unit']; ?></td> -->
-          </tr>
-          <?php $i++; $total += $resultPrice; endforeach; ?>
-          <?php //if (count($AccountingDetail)<10): ?>
-            <?php
-            $row = 6 - count($Select['quotation_order']);
-            for ($i=0; $i < $row; $i++) { ?>
-              <tr style="border-bottom: 1px solid #ddd;">
-                <td>&nbsp;</td>
-                <td>&nbsp;<p>&nbsp;</p></td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+            <?php if ($Select['quotation'][0]['quoRemark2'] != ''): ?>
+              <div class="col-sm-12 head-quo">2. <?php echo $Select['quotation'][0]['quoRemark2'] ?></div>
+            <?php endif; ?>
+
+            <?php if ($Select['quotation'][0]['quoRemark3'] != ''): ?>
+              <div class="col-sm-12 head-quo">3. <?php echo $Select['quotation'][0]['quoRemark3'] ?></div>
+            <?php endif; ?>
+
+
+
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="row">
+            <!-- <div class="col-sm-6 head-quo"><b>ส่วนลดการค้า</b></div>
+            <div class="col-sm-6 text-right head-quo">0.00</div> -->
+            <div class="col-sm-6 head-quo"><b>มูลค่าสินค้า</b></div>
+            <div class="col-sm-6 text-right head-quo"><?php echo number_format($total); ?> บาท</div>
+            <div class="col-sm-6 head-quo"><b>ภาษีมูลค่าเพิ่ม(7%)</b></div>
+            <div class="col-sm-6 text-right head-quo"><?php $tax = $total * 0.07; echo number_format($tax); ?> บาท</div>
+            <div class="col-sm-6 head-quo"><b>รวมทั้งสิ้น</b></div>
+            <div class="col-sm-6 text-right head-quo"><?php echo number_format($total + $tax); ?> บาท</div>
+          </div>
+        </div>
+      </div>
+      <hr style="margin-top:5px; margin-bottom:0px;">
+
+      <div class="row">
+        <div class="col-sm-12">
+          ***ขอสงวนสิทธิในการเปลี่ยนแปลงรายละเอียดและราคาของสินค้าตลอดจนรายการส่งเสริมการขายและการลงทะเบียนโดยไม่ต้องแจ้งให้ทราบล่วงหน้า
+        </div>
+        <div class="col-sm-12 text-center">
+          <table class="table table-bordered" style="margin-bottom:70px;">
+            <tbody>
+              <tr style="padding:2px;">
+                <th style="padding:2px;" class="text-left" colspan="5" width="100%"> &nbsp;&nbsp;&nbsp;สามารถชำระเงินผ่านธนาคารในนาม บริษัท นิวซีโน่ (ประเทศไทย) จำกัด</th>
               </tr>
-            <?php } ?>
-            <?php //endif; ?>
-          </tbody>
-        </table>
+              <tr>
+                <th style="padding:2px;" class="text-center" colspan="2">ธนาคาร</th>
+                <th style="padding:2px;" class="text-center">สาขา</th>
+                <th style="padding:2px;" class="text-center">ประเภทบัญชี</th>
+                <th style="padding:2px;" class="text-center">เลขที่บัญชี</th>
+              </tr>
+              <tr>
+                <td style="padding:2px;" class="text-center" width="4%"><img src="<?php echo base_url('uploads/Login/ktc.png')?>" width="15"  class="img-responsive" alt=""/></td>
+                <td style="padding:2px;" class="text-center">กรุงเทพ</td>
+                <td style="padding:2px;" class="text-center">เดอะเซอร์เคิล</td>
+                <td style="padding:2px;" class="text-center">กระแสรายวัน</td>
+                <td style="padding:2px;" class="text-center">089-7028999</td>
+              </tr>
+              <tr>
+                <td style="padding:2px;" class="text-center"><img src="<?php echo base_url('uploads/Login/kbank.png')?>" width="15"  class="img-responsive" alt=""/></td>
+                <td style="padding:2px;" class="text-center">กสิกรไทย</td>
+                <td style="padding:2px;" class="text-center">ปิ่นเกล้า</td>
+                <td style="padding:2px;" class="text-center">กระแสรายวัน</td>
+                <td style="padding:2px;" class="text-center">706-241-3888</td>
+              </tr>
+              <tr>
+                <td style="padding:2px;" class="text-center"><img src="<?php echo base_url('uploads/Login/scb.png')?>" width="15"  class="img-responsive" alt=""/></td>
+                <td style="padding:2px;" class="text-center">ไทยพาณิชย์</td>
+                <td style="padding:2px;" class="text-center">บางโคล่</td>
+                <td style="padding:2px;" class="text-center">กระแสรายวัน</td>
+                <td style="padding:2px;" class="text-center">089-7028999</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
       </div>
-      <!-- <div class="col-md-2 col-sm-offset-8 col-sm-2"><b>ราคาสุทธิ</div>
-      <div class="col-md-2 col-sm-2">2,000 บาท</b></div> -->
-    </div>
-    <div class="row">
-      <div class="col-sm-1">
-        <div class="row">
-          <div class="col-sm-12 head-quo">หมายเหตุ</div>
+
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="row text-center head-quo">
+            <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ลงชื่อ ..........................................</div>
+            <div class="col-sm-12 head-quo">(<?php echo $Select['employee'][0]['profileName'].$Select['employee'][0]['profileName']." ".$Select['employee'][0]['profileSurname'] ?>)<div>
+              <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ผู้เสนอราคา
+              </div>
+              <div class="col-sm-12 head-quo" >
+                <div>
+                  <div class="col-sm-12 head-quo text-left">วันที่ ............../............../..............</div>
+                  <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ :
+                    <?php echo substr($Select['employee'][0]['profilePhone'],0,3) . "-" .
+                    substr($Select['employee'][0]['profilePhone'],3,3) . "-" .
+                    substr($Select['employee'][0]['profilePhone'],6,4)?>
+                  </div>
+                  <div class="col-sm-12 head-quo text-left" style="font-size:9px;">Email : <?php echo $Select['employee'][0]['profileEmail'] ?></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-sm-7">
-        <div class="row">
-          <div class="col-sm-12 head-quo">1. <?php echo $Select['quotation'][0]['quoRemark1'] ?></div>
-          <div class="col-sm-12 head-quo">2. <?php echo $Select['quotation'][0]['quoRemark2'] ?></div>
-          <div class="col-sm-12 head-quo">3. <?php echo $Select['quotation'][0]['quoRemark3'] ?></div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="row">
-          <!-- <div class="col-sm-6 head-quo"><b>ส่วนลดการค้า</b></div>
-          <div class="col-sm-6 text-right head-quo">0.00</div> -->
-          <div class="col-sm-6 head-quo"><b>มูลค่าสินค้า</b></div>
-          <div class="col-sm-6 text-right head-quo"><?php echo number_format($total); ?> บาท</div>
-          <div class="col-sm-6 head-quo"><b>ภาษีมูลค่าเพิ่ม(7%)</b></div>
-          <div class="col-sm-6 text-right head-quo"><?php $tax = $total * 0.07; echo number_format($tax); ?> บาท</div>
-          <div class="col-sm-6 head-quo"><b>รวมทั้งสิ้น</b></div>
-          <div class="col-sm-6 text-right head-quo"><?php echo number_format($total + $tax); ?> บาท</div>
-        </div>
-      </div>
-    </div>
-    <hr style="margin-top:5px; margin-bottom:0px;">
-
-    <div class="row">
-      <div class="col-sm-12">
-        ***ขอสงวนสิทธิในการเปลี่ยนแปลงรายละเอียดและราคาของสินค้าตลอดจนรายการส่งเสริมการขายและการลงทะเบียนโดยไม่ต้องแจ้งให้ทราบล่วงหน้า
-      </div>
-      <div class="col-sm-12 text-center">
-        <table class="table table-bordered" style="margin-bottom:70px;">
-          <tbody>
-            <tr style="padding:2px;">
-              <th style="padding:2px;" class="text-left" colspan="5" width="100%"> &nbsp;&nbsp;&nbsp;สามารถชำระเงินผ่านธนาคารในนาม บริษัท นิวซีโน่ (ประเทศไทย) จำกัด</th>
-            </tr>
-            <tr>
-              <th style="padding:2px;" class="text-center" colspan="2">ธนาคาร</th>
-              <th style="padding:2px;" class="text-center">สาขา</th>
-              <th style="padding:2px;" class="text-center">ประเภทบัญชี</th>
-              <th style="padding:2px;" class="text-center">เลขที่บัญชี</th>
-            </tr>
-            <tr>
-              <td style="padding:2px;" class="text-center" width="4%"><img src="<?php echo base_url('uploads/Login/ktc.png')?>" width="15"  class="img-responsive" alt=""/></td>
-              <td style="padding:2px;" class="text-center">กรุงเทพ</td>
-              <td style="padding:2px;" class="text-center">เดอะเซอร์เคิล</td>
-              <td style="padding:2px;" class="text-center">กระแสรายวัน</td>
-              <td style="padding:2px;" class="text-center">089-7028999</td>
-            </tr>
-            <tr>
-              <td style="padding:2px;" class="text-center"><img src="<?php echo base_url('uploads/Login/kbank.png')?>" width="15"  class="img-responsive" alt=""/></td>
-              <td style="padding:2px;" class="text-center">กสิกรไทย</td>
-              <td style="padding:2px;" class="text-center">ปิ่นเกล้า</td>
-              <td style="padding:2px;" class="text-center">กระแสรายวัน</td>
-              <td style="padding:2px;" class="text-center">706-241-3888</td>
-            </tr>
-            <tr>
-              <td style="padding:2px;" class="text-center"><img src="<?php echo base_url('uploads/Login/scb.png')?>" width="15"  class="img-responsive" alt=""/></td>
-              <td style="padding:2px;" class="text-center">ไทยพาณิชย์</td>
-              <td style="padding:2px;" class="text-center">บางโคล่</td>
-              <td style="padding:2px;" class="text-center">กระแสรายวัน</td>
-              <td style="padding:2px;" class="text-center">089-7028999</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-    </div>
-
-
-    <div class="row">
       <div class="col-sm-4">
         <div class="row text-center head-quo">
           <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ลงชื่อ ..........................................</div>
-          <div class="col-sm-12 head-quo">(<?php echo $Select['employee'][0]['profileLogName'] ?>)<div>
-            <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ผู้เสนอราคา
+          <div class="col-sm-12 head-quo">(...................................................)<div>
+            <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ผู้อนุมัติเสนอราคา
+            </div>
+            <div class="col-sm-12 head-quo" >
+              <div>
+                <div class="col-sm-12 head-quo text-left">วันที่ ............../............../..............</div>
+                <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ : ..........................................</div>
+                <div class="col-sm-12 head-quo text-left" style="font-size:9px;">Email : .........................................</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="row text-center head-quo">
+        <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ลงชื่อ ..........................................</div>
+        <div class="col-sm-12 head-quo">(...................................................)<div>
+          <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ผู้อนุมัติสั่งซื้อ
           </div>
           <div class="col-sm-12 head-quo" >
             <div>
               <div class="col-sm-12 head-quo text-left">วันที่ ............../............../..............</div>
-            <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ :
-              <?php echo substr($Select['employee'][0]['profilePhone'],0,3) . "-" .
-                                  substr($Select['employee'][0]['profilePhone'],3,3) . "-" .
-                                  substr($Select['employee'][0]['profilePhone'],6,4)?>
+              <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ : ..........................................</div>
+              <div class="col-sm-12 head-quo text-left" style="font-size:9px;">Email : .........................................</div>
             </div>
-            <div class="col-sm-12 head-quo text-left" style="font-size:9px;">Email : <?php echo $Select['employee'][0]['profileEmail'] ?></div>
           </div>
         </div>
-        </div>
       </div>
     </div>
   </div>
-  <div class="col-sm-4">
-    <div class="row text-center head-quo">
-      <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ลงชื่อ ..........................................</div>
-      <div class="col-sm-12 head-quo">(...................................................)<div>
-        <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ผู้อนุมัติเสนอราคา
-      </div>
-      <div class="col-sm-12 head-quo" >
-        <div>
-          <div class="col-sm-12 head-quo text-left">วันที่ ............../............../..............</div>
-        <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ :
-        <?php echo substr($Select['quotation'][0]['quoTel'],0,3) . "-" .
-                            substr($Select['quotation'][0]['quoTel'],3,3) . "-" .
-                            substr($Select['quotation'][0]['quoTel'],6,4)?>
-                            </div>
-        <div class="col-sm-12 head-quo text-left" style="font-size:9px;">Email : <?php echo $Select['quotation'][0]['quoEmail'] ?></div>
-      </div>
-    </div>
-    </div>
-  </div>
-</div>
-</div>
-<div class="col-sm-4">
-  <div class="row text-center head-quo">
-    <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ลงชื่อ ..........................................</div>
-    <div class="col-sm-12 head-quo">(...................................................)<div>
-      <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ผู้อนุมัติสั่งซื้อ
-    </div>
-    <div class="col-sm-12 head-quo" >
-      <div>
-        <div class="col-sm-12 head-quo text-left">วันที่ ............../............../..............</div>
-      <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ : .....................................................</div>
-      <div class="col-sm-12 head-quo text-left" style="font-size:9px;">Email : ...................................................</div>
-    </div>
-  </div>
-  </div>
-</div>
-</div>
-</div>
 </div>
 
 

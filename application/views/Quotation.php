@@ -17,10 +17,10 @@
             <table width="100%" class="table table-striped table-bordered table-hover dataTable">
               <thead>
                 <tr>
-                  <th width="10%" class="text-center">ลำดับ</th>
+                  <th width="5%" class="text-center">ลำดับ</th>
                   <th class="text-center">วันที่เสนอราคา</th>
                   <th class="text-center">เลขที่ใบเสนอราคา</th>
-                  <th class="text-center">ชื่อลูกค้า</th>
+                  <th width="30%" class="text-center">ชื่อลูกค้า</th>
                   <th class="text-center">เบอร์ติดต่อ</th>
                   <th class="text-center">สถานะ</th>
                   <th class="text-center">พิมพ์</th>

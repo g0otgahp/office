@@ -33,9 +33,6 @@ class EmployeeModel extends CI_Model {
 
 	public function EmployeeInsert($dataInsert)
 	{
-
-		$this->debug->log($dataInsert);
-
 		$profile = array(
 			'profilePrefix' => $dataInsert['profilePrefix'],
 			'profileName' => $dataInsert['profileName'],
