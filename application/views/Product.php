@@ -14,7 +14,7 @@
         <div class="col-lg-12">
           <!-- /.panel-heading -->
           <div class="panel-body">
-            <table width="100%" class="table table-striped table-bordered table-hover dataTable">
+            <table width="100%" class="table table-striped table-bordered table-hover" datatable="ng" dt-options="dtOptions" dt-instance="dtInstance">
               <thead>
                 <tr>
                     <th width="10%" class="text-center">ลำดับ</th>

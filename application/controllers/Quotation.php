@@ -42,8 +42,8 @@ class Quotation extends CI_Controller {
 
 	public function index()
 	{
-		$QuotationList = $this->QuotationModel->LoadQuotation();
-
+		$id = $_SESSION['profileId'];
+		$QuotationList = $this->QuotationModel->LoadQuotation($id);
 		$Value = array(
 			'View' => "Quotation",
 			'Result' => array(

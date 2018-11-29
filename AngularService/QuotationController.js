@@ -1,9 +1,6 @@
 // Define the `PhoneListController` controller on the `phonecatApp` module
 App.controller('QuotationCtrl', function Controller($scope, $http, $uibModal, $window, $location) {
-
   $scope.sessionid = $location.search().sid;
-
-
   $scope.Forms = {
     SelectCustomer : [],
     SelectProduct : [],

@@ -56,7 +56,6 @@ class Service extends REST_Controller {
       'quoCustomerId' => $data['Forms']['SelectCustomer']['customerId'],
       'quoTel' => $data['Forms']['SelectCustomer']['customerMainPhone'],
       'quoEmail' => $data['Forms']['SelectCustomer']['customerEmail'],
-      'quoProject' => $data['Forms']['SelectCustomer']['quoProject'],
       'quoReachDay' => $data['Forms']['SelectCustomer']['quoReachDay'],
       'quoPayments' => $data['Forms']['SelectCustomer']['quoPayments'],
       'quoTransportDay' => $data['Forms']['SelectCustomer']['quoTransportDay'],
@@ -66,6 +65,11 @@ class Service extends REST_Controller {
     if (isset($data['Forms']['SelectCustomer']['quoRemark1'])) {
       $quotation['quoRemark1'] = $data['Forms']['SelectCustomer']['quoRemark1'];
     }
+
+    if (isset($data['Forms']['SelectCustomer']['quoProject'])) {
+      $quotation['quoRemark1'] = $data['Forms']['SelectCustomer']['quoProject'];
+    }
+
 
     if (isset($data['Forms']['SelectCustomer']['quoRemark2'])) {
       $quotation['quoRemark2'] = $data['Forms']['SelectCustomer']['quoRemark2'];

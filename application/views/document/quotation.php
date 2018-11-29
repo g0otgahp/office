@@ -571,7 +571,7 @@ h1,h2,h3,h4,h5{
         <div class="col-sm-4">
           <div class="row text-center head-quo">
             <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ลงชื่อ ..........................................</div>
-            <div class="col-sm-12 head-quo">(<?php echo $Select['employee'][0]['profileName'].$Select['employee'][0]['profileName']." ".$Select['employee'][0]['profileSurname'] ?>)<div>
+            <div class="col-sm-12 head-quo">(<?php echo $Select['employee'][0]['profilePrefix'].$Select['employee'][0]['profileName']." ".$Select['employee'][0]['profileSurname'] ?>)<div>
               <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ผู้เสนอราคา
               </div>
               <div class="col-sm-12 head-quo" >

@@ -19,9 +19,14 @@ class QuotationModel extends CI_Model {
 	* @see https://codeigniter.com/user_guide/general/urls.html
 	*/
 
-	public function LoadQuotation()
+	public function LoadQuotation($id)
 	{
-		$data = $this->db->order_by('quoStatus','ACS')->order_by('quoDate','DESC')->get('quotation')->result_array();
+		$data = $this->db
+		->order_by('quoStatus','ACS')
+		->order_by('quoDate','DESC')
+		->where('quoOfferId',$id)
+		->get('quotation')
+		->result_array();
 		return $data;
 
 	}
