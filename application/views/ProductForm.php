@@ -145,8 +145,8 @@
               </div>
             </div>
 
-            <!-- <div class="row" style="padding:3em" ng-show="{{insert}}"> -->
-            <div class="row" style="padding:3em">
+            <div class="row" style="padding:3em" ng-show="{{insert}}">
+            <!-- <div class="row" style="padding:3em"> -->
               <button type="submit" class="btn btn-info btn-lg btn-block" ng-Click="onClickInsert()">เพิ่มสินค้า</button>
             </div>
 

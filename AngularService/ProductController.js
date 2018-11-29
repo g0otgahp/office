@@ -4,18 +4,25 @@ App.controller('ProductCtrl', function($scope, $http, $window, $location) {
 
   // console.log("ProductController");
 
-  $http.get(URL+'Product/SelectProduct').then(function (res) {
-    $scope.dataProduct = res.data;
-    // console.log($scope.dataProduct);
-  })
+  $scope.loadView = function(){
+    $http.get(URL+'Product/SelectProduct').then(function (res) {
+      $scope.dataProduct = res.data;
+      // console.log($scope.dataProduct);
+    })
+  }
+
+  $scope.loadView();
 
   $scope.onClickInsert = function(){
     // console.log("onClickInsert");
     $window.location.href = VIEW_URL+"Product/ProductForm";
   }
 
-  $scope.onClickUpdate = function(){
+  $scope.onClickUpdate = function(product){
     // console.log("onClickUpdate");
+    // console.log(product.productId);
+    $window.location.href = VIEW_URL+"Product/ProductForm/?productId=" + product.productId;
+
   }
 
 
