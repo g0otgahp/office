@@ -10,7 +10,7 @@
       <table width="100%" class="table table-striped table-bordered table-hover" datatable="ng" dt-options="dtOptions" dt-instance="dtInstance">
         <thead>
           <tr>
-            <th width="5%" class="text-center">ลำดับ</th>
+            <th width="3%" class="text-center">ลำดับ</th>
             <th class="text-center">ชื่อบริษัท</th>
             <th class="text-center">ชื่อผู้ติดต่อ</th>
             <th class="text-center" width="8%">ชื่อเล่น</th>

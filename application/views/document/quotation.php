@@ -52,7 +52,7 @@ h1,h2,h3,h4,h5{
     box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
   }
   page[size="A4"] {
-    width: 21cm;
+    width: 21.2cm;
     height: 29.7cm;
     padding: 20px;
   }
@@ -330,14 +330,15 @@ h1,h2,h3,h4,h5{
               <div class="row">
                 <div class="col-sm-12">
                   <div class="row pull-right">
-                    <h4><img src="<?php echo base_url('uploads/Login/logonewzeno.png')?>" width="220"  class="img-responsive" alt=""/></h4>
+                    <h4><img src="<?php echo base_url('uploads/Login/logonewzeno.png')?>" width="200"  class="img-responsive" alt=""/></h4>
                   </div>
                   <div class="row">
-                    <br><br>
-                    <p class="head-quo">บริษัท นิวซีโน (ประเทศไทย) จำกัด</p>
-                    <p class="head-quo">82/24 หมู่ 1 ซอยโคแจ้ง ถนนราชพฤกษ์ ตำบลบางขนุน อำเภอบางกรวย จังหวัดนนทบุรี 11130</p>
-                    <p class="head-quo">โทรศัพท์ : 02-435-5508-9 แฟกซ์ : 02-435-5526-27 E-mail:newzeno@yahoo.com ID Line. 099-325-4289</p>
-                    <p class="head-quo">เลขประจำตัวผู้เสียภาษี : 0105552086618</p>
+                    <div class="col-sm-12">
+                      <p class="head-quo">บริษัท นิวซีโน (ประเทศไทย) จำกัด</p>
+                      <p class="head-quo" style="font-weight:normal;">82/24 หมู่ 1 ซอยโคแจ้ง ถนนราชพฤกษ์ ตำบลบางขนุน อำเภอบางกรวย จังหวัดนนทบุรี 11130</p>
+                      <p class="head-quo" style="font-weight:normal;">โทรศัพท์ : 02-435-5508-9 แฟกซ์ : 02-435-5526-27 E-mail:newzeno@yahoo.com ID Line. 099-325-4289</p>
+                      <p class="head-quo" style="font-weight:normal;">เลขประจำตัวผู้เสียภาษี : 0105552086618</p>
+                    </div>
                   </div>
                 </div>
                 <!-- <div class="row">
@@ -364,7 +365,7 @@ h1,h2,h3,h4,h5{
   <strong>วันที่ใบเสนอราคา</strong> 19/10/2561 </p>
 </div> -->
 </div>
-<hr style="margin-top:5px; margin-bottom:0px;">
+<hr style="margin-top:5px; margin-bottom:0px; border-top: 1px solid black;">
 </div>
 <div class="col-sm-12">
   <div class="row">
@@ -392,11 +393,11 @@ h1,h2,h3,h4,h5{
       <div class="col-sm-9 head-quo nopadding-left">: <?php echo $Select['quotation'][0]['quoEmail'] ?>
       </div>
       <?php if ($Select['quotation'][0]['quoProject'] != ''): ?>
-      <div class="col-sm-3 head-quo"><b>โปรเจค</b>
-      </div>
-      <div class="col-sm-9 head-quo nopadding-left">: <?php echo $Select['quotation'][0]['quoProject'] ?>
-      </div>
-    <?php endif; ?>
+        <div class="col-sm-3 head-quo"><b>โปรเจค</b>
+        </div>
+        <div class="col-sm-9 head-quo nopadding-left">: <?php echo $Select['quotation'][0]['quoProject'] ?>
+        </div>
+      <?php endif; ?>
     </div>
   </div>
   <div class="col-sm-4">
@@ -464,7 +465,7 @@ h1,h2,h3,h4,h5{
             <?php $i++; $total += $resultPrice; endforeach; ?>
             <?php //if (count($AccountingDetail)<10): ?>
               <?php
-              $row = 6 - count($Select['quotation_order']);
+              $row = 10 - count($Select['quotation_order']);
               for ($i=0; $i < $row; $i++) { ?>
                 <tr style="border-bottom: 1px solid #ddd;">
                   <td style="padding:1px;">&nbsp;</td>
@@ -489,7 +490,7 @@ h1,h2,h3,h4,h5{
             <div class="col-sm-12 head-quo">หมายเหตุ</div>
           </div>
         </div>
-        <div class="col-sm-7">
+        <div class="col-sm-6">
           <div class="row">
 
             <?php if ($Select['quotation'][0]['quoRemark1'] != ''): ?>
@@ -508,27 +509,27 @@ h1,h2,h3,h4,h5{
 
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-5">
           <div class="row">
             <!-- <div class="col-sm-6 head-quo"><b>ส่วนลดการค้า</b></div>
             <div class="col-sm-6 text-right head-quo">0.00</div> -->
-            <div class="col-sm-6 head-quo"><b>มูลค่าสินค้า</b></div>
-            <div class="col-sm-6 text-right head-quo"><?php echo number_format($total); ?> บาท</div>
-            <div class="col-sm-6 head-quo"><b>ภาษีมูลค่าเพิ่ม(7%)</b></div>
-            <div class="col-sm-6 text-right head-quo"><?php $tax = $total * 0.07; echo number_format($tax); ?> บาท</div>
-            <div class="col-sm-6 head-quo"><b>รวมทั้งสิ้น</b></div>
-            <div class="col-sm-6 text-right head-quo"><?php echo number_format($total + $tax); ?> บาท</div>
+            <div class="col-sm-7 head-quo"><b>มูลค่าสินค้า</b></div>
+            <div class="col-sm-5 text-right head-quo"><?php echo number_format($total); ?> บาท</div>
+            <div class="col-sm-7 head-quo"><b>ภาษีมูลค่าเพิ่ม(7%)</b></div>
+            <div class="col-sm-5 text-right head-quo"><?php $tax = $total * 0.07; echo number_format($tax); ?> บาท</div>
+            <div class="col-sm-7 head-quo"><b>รวมทั้งสิ้น</b></div>
+            <div class="col-sm-5 text-right head-quo"><?php echo number_format($total + $tax); ?> บาท</div>
           </div>
         </div>
       </div>
-      <hr style="margin-top:5px; margin-bottom:0px;">
+      <hr style="margin-top:5px; margin-bottom:0px; border-top: 1px solid black;">
 
       <div class="row">
         <div class="col-sm-12">
-          ***ขอสงวนสิทธิในการเปลี่ยนแปลงรายละเอียดและราคาของสินค้าตลอดจนรายการส่งเสริมการขายและการลงทะเบียนโดยไม่ต้องแจ้งให้ทราบล่วงหน้า
+          **ขอสงวนสิทธิในการเปลี่ยนแปลงรายละเอียดและราคาของสินค้าตลอดจนรายการส่งเสริมการขายและการลงทะเบียนโดยไม่ต้องแจ้งให้ทราบล่วงหน้า
         </div>
         <div class="col-sm-12 text-center">
-          <table class="table table-bordered" style="margin-bottom:70px;">
+          <table class="table table-bordered" style="margin-bottom:40px;">
             <tbody>
               <tr style="padding:2px;">
                 <th style="padding:2px;" class="text-left" colspan="5" width="100%"> &nbsp;&nbsp;&nbsp;สามารถชำระเงินผ่านธนาคารในนาม บริษัท นิวซีโน่ (ประเทศไทย) จำกัด</th>
@@ -563,7 +564,6 @@ h1,h2,h3,h4,h5{
             </tbody>
           </table>
         </div>
-
       </div>
 
 
@@ -571,13 +571,14 @@ h1,h2,h3,h4,h5{
         <div class="col-sm-4">
           <div class="row text-center head-quo">
             <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ลงชื่อ ..........................................</div>
-            <div class="col-sm-12 head-quo">(<?php echo $Select['employee'][0]['profilePrefix'].$Select['employee'][0]['profileName']." ".$Select['employee'][0]['profileSurname'] ?>)<div>
+            <div class="col-sm-12 head-quo">(<?php echo $Select['employee'][0]['profilePrefix']." ".$Select['employee'][0]['profileName']." ".$Select['employee'][0]['profileSurname'] ?>)<div>
               <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ผู้เสนอราคา
               </div>
               <div class="col-sm-12 head-quo" >
                 <div>
-                  <div class="col-sm-12 head-quo text-left">วันที่ ............../............../..............</div>
-                  <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ :
+                  <div class="col-sm-12 head-quo text-left" style="margin-bottom:-10px;">
+                    <div class="row"><div class="col-sm-3  text-left" style="padding-right:0px;">วันที่</div><div class="col-sm-8  text-left" style="padding-left:0px;"> ............./............./.............</div></div>
+                  </div>                  <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ :
                     <?php echo substr($Select['employee'][0]['profilePhone'],0,3) . "-" .
                     substr($Select['employee'][0]['profilePhone'],3,3) . "-" .
                     substr($Select['employee'][0]['profilePhone'],6,4)?>
@@ -597,9 +598,11 @@ h1,h2,h3,h4,h5{
             </div>
             <div class="col-sm-12 head-quo" >
               <div>
-                <div class="col-sm-12 head-quo text-left">วันที่ ............../............../..............</div>
-                <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ : ..........................................</div>
-                <div class="col-sm-12 head-quo text-left" style="font-size:9px;">Email : .........................................</div>
+                <div class="col-sm-12 head-quo text-left" style="margin-bottom:-10px;">
+                  <div class="row"><div class="col-sm-3  text-left" style="padding-right:0px;">วันที่</div><div class="col-sm-8  text-left" style="padding-left:0px;"> ............../............./............</div></div>
+                </div>
+                <div class="col-sm-12 head-quo text-left" style="font-size:9px;"><div class="row"><div class="col-sm-2  text-left">เบอร์</div><div class="col-sm-10  text-left">..............................................</div></div></div>
+                <div class="col-sm-12 head-quo text-left" style="font-size:9px;"><div class="row"><div class="col-sm-2  text-left">Email</div><div class="col-sm-10  text-left">..............................................</div></div></div>
               </div>
             </div>
           </div>
@@ -614,9 +617,11 @@ h1,h2,h3,h4,h5{
           </div>
           <div class="col-sm-12 head-quo" >
             <div>
-              <div class="col-sm-12 head-quo text-left">วันที่ ............../............../..............</div>
-              <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ : ..........................................</div>
-              <div class="col-sm-12 head-quo text-left" style="font-size:9px;">Email : .........................................</div>
+              <div class="col-sm-12 head-quo text-left" style="margin-bottom:-10px;">
+                <div class="row"><div class="col-sm-3  text-left" style="padding-right:0px;">วันที่</div><div class="col-sm-8  text-left" style="padding-left:0px;"> ............./............./.............</div></div>
+              </div>
+              <div class="col-sm-12 head-quo text-left" style="font-size:9px;"><div class="row"><div class="col-sm-2  text-left">เบอร์ </div><div class="col-sm-10  text-left">..............................................</div></div></div>
+              <div class="col-sm-12 head-quo text-left" style="font-size:9px;"><div class="row"><div class="col-sm-2  text-left">Email</div><div class="col-sm-10  text-left">..............................................</div></div></div>
             </div>
           </div>
         </div>

@@ -19,7 +19,7 @@
 
       <!-- /.panel-heading -->
       <div class="panel-body">
-        <table width="100%" class="table table-striped table-hover" datatable="ng" dt-options="dtOptions" dt-instance="dtInstance">
+        <table width="100%" class="table table-striped table-hover datatable">
           <thead>
             <tr>
               <th width="10%" class="text-center">ลำดับ</th>

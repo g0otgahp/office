@@ -10,7 +10,7 @@
       <table width="100%" class="table table-striped table-bordered table-hover" datatable="ng" dt-options="dtOptions" dt-instance="dtInstance">
         <thead>
           <tr>
-              <th width="10%" class="text-center">ลำดับ</th>
+              <th width="3%" class="text-center">ลำดับ</th>
             <th class="text-center">รหัสสินค้า</th>
             <th class="text-center">ประเภทสินค้า</th>
             <th class="text-center">ชื่อรุ่น</th>
