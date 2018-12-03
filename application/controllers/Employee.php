@@ -44,127 +44,27 @@ class Employee extends CI_Controller {
 	public function index()
 	{
 
-		$dataShow = $this->EmployeeModel->EmployeeSelect();
-
 		$Value = array(
 			'View' => "Employee",
 			'Result' => array(
-				'dataShow' => $dataShow,
+				// 'dataShow' => $dataShow,
 			)
 		);
 		$this->LoadPage($Value);
 	}
 
-	public function EmployeeFormInsert()
+	public function EmployeeForm()
 	{
-
-		$dataPosition = $this->PositionModel->PositionSelect();
 
 		$Value = array(
-			'View' => "EmployeeInsert",
+			'View' => "EmployeeForm",
 			'Result' => array(
-				'dataPosition' => $dataPosition,
+				// 'dataPosition' => $dataPosition,
 			)
 		);
 		$this->LoadPage($Value);
 	}
 
-	public function EmployeeInsert()
-	{
 
-		$dataInsert = $this->input->post();
-
-		// check Username ห้ามซ้ำ
-
-		$check = $this->db
-		->where('loginUsername',$dataInsert['loginUsername'])
-		->get('login')
-		->num_rows();
-
-		if($check == 0){
-
-			if(empty($_FILES['profileImage']['name'])){
-
-				$dataInsert['profileImage'] = "noImg.png";
-				// $this->debug->log($dataInsert);
-				$this->EmployeeModel->EmployeeInsert($dataInsert);
-
-				redirect("Employee");
-
-			}else{
-
-				$pathinfo = pathinfo($_FILES['profileImage']['name'], PATHINFO_EXTENSION);
-				$new_file = date('YmdHis') . "." . $pathinfo;
-				move_uploaded_file($_FILES['profileImage']['tmp_name'], "uploads/Employees/" . $new_file);
-
-				$dataInsert['profileImage'] = $new_file;
-				// $this->debug->log($dataInsert);
-				$this->EmployeeModel->EmployeeInsert($dataInsert);
-
-				redirect("Employee");
-
-			}
-
-		}else{
-
-			echo "<script>alert('ไอดีเข้าสู่ระบบถูกใช้แล้ว')</script>";
-			echo "<script>history.go(-1)</script>";
-
-		}
-
-	}
-
-	public function EmployeeFormUpdate()
-	{
-
-		$profileId = $this->uri->segment(3);
-
-		$dataUpdate = $this->EmployeeModel->EmployeeSelectForUpdate($profileId);
-		$dataPosition = $this->PositionModel->PositionSelect();
-
-		$Value = array(
-			'View' => "EmployeeDetail",
-			'Result' => array(
-				'dataPosition' => $dataPosition,
-				'dataUpdate' => $dataUpdate,
-			)
-		);
-		$this->LoadPage($Value);
-	}
-
-	public function EmployeeUpdate()
-	{
-
-		$dataUpdate = $this->input->post();
-
-
-		if(!empty($_FILES['profileImage']['name'])){
-
-			$pathinfo = pathinfo($_FILES['profileImage']['name'], PATHINFO_EXTENSION);
-			$new_file = date('YmdHis') . "." . $pathinfo;
-			move_uploaded_file($_FILES['profileImage']['tmp_name'], "uploads/Employees/" . $new_file);
-
-			$dataUpdate['profileImage'] = $new_file;
-			// $this->debug->log($dataUpdate);
-			$this->EmployeeModel->EmployeeUpdate($dataUpdate);
-
-		}
-
-		// $this->debug->log($dataUpdate);
-		$this->EmployeeModel->EmployeeUpdate($dataUpdate);
-
-		redirect("Employee");
-
-	}
-
-	public function EmployeeDelete()
-	{
-		$profileChoice = $this->uri->segment(3);
-		$profileId = $this->uri->segment(4);
-		$this->EmployeeModel->EmployeeDelete($profileChoice,$profileId);
-
-		redirect("Employee");
-
-	}
 
 }
