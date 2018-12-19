@@ -125,7 +125,11 @@ class Service extends REST_Controller {
       array_push($Product,$loop);
     }
 
-    $this->ServiceModel->SaveQuotationProduct($Product);
+    echo "<pre>";
+    print_r($Product);
+    exit();
+
+    // $this->ServiceModel->SaveQuotationProduct($Product);
 
 
     //check if the user data exists

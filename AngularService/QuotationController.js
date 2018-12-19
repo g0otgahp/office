@@ -85,6 +85,19 @@ App.controller('QuotationCtrl', function Controller($scope, $http, $uibModal, $w
     })
   };
 
+  $scope.addBlankProduct = function(){
+
+    // console.log('addBlankProduct');
+    // $scope.Select = product;
+    $scope.Select = {};
+    $scope.Select.productDiscount = 0;
+    $scope.Select.productQty = 1;
+    $scope.Select.productName = "";
+    $scope.Select.productDetail = "";
+    $scope.Forms.SelectProduct.push($scope.Select);
+
+  }
+
   // ---------------------------------------------------------------------------
 
 });
