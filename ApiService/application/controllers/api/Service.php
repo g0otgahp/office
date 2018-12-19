@@ -91,16 +91,37 @@ class Service extends REST_Controller {
 
     $Product = [];
     foreach ($data['Forms']['SelectProduct'] as $value) {
-      $loop = array(
-        'orderProductId' => $value['productId'],
-        'orderName' => $value['productName'],
-        'orderDetail' => $value['productDetail'],
-        'orderQty' => $value['productQty'],
-        'orderUnit' => $value['productUnit'],
-        'orderPrice' => $value['productRetail'],
-        'orderDiscount' => $value['productDiscount'],
-        'orderQuotationId' => $QuoID,
-      );
+      $loop = [];
+      $loop['orderQuotationId'] = $QuoID;
+
+      if (isset($value['productDetail'])) {
+        $loop['orderDetail'] = $value['productDetail'];
+      }
+
+      if (isset($value['productId'])) {
+        $loop['orderProductId'] = $value['productId'];
+      }
+
+      if (isset($value['productUnit'])) {
+        $loop['orderUnit'] = $value['productUnit'];
+      }
+
+      if (isset($value['productDiscount'])) {
+        $loop['orderDiscount'] = $value['productDiscount'];
+      }
+
+      if (isset($value['productRetail'])) {
+        $loop['orderPrice'] = $value['productRetail'];
+      }
+
+      if (isset($value['productQty'])) {
+        $loop['orderQty'] = $value['productQty'];
+      }
+
+      if (isset($value['productName'])) {
+        $loop['orderName'] = $value['productName'];
+      }
+
       array_push($Product,$loop);
     }
 
