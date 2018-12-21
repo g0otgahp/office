@@ -22,8 +22,9 @@ class QuotationModel extends CI_Model {
 	public function LoadQuotation($id)
 	{
 		$data = $this->db
-		->order_by('quoStatus','ACS')
+		->order_by('quoStatus','DESC')
 		->order_by('quoDate','DESC')
+		->where('quoStatus != 3')
 		->where('quoOfferId',$id)
 		->get('quotation')
 		->result_array();

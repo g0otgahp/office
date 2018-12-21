@@ -96,40 +96,47 @@ class Service extends REST_Controller {
 
       if (isset($value['productDetail'])) {
         $loop['orderDetail'] = $value['productDetail'];
+      } else {
+        $loop['orderDetail'] = "";
       }
-
       if (isset($value['productId'])) {
         $loop['orderProductId'] = $value['productId'];
+      } else {
+        $loop['orderProductId'] = 1;
       }
-
       if (isset($value['productUnit'])) {
         $loop['orderUnit'] = $value['productUnit'];
+      } else {
+        $loop['orderUnit'] = "";
       }
-
       if (isset($value['productDiscount'])) {
         $loop['orderDiscount'] = $value['productDiscount'];
+      } else {
+        $loop['orderDiscount'] = "";
       }
-
       if (isset($value['productRetail'])) {
         $loop['orderPrice'] = $value['productRetail'];
+      } else {
+        $loop['orderPrice'] = "";
       }
-
       if (isset($value['productQty'])) {
         $loop['orderQty'] = $value['productQty'];
+      } else {
+        $loop['orderQty'] = "";
       }
-
       if (isset($value['productName'])) {
         $loop['orderName'] = $value['productName'];
+      } else {
+        $loop['orderName'] = "";
       }
-
       array_push($Product,$loop);
     }
 
-    echo "<pre>";
-    print_r($Product);
-    exit();
+    // echo "<pre>";
+    // print_r($Product);
+    // exit();
 
-    // $this->ServiceModel->SaveQuotationProduct($Product);
+    $this->ServiceModel->SaveQuotationProduct($Product);
 
 
     //check if the user data exists
