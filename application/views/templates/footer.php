@@ -54,6 +54,9 @@
   <script src="<?php echo BASE_URL()?>/AngularService/ProductBrandController.js"></script>
   <script src="<?php echo BASE_URL()?>/AngularService/EmployeeController.js"></script>
   <script src="<?php echo BASE_URL()?>/AngularService/EmployeeFormController.js"></script>
+  <script src="<?php echo BASE_URL()?>/AngularService/ProductImportController.js"></script>
+  <script src="<?php echo BASE_URL()?>/AngularService/ProductImportFormController.js"></script>
+
 
   <!-- Angular Datatable -->
   <script src="<?php echo BASE_URL('/AngularService/angular-datatables/dist/angular-datatables.min.js')?>"></script>

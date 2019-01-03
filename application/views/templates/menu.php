@@ -59,7 +59,7 @@
           <ul class="nav nav-second-level">
 
             <li>
-              <a href="#"> - ใบนำสินค้าเข้า</a>
+              <a href="<?php echo SITE_URL('ProductImport'); ?>" onclick="Reload();"> - ใบนำสินค้าเข้า</a>
             </li>
             <li>
               <a href="#"> - ใบนำสินค้าออก</a>
