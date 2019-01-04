@@ -62,7 +62,7 @@
               <a href="<?php echo SITE_URL('ProductImport'); ?>" onclick="Reload();"> - ใบนำสินค้าเข้า</a>
             </li>
             <li>
-              <a href="#"> - ใบนำสินค้าออก</a>
+              <a href="<?php echo SITE_URL('ProductExport'); ?>" onclick="Reload()"> - ใบนำสินค้าออก</a>
             </li>
             <li>
               <a href="#"> - ใบยืมสินค้า</a>

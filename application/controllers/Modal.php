@@ -34,5 +34,10 @@ class Modal extends CI_Controller {
 		$this->load->view('Modal/CategoryModal');
 	}
 
+	public function EmployeeModal()
+	{
+		$this->load->view('Modal/EmployeeModal');
+	}
+
 
 }

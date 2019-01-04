@@ -18,6 +18,17 @@ class ServiceModel extends CI_Model {
 		return $data;
 	}
 
+	public function GetEmployee()
+	{
+		$data = $this->db
+		->where('profileStatus',1)
+		->join('position','position.positionId = profile.positionId')
+		->get('profile')
+		->result_array();
+
+		return $data;
+	}
+
 	public function GetProduct()
 	{
 		$dataShow = $this->db
