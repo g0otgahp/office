@@ -8,8 +8,6 @@
         </div>
         <!-- /.col-lg-12 -->
       </div>
-
-
       <div class="row">
         <div class="col-lg-12">
           <!-- /.panel-heading -->
@@ -28,8 +26,6 @@
                 </tr>
               </thead>
               <tbody>
-
-
                   <tr ng-repeat="customer in dataCustomer">
                     <td class="text-center"> <b>{{$index+1}}</b></td>
                     <td> <b>{{customer.customerCompany}}</b> </td>
@@ -38,7 +34,6 @@
                     <td class="text-left"> <b>{{customer.customerPosition}}</b> </td>
                     <td class="text-left"> <b>{{customer.customerDepartment}}</b> </td>
                     <td class="text-left"> <b>{{customer.customerMainPhone.substr(0,3)}}-{{customer.customerMainPhone.substr(3,3)}}-{{customer.customerMainPhone.substr(6,4)}}</b> </td>
-
                     <?php if ($_SESSION['permission'] >= 2): ?>
                       <td class="text-center">
                          <a href="#" ng-Click="onClickUpdate(customer)"> <b>รายละเอียด</b> </a>
@@ -47,7 +42,6 @@
                         <td class="text-center" style="color:red"><b>Admin Zone</b></td>
                     <?php endif; ?>
                   </tr>
-
                 </tbody>
               </table>
               <!-- /.table-responsive -->
@@ -56,10 +50,6 @@
           </div>
           <!-- /.col-lg-12 -->
         </div>
-
-
-
-
       </div>
       <!-- /#page-wrapper -->
     </div>

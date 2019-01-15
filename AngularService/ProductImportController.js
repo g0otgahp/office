@@ -2,15 +2,16 @@
 App.controller('ProductImportCtrl', function($scope, $http, $uibModal, $window, $location) {
   //ProductImportCtrl--------------------------------------------------------------------
 
-  // console.log("ProductImportCtrl");
+  $scope.LoadStock = function(){
+    $http.post(URL+'Stock/StockList',{Type:'IN'}).then(function (res) {
+      if (res.status === 200) {
+        $scope.StockList = res.data.stock;
+        // console.log($scope.StockList);
+      }
+    })
+  }
 
-
-  // $scope.onClickImportProduct = function(){
-  //   console.log("onClickImportProduct");
-  //
-  //   $window.location.href = VIEW_URL+"ProductImport/ProductImportForm";
-  //
-  // };
+  $scope.LoadStock();
 
 
   // ---------------------------------------------------------------------------

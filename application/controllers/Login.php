@@ -72,6 +72,7 @@ class Login extends CI_Controller {
 				@session_start();
 				$_SESSION['profileId'] = $dataProfile[0]['profileId'];
 				$_SESSION['loginUsername'] = $dataProfile[0]['loginUsername'];
+				$_SESSION['profileSigImage'] = $dataProfile[0]['profileSigImage'];
 				$_SESSION['profileName'] = $dataProfile[0]['profilePrefix']." ".$dataProfile[0]['profileName']." ".$dataProfile[0]['profileSurname'];
 				$_SESSION['positionId'] = $dataProfile[0]['positionId'];
 				$_SESSION['positionName'] = $dataProfile[0]['positionName'];

@@ -54,7 +54,7 @@
           <!-- /.nav-second-level -->
         </li>
 
-        <li>
+        <!-- <li>
           <a href="#"><i class="fa fa-inbox fa-fw"></i> ฝ่ายสต็อก<span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
 
@@ -71,8 +71,7 @@
               <a href="#"> - ใบเปลี่ยนสินค้า</a>
             </li>
           </ul>
-          <!-- /.nav-second-level -->
-        </li>
+        </li> -->
 
         <?php  if ($_SESSION['permission'] >= 3): ?>
 

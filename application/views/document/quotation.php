@@ -337,7 +337,7 @@ h1,h2,h3,h4,h5{
                       <p class="head-quo">บริษัท นิวซีโน (ประเทศไทย) จำกัด</p>
                       <p class="head-quo" style="font-weight:normal;">82/24 หมู่ 1 ซอยโคแจ้ง ถนนราชพฤกษ์ ตำบลบางขนุน อำเภอบางกรวย จังหวัดนนทบุรี 11130</p>
                       <p class="head-quo" style="font-weight:normal;">โทรศัพท์ : 02-435-5508-9 แฟกซ์ : 02-435-5526-27 E-mail:newzeno@yahoo.com ID Line. 099-325-4289</p>
-                      <p class="head-quo" style="font-weight:normal;">เลขประจำตัวผู้เสียภาษี : 0105552086618</p>
+                      <p class="head-quo" style="font-weight:normal;">เลขประจำตัวผู้เสียภาษี : 010-554-712-2822</p>
                     </div>
                   </div>
                 </div>
@@ -566,11 +566,25 @@ h1,h2,h3,h4,h5{
         </div>
       </div>
 
+<style media="screen">
+  #signature {
+    position: absolute;
+    top: -35px;
+    left: 70px;
+    height: 50px;
+    width: 150px;
+    }
+</style>
 
       <div class="row">
         <div class="col-sm-4">
           <div class="row text-center head-quo">
-            <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ลงชื่อ ..........................................</div>
+            <div class="col-sm-12 head-quo" style="margin-bottom:0px;">
+              <?php if ($Select['employee'][0]['profileSigImage'] != ''): ?>
+                <img id="signature" src="<?php echo base_url('uploads/Signature/'.$Select['employee'][0]['profileSigImage'])?>">
+              <?php endif; ?>
+              ลงชื่อ ..........................................
+            </div>
             <div class="col-sm-12 head-quo">(<?php echo $Select['employee'][0]['profilePrefix']." ".$Select['employee'][0]['profileName']." ".$Select['employee'][0]['profileSurname'] ?>)<div>
               <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ผู้เสนอราคา
               </div>

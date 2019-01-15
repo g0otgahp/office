@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Employee extends CI_Controller {
+class Stock extends CI_Controller {
 
 	/**
 	* Index Page for this controller.
@@ -41,11 +41,10 @@ class Employee extends CI_Controller {
 		$this->load->view("templates/footer");
 	}
 
-	public function index()
+	public function Stock()
 	{
-
 		$Value = array(
-			'View' => "Employee",
+			'View' => "Stock",
 			'Result' => array(
 				// 'dataShow' => $dataShow,
 			)
@@ -53,42 +52,41 @@ class Employee extends CI_Controller {
 		$this->LoadPage($Value);
 	}
 
-	public function EmployeeForm()
+	public function In()
 	{
-
+		$content = 'IN';
 		$Value = array(
-			'View' => "EmployeeForm",
+			'View' => "Stock",
 			'Result' => array(
-				// 'dataPosition' => $dataPosition,
+				// 'dataShow' => $dataShow,
 			)
 		);
 		$this->LoadPage($Value);
 	}
 
-	public function SignatureForm()
+	public function Out()
 	{
-
+		$content = 'Out';
 		$Value = array(
-			'View' => "SignatureForm",
+			'View' => "Stock",
 			'Result' => array(
+				// 'dataShow' => $dataShow,
 			)
 		);
 		$this->LoadPage($Value);
 	}
 
-	public function SignatureSave()
-	{
-		$input = $this->input->post();
-		if (!empty($_FILES['profileSigImage']['name'])) {
-      $pathinfo = pathinfo($_FILES['profileSigImage']['name'], PATHINFO_EXTENSION);
-      $new_file = "SIG".date('YmdHis') . "." . $pathinfo;
-      move_uploaded_file($_FILES['profileSigImage']['tmp_name'], "uploads/Signature/" . $new_file);
-      $input['profileSigImage'] = $new_file;
-    }
-		$this->db->where('profileId',$input['profileId'])->update('profile',$input);
-		$_SESSION['profileSigImage'] = $input['profileSigImage'];
-		redirect('Employee/SignatureForm');
-	}
+	// public function CustomerForm()
+	// {
+	//
+	// 	$Value = array(
+	// 		'View' => "StockForm",
+	// 		'Result' => array(
+	// 			// 'dataShow' => $dataShow,
+	// 		)
+	// 	);
+	// 	$this->LoadPage($Value);
+	// }
 
 
 }

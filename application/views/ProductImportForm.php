@@ -34,7 +34,7 @@
                   <td width="10%">E-mail</td>
                   <td> : <input placeholder="กรอก E-mail" ng-model="Forms.Profile[0].profileEmail"></td>
                   <td width="10%">เลขที่ใบรับสินค้า</td>
-                  <td> : <input placeholder="กรอก เลขที่ใบรับสินค้า" ng-model="Forms.Document.stockRef"></td>
+                  <td> : <input placeholder="กรอก เลขที่ใบรับสินค้า" ng-model="Forms.Document[0].stockRef"></td>
                 </tr>
 
               </table>
@@ -115,23 +115,23 @@
       <div class="">
         <table class="table" border="0">
           <tr>
-            <td width="40%" style="border-top: 0px solid #ddd;"><input class="form-control" placeholder="หมายเหตุที่ 1" ng-model="Forms.Document.stockRemark1" ></td>
+            <td width="40%" style="border-top: 0px solid #ddd;"><input class="form-control" placeholder="หมายเหตุที่ 1" ng-model="Forms.Document[0].stockRemark1" ></td>
             <td width="10%" style="border-top: 0px solid #ddd;"></td>
             <td style="border-top: 0px solid #ddd;"></td>
           </tr>
           <tr>
-            <td width="40%" style="border-top: 0px solid #ddd;"><input class="form-control" placeholder="หมายเหตุที่ 2" ng-model="Forms.Document.stockRemark2" ></td>
+            <td width="40%" style="border-top: 0px solid #ddd;"><input class="form-control" placeholder="หมายเหตุที่ 2" ng-model="Forms.Document[0].stockRemark2" ></td>
             <td width="10%" style="border-top: 0px solid #ddd;"></td>
             <td style="border-top: 0px solid #ddd;"></td>
           </tr>
           <tr>
-            <td width="40%" style="border-top: 0px solid #ddd;"> <input class="form-control" placeholder="หมายเหตุที่ 3" ng-model="Forms.Document.stockRemark3" ></td>
+            <td width="40%" style="border-top: 0px solid #ddd;"> <input class="form-control" placeholder="หมายเหตุที่ 3" ng-model="Forms.Document[0].stockRemark3" ></td>
             <td width="10%" style="border-top: 0px solid #ddd;"></td>
             <td style="border-top: 0px solid #ddd;"></td>
           </tr>
 
           <tr>
-            <td width="40%" style="border-top: 0px solid #ddd;"><textarea rows="4" class="form-control" placeholder="บันทึกช่วยจำ" ng-model="Forms.Document.stockNote"></textarea></td>
+            <td width="40%" style="border-top: 0px solid #ddd;"><textarea rows="4" class="form-control" placeholder="บันทึกช่วยจำ" ng-model="Forms.Document[0].stockNote"></textarea></td>
             <td width="10%" style="border-top: 0px solid #ddd;"></td>
             <td style="border-top: 0px solid #ddd;"></td>
           </tr>
@@ -150,7 +150,7 @@
         <button type="submit" class="btn btn-success btn-fill btn-block loading" ng-Click="onClickImport()"
         ng-disabled="(
         Forms.SelectProduct.length == 0 ||
-        Forms.Document.stockRef == undefined ||
+        Forms.Document[0].stockRef == undefined ||
         Forms.Profile[0].stockReciveName == undefined ||
         Forms.Profile[0].profilePhone === undefined ||
         Forms.Profile[0].profileEmail == undefined

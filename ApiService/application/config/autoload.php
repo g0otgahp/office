@@ -141,4 +141,5 @@ $autoload['model'] = array(
   'ProductBrandModel',
   'ProductImportModel',
   'EmployeeModel',
+  'StockModel',
 );

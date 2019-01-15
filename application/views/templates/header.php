@@ -80,7 +80,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo SITE_URL("Dashboard"); ?>"> <b>Office Newzeno (Thailand) Co.,Ltd.</b></a>
+            <a class="navbar-brand" href="<?php echo SITE_URL("Dashboard"); ?>"> <b>ระบบการจัดการ : บริษัทนิวซีโน่ประเทศไทย</b></a>
         </div>
         <!-- /.navbar-header -->
         <ul class="nav navbar-top-links navbar-right">
@@ -91,11 +91,11 @@
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <!-- <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li> -->
+                    <li><a target="_blank" href="<?php echo SITE_URL('Employee/SignatureForm') ?>"><i class="fa fa-line-chart"></i> ลายเซ็นของคุณ</a>
+                    </li>
                     <li class="divider"></li>
-                    <li><a href="<?php echo SITE_URL('Login/Logout') ?>" onclick="Reload()"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="<?php echo SITE_URL('Login/Logout') ?>" onclick="Reload()"><i class="fa fa-sign-out fa-fw"></i> ออกจากระบบ</a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->

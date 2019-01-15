@@ -9,8 +9,20 @@ App.controller('ProductImportFormCtrl', function($scope, $http, $uibModal, $wind
 
   $scope.Forms = {
     SelectProduct : [],
-    Profile : [],
-    Document : [],
+    Profile : [
+      {
+        "profilePhone": '',
+        "profileEmail": '',
+        "stockReciveName": ''
+      }
+    ],
+    Document : [{
+      "StockType": 'IN',
+      "stockRemark1": '',
+      "stockRemark2": '',
+      "stockRemark3": '',
+      "stockRef": ''
+    }],
   };
 
   $scope.loadProduct = function () {
@@ -31,7 +43,6 @@ App.controller('ProductImportFormCtrl', function($scope, $http, $uibModal, $wind
 
   $scope.onClickSelectProduct = function(){
     console.log("onClickSelectProduct");
-
     $scope.loadProduct();
     $uibModal.open({
       templateUrl: VIEW_URL+'Modal/ProductModal',
@@ -68,7 +79,11 @@ App.controller('ProductImportFormCtrl', function($scope, $http, $uibModal, $wind
   }
 
   $scope.onClickImport = function(){
-    console.log($scope.Forms);
+    $http.post(URL+'Stock/SaveStock',{
+      'data' : $scope.Forms
+    }).then(function(res){
+      $window.location.href = VIEW_URL+"ProductImport";
+    })
   };
 
 
