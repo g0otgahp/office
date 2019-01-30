@@ -90,5 +90,30 @@ class Employee extends CI_Controller {
 		redirect('Employee/SignatureForm');
 	}
 
+	public function SignatureStatus()
+	{
+		$profileId = $this->uri->segment(3);
+		$SigOn = $this->uri->segment(4);
+		if ($profileId == $_SESSION['profileId'] && $SigOn == $_SESSION['profileSigOn']) {
+
+			if ($SigOn == 1) {
+				$inputSigOn = 2;
+			} else {
+				$inputSigOn = 1;
+			}
+
+			$input = array(
+				'profileId' => $profileId,
+				'profileSigOn' => $inputSigOn,
+			 );
+
+			$this->db->where('profileId',$input['profileId'])->update('profile',$input);
+			$_SESSION['profileSigOn'] = $input['profileSigOn'];
+			redirect('Employee/SignatureForm');
+		} else {
+			echo "<script>alert('สิทธิการเข้าถึงไม่ตรงกัน')</script>";
+			echo "<script>document.location='" . SITE_URL('Employee/SignatureForm') . "'</script>";
+			}
+	}
 
 }

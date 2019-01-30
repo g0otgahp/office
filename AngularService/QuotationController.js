@@ -43,7 +43,7 @@ App.controller('QuotationCtrl', function Controller($scope, $http, $uibModal, $w
       templateUrl: VIEW_URL+'Modal/CustomerModal',
       scope: $scope,
       size: 'lg',
-      controller: function ($scope, $uibModalInstance) {
+       controller: function ($scope, $uibModalInstance) {
         $scope.ok = function (customer) {
           $uibModalInstance.close(customer);
         };

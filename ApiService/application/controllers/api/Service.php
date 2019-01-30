@@ -67,9 +67,7 @@ class Service extends REST_Controller {
 
   public function quotationSubmit_post() {
     $data = $this->post();
-
     $quotation = array(
-      'quoNo' => $data['Forms']['SelectCustomer']['quoNo'],
       'quoCompany' => $data['Forms']['SelectCustomer']['customerCompany'],
       'quoCustomerId' => $data['Forms']['SelectCustomer']['customerId'],
       'quoTel' => $data['Forms']['SelectCustomer']['customerMainPhone'],
@@ -80,14 +78,21 @@ class Service extends REST_Controller {
       'quoOfferId' => $data['sessionId'],
     );
 
+    $DateNow = Date('Y-m-d G:i:s');
+    $subDate = substr($DateNow, 0,10);
+    $DateStart = $subDate.' 00:00:00';
+    $DateTo = $subDate.' 23:59:59';
+    $CountID = $this->db->where('quoDate >=',$DateStart)->where('quoDate <=',$DateTo)->where('quoStatus !=',3)->get('quotation')->num_rows();
+    $QOcode = "QP".substr($DateNow, 2,2).substr($DateNow, 5,2).substr($DateNow, 8,2).sprintf("-%02d",($CountID+1));
+    $quotation['quoNo'] = $QOcode;
+
+    if (isset($data['Forms']['SelectCustomer']['quoProject'])) {
+      $quotation['quoProject'] = $data['Forms']['SelectCustomer']['quoProject'];
+    }
+
     if (isset($data['Forms']['SelectCustomer']['quoRemark1'])) {
       $quotation['quoRemark1'] = $data['Forms']['SelectCustomer']['quoRemark1'];
     }
-
-    if (isset($data['Forms']['SelectCustomer']['quoProject'])) {
-      $quotation['quoRemark1'] = $data['Forms']['SelectCustomer']['quoProject'];
-    }
-
 
     if (isset($data['Forms']['SelectCustomer']['quoRemark2'])) {
       $quotation['quoRemark2'] = $data['Forms']['SelectCustomer']['quoRemark2'];

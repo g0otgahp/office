@@ -335,7 +335,7 @@ h1,h2,h3,h4,h5{
                   <div class="row">
                     <div class="col-sm-12">
                       <p class="head-quo">บริษัท นิวซีโน (ประเทศไทย) จำกัด</p>
-                      <p class="head-quo" style="font-weight:normal;">82/24 หมู่ 1 ซอยโคแจ้ง ถนนราชพฤกษ์ ตำบลบางขนุน อำเภอบางกรวย จังหวัดนนทบุรี 11130</p>
+                      <p class="head-quo" style="font-weight:normal;">82/24 หมู่ 1 ซอยโตแจ้ง ถนนราชพฤกษ์ ตำบลบางขนุน อำเภอบางกรวย จังหวัดนนทบุรี 11130</p>
                       <p class="head-quo" style="font-weight:normal;">โทรศัพท์ : 02-435-5508-9 แฟกซ์ : 02-435-5526-27 E-mail:newzeno@yahoo.com ID Line. 099-325-4289</p>
                       <p class="head-quo" style="font-weight:normal;">เลขประจำตัวผู้เสียภาษี : 010-554-712-2822</p>
                     </div>
@@ -408,7 +408,11 @@ h1,h2,h3,h4,h5{
       </div>
       <div class="col-sm-5 head-quo"><b>วันที่</b>
       </div>
-      <div class="col-sm-7 head-quo nopadding-left">: <?php echo $Select['quotation'][0]['quoDate'] ?>
+      <div class="col-sm-7 head-quo nopadding-left">:
+        <?php
+        $dateQ = new DateTime($Select['quotation'][0]['quoDate'] );
+        echo $dateQ->format('d/m/Y H:i:s');
+        ?>
       </div>
       <div class="col-sm-5 head-quo"><b>ยื่นราคาภายใน</b>
       </div>
@@ -452,12 +456,32 @@ h1,h2,h3,h4,h5{
               </td>
               <td style="padding:1px;" class="text-right"><?php echo number_format($item['orderQty']) ?></td>
               <td style="padding:1px;" class="text-right"><?php echo $item['orderUnit'] ?></td>
-              <td style="padding:1px;" class="text-right"><?php echo number_format($item['orderPrice']) ?></td>
-              <td style="padding:1px;" class="text-right"><?php echo number_format($item['orderDiscount']) ?></td>
+              <td style="padding:1px;" class="text-right">
+                <?php if ($item['orderPrice'] != 0 ): ?>
+                  <?php echo number_format($item['orderPrice']) ?>
+                <?php endif; ?>
+              </td>
+              <td style="padding:1px;" class="text-right">
+                <?php if ($item['orderDiscount'] != 0): ?>
+                  <?php echo number_format($item['orderDiscount']) ?>
+                <?php endif; ?>
+              </td>
               <?php if ($item['orderDiscount'] != 0): ?>
-                <td style="padding:1px;" class="text-right"><?php $resultPrice = $item['orderDiscount'] * $item['orderQty']; echo number_format($resultPrice) ?></td>
+                <td style="padding:1px;" class="text-right">
+                  <?php if ($item['orderDiscount'] != 0): ?>
+                    <?php $resultPrice = $item['orderDiscount'] * $item['orderQty']; echo number_format($resultPrice) ?>
+                  <?php else: ?>
+                    <?php $resultPrice = 0; ?>
+                  <?php endif; ?>
+                </td>
               <?php else: ?>
-                <td style="padding:1px;" class="text-right"><?php $resultPrice = $item['orderPrice'] *  $item['orderQty'];  echo number_format($resultPrice) ?></td>
+                <td style="padding:1px;" class="text-right">
+                  <?php if ($item['orderPrice'] != 0 ): ?>
+                  <?php $resultPrice = $item['orderPrice'] *  $item['orderQty'];  echo number_format($resultPrice) ?>
+                  <?php else: ?>
+                    <?php $resultPrice = 0; ?>
+                <?php endif; ?>
+                </td>
               <?php endif; ?>
 
               <!-- <td class="text-right"><?php //echo $PurchaseOrder['material_po_quantity']; ?> <?php //echo $PurchaseOrder['material_unit']; ?></td> -->
@@ -529,7 +553,7 @@ h1,h2,h3,h4,h5{
           **ขอสงวนสิทธิในการเปลี่ยนแปลงรายละเอียดและราคาของสินค้าตลอดจนรายการส่งเสริมการขายและการลงทะเบียนโดยไม่ต้องแจ้งให้ทราบล่วงหน้า
         </div>
         <div class="col-sm-12 text-center">
-          <table class="table table-bordered" style="margin-bottom:40px;">
+          <table class="table table-bordered" style="margin-bottom:-5px;">
             <tbody>
               <tr style="padding:2px;">
                 <th style="padding:2px;" class="text-left" colspan="5" width="100%"> &nbsp;&nbsp;&nbsp;สามารถชำระเงินผ่านธนาคารในนาม บริษัท นิวซีโน่ (ประเทศไทย) จำกัด</th>
@@ -559,7 +583,7 @@ h1,h2,h3,h4,h5{
                 <td style="padding:2px;" class="text-center">ไทยพาณิชย์</td>
                 <td style="padding:2px;" class="text-center">บางโคล่</td>
                 <td style="padding:2px;" class="text-center">กระแสรายวัน</td>
-                <td style="padding:2px;" class="text-center">089-7028999</td>
+                <td style="padding:2px;" class="text-center">095-261-7270</td>
               </tr>
             </tbody>
           </table>
@@ -568,20 +592,23 @@ h1,h2,h3,h4,h5{
 
 <style media="screen">
   #signature {
-    position: absolute;
+    /* position: absolute;
     top: -35px;
-    left: 70px;
-    height: 50px;
-    width: 150px;
+    left: 70px; */
+    margin-left:20px;
+    height: 70px;
+    width: 200px;
     }
 </style>
 
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-4" >
           <div class="row text-center head-quo">
             <div class="col-sm-12 head-quo" style="margin-bottom:0px;">
-              <?php if ($Select['employee'][0]['profileSigImage'] != ''): ?>
-                <img id="signature" src="<?php echo base_url('uploads/Signature/'.$Select['employee'][0]['profileSigImage'])?>">
+              <?php if ($Select['employee'][0]['profileSigOn'] == 1 && $Select['employee'][0]['profileSigImage'] != ''): ?>
+                <p><img class="head-quo" id="signature" src="<?php echo base_url('uploads/Signature/'.$Select['employee'][0]['profileSigImage'])?>"></p>
+                <?php else: ?>
+                  <p style="margin-top:50px;"></p>
               <?php endif; ?>
               ลงชื่อ ..........................................
             </div>
@@ -591,7 +618,12 @@ h1,h2,h3,h4,h5{
               <div class="col-sm-12 head-quo" >
                 <div>
                   <div class="col-sm-12 head-quo text-left" style="margin-bottom:-10px;">
-                    <div class="row"><div class="col-sm-3  text-left" style="padding-right:0px;">วันที่</div><div class="col-sm-8  text-left" style="padding-left:0px;"> ............./............./.............</div></div>
+                    <div class="row"><div class="col-sm-3  text-left" style="padding-right:0px;">วันที่</div><div class="col-sm-8  text-left" style="padding-left:0px; margin-left:10px;">
+                      <?php
+                      $date = new DateTime($Select['quotation'][0]['quoDate']);
+                      echo $date->format('d / m / Y');
+                      ?>
+                    </div></div>
                   </div>                  <div class="col-sm-12 head-quo text-left" style="font-size:9px;">เบอร์ :
                     <?php echo substr($Select['employee'][0]['profilePhone'],0,3) . "-" .
                     substr($Select['employee'][0]['profilePhone'],3,3) . "-" .
@@ -604,7 +636,7 @@ h1,h2,h3,h4,h5{
           </div>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-4" style="margin-top:50px;">
         <div class="row text-center head-quo">
           <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ลงชื่อ ..........................................</div>
           <div class="col-sm-12 head-quo">(...................................................)<div>
@@ -623,7 +655,7 @@ h1,h2,h3,h4,h5{
         </div>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4" style="margin-top:50px;">
       <div class="row text-center head-quo">
         <div class="col-sm-12 head-quo" style="margin-bottom:0px;">ลงชื่อ ..........................................</div>
         <div class="col-sm-12 head-quo">(...................................................)<div>

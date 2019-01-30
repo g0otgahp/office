@@ -43,7 +43,7 @@
                     <td width="10%">เรียน</td>
                     <td> : <input placeholder="กรอก ชื่อลูกค้า" ng-model="Forms.SelectCustomer.customerName" ></td>
                     <td width="10%">เลขที่</td>
-                    <td> : <input placeholder="กรอก เลขที่บิล" ng-model="Forms.SelectCustomer.quoNo" ></td>
+                    <td class="text-success"> : อัตโนมัติ</td>
                   </tr>
 
                   <tr>
@@ -112,7 +112,7 @@
                           <span ng-if="item.productDiscount == 0 || !item.productDiscount">{{item.productRetail * item.productQty | number}}</span>
                         </td>
                       </tr>
-                      <tr ng-if="Forms.SelectProduct.length != 6">
+                      <tr ng-if="Forms.SelectProduct.length != 10">
                         <td  class="text-center"  colspan="8">
                           <button type="submit" class="btn btn-defualt btn-fill btn-link" ng-click="openProductModal()"> <i class="glyphicon glyphicon-plus"></i> เพิ่มสินค้า</button>
                         <button class="btn btn-defualt btn-fill btn-link" ng-click="addBlankProduct()"> <i class="glyphicon glyphicon-plus"></i> เพิ่มสินค้า (ค่าว่าง)</button></td>
@@ -171,7 +171,6 @@
                 || Forms.SelectCustomer.customerName === undefined
                 || Forms.SelectCustomer.customerMainPhone === undefined
                 || Forms.SelectCustomer.customerEmail === undefined
-                || Forms.SelectCustomer.quoNo === undefined
                 || Forms.SelectCustomer.quoPayments === undefined
                 || Forms.SelectCustomer.quoReachDay === undefined
                 || Forms.SelectCustomer.quoTransportDay === undefined

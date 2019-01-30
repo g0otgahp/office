@@ -73,12 +73,12 @@ class Login extends CI_Controller {
 				$_SESSION['profileId'] = $dataProfile[0]['profileId'];
 				$_SESSION['loginUsername'] = $dataProfile[0]['loginUsername'];
 				$_SESSION['profileSigImage'] = $dataProfile[0]['profileSigImage'];
+				$_SESSION['profileSigOn'] = $dataProfile[0]['profileSigOn'];
 				$_SESSION['profileName'] = $dataProfile[0]['profilePrefix']." ".$dataProfile[0]['profileName']." ".$dataProfile[0]['profileSurname'];
 				$_SESSION['positionId'] = $dataProfile[0]['positionId'];
 				$_SESSION['positionName'] = $dataProfile[0]['positionName'];
 				$_SESSION['permission'] = $dataProfile[0]['permission'];
 				$_SESSION['Status'] = 'OFFICE_NEWZENO';
-
 				echo "<script>alert('เข้าสู่ระบบสำเร็จ : ". $_SESSION['profileName'] ."')</script>";
 				echo "<script>window.location='" . $_SERVER['HTTP_REFERER'] . "'</script>";
 

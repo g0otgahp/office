@@ -13,16 +13,22 @@
           <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">ลายเซ็นของคุณ</h4>
+              <h4 class="modal-title">ลายเซ็นของคุณ สถานะ :
+                <?php if (@$_SESSION['profileSigOn'] == 1): ?>
+                  <span style="color:green">เปิดการใช้งานอยู่</span>
+                  <?php else: ?>
+                    <span style="color:red">ปิดการใช้งานอยู่</span>
+                <?php endif; ?>
+                  <a onclick="Reload();" href="<?php echo SITE_URL('Employee/SignatureStatus/'.$_SESSION['profileId']."/".$_SESSION['profileSigOn']) ?>" class="btn btn-warning pull-right">เปิด/ปิด</a>
+              </h4>
             </div>
             <div class="modal-body">
               <center>
                 <table>
-
                   <tr>
                     <td>รูปภาพเดิม : &nbsp;</td>
                     <td>
-                      <?php if ($_SESSION['profileSigImage'] != ''): ?>
+                      <?php if (@$_SESSION['profileSigImage'] != ''): ?>
                       <img src="<?php echo base_url('uploads/Signature/'.$_SESSION['profileSigImage'])?>" height="90">
                     <?php endif; ?>
                     </td>

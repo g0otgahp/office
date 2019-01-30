@@ -35,8 +35,7 @@
 
           </tbody>
         </table>
-    </div>
-
+</div>
 
 <script>
 //Button Loading

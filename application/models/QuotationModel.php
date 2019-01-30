@@ -24,8 +24,22 @@ class QuotationModel extends CI_Model {
 		$data = $this->db
 		->order_by('quoStatus','DESC')
 		->order_by('quoDate','DESC')
+		->join('profile','profile.profileId = quotation.quoOfferId')
 		->where('quoStatus != 3')
 		->where('quoOfferId',$id)
+		->get('quotation')
+		->result_array();
+		return $data;
+
+	}
+
+	public function AllLoadQuotation()
+	{
+		$data = $this->db
+		->order_by('quoStatus','DESC')
+		->order_by('quoDate','DESC')
+		->join('profile','profile.profileId = quotation.quoOfferId')
+		->where('quoStatus != 3')
 		->get('quotation')
 		->result_array();
 		return $data;
