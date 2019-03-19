@@ -22,6 +22,10 @@
         <a href="<?php echo SITE_URL("Quotation"); ?>" onclick="Reload();"><i class="glyphicon glyphicon-book"></i>&nbsp; ใบเสนอราคา</a>
       </li>
 
+      <li>
+        <a href="<?php echo SITE_URL("Register"); ?>" onclick="Reload();"><i class="glyphicon glyphicon-modal-window"></i>&nbsp; รีจิสเตอร์ <span style="color:red">New !</span></a>
+      </li>
+
       <!-- แบ่งสิทธิ์ การเข้าถึง -->
 
 

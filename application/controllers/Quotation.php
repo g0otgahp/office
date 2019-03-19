@@ -106,7 +106,22 @@ class Quotation extends CI_Controller {
 		redirect('Quotation');
 	}
 
-
+	public function Edit()
+	{
+		$employeeID = $this->uri->segment(3);
+		if ($_SESSION['profileId'] == $employeeID) {
+						$Value = array(
+				'View' => "QuotationEdit",
+				'Result' => array(
+					// 'dataShow' => $dataShow,
+				)
+			);
+			$this->LoadPage($Value);
+	} else {
+		echo "<script>alert('สิทธิการออกใบเสนอราคาไม่ตรงกัน')</script>";
+		echo "<script>document.location='" . SITE_URL() . "'</script>";
+	}
+}
 
 
 }

@@ -9,7 +9,13 @@
         <!-- /.col-lg-12 -->
       </div>
 
-
+      <div class="row">
+        <div class="col-lg-12">
+          <h3><span style="color:green;"><i class="fa fa-volume-up"></i> อัพเดทใหม่</span> : ระบบแก้ไขใบเสนอราคาคลิกที่ปุ่ม</a>  <a class="btn btn-info btn-xs" href="#"><b>แก้ไขบิล </b></a>
+            <h4 style="color:red">คำเตือน : เมื่อแก้ไขใบเสนอราคาแล้ว ใบเสนอราคาเก่าจะถูกยกเลิกและสร้างใบใหม่ขึ้นมาแทนที่ด้วยเลขที่บิลเดิมและจะเติม - หลังเลขที่บิล</h4>
+          </h3>
+        </div>
+      </div>
       <div class="row">
         <div class="col-lg-12">
           <!-- /.panel-heading -->
@@ -21,8 +27,8 @@
                   <th width="14%" class="text-center">วันที่เสนอราคา</th>
                   <th width="12%" class="text-center">เลขที่</th>
                   <th width="20%" class="text-center">ชื่อลูกค้า</th>
-                  <th width="10%" class="text-center">ผู้เสนอ</th>
-                  <th width="8%" class="text-center">ติดต่อ</th>
+                  <!-- <th width="10%" class="text-center">ผู้เสนอ</th>
+                  <th width="8%" class="text-center">ติดต่อ</th> -->
                   <th width="8%"class="text-center">สถานะ</th>
                   <th width="8%" class="text-center">บันทึก</th>
                   <th class="text-center">พิมพ์</th>
@@ -42,13 +48,15 @@
 
                     <td class="text-left"><?php echo $item['quoNo'] ?></td>
                     <td class="text-left"><?php echo $item['quoCompany'] ?></td>
-                    <td class="text-center"><?php echo $item['profileNickname']?></td>
-                    <td class="text-center"><?php echo $item['quoTel'] ?></td>
+                    <!-- <td class="text-center"><?php echo $item['profileNickname']?></td>
+                    <td class="text-center"><?php echo $item['quoTel'] ?></td> -->
                     <td class="text-center">
                       <?php if ($item['quoStatus'] == 2) {
                         echo "<span class='text-warning'>รออนุมัติ</span>";
                       } elseif ($item['quoStatus'] == 1) {
                         echo "<span class='text-success'>อนุมัติแล้ว</span>";
+                      } elseif ($item['quoStatus'] == 4) {
+                        echo "<span class='text-warning'>แก้ไขแล้ว</span>";
                       } else {
                         echo "<span class='text-danger'>ยกเลิก</span>";
                       } ?>
@@ -56,7 +64,7 @@
                     <td class="text-center">
                       <a href="#" class="btn btn-xs btn-warning"
                       data-toggle="modal" data-target="#Note<?php echo $item['quoId'] ?>">
-                      Note
+                      รายละเอียด
                     </a>
                   </td>
                   <td class="text-center">
@@ -69,10 +77,15 @@
                   <td class="text-center">
                     <?php if ($item['quoStatus'] == 2): ?>
                       <a class="btn btn-success btn-xs" href="<?php echo SITE_URL('Quotation/Accept/'.$item['quoNo']."/".base64_encode($item['quoId']));?>"><b>อนุมัติ </b></a>
-                      <a class="btn btn-danger btn-xs" href="<?php echo SITE_URL('Quotation/Cancel/'.$item['quoNo']."/".base64_encode($item['quoId']));?>"><b>ยกเลิก </b></a>
+                      <a class="btn btn-info btn-xs" onclick="return confirm('ต้องการแก้ไขใบเสนอราคานี้ใช่หรือไม่ ?')" href="<?php echo SITE_URL('Quotation/Edit/'.$_SESSION['profileId'].'?sid='.$_SESSION['profileId'].'&no='.$item['quoNo'].'&quoid='.$item['quoId']);?>"><b>แก้ไขบิล </b></a>
+                      <a class="btn btn-danger btn-xs" onclick="return confirm('ต้องการลบรายการนี้ใช่หรือไม่ ?')" href="<?php echo SITE_URL('Quotation/Cancel/'.$item['quoNo']."/".base64_encode($item['quoId']));?>"><b>ยกเลิก </b></a>
+                    <?php elseif ($item['quoStatus'] == 4): ?>
+                        <a class="btn btn-warning btn-xs" href="#" disabled><b>ได้ทำการแก้ไขแล้ว </b></a>
                     <?php else: ?>
-                      <a class="btn btn-success btn-xs" href="#" disabled><b>อนุมัติ </b></a>
+                      <a class="btn btn-success btn-xs" href="#" disabled><b>ผ่านการอนุมัติแล้ว </b></a>
+                      <!-- <a class="btn btn-success btn-xs" href="#" disabled><b>อนุมัติ </b></a>
                       <a class="btn btn-danger btn-xs" href="#" disabled><b>ยกเลิก </b></a>
+                      <a class="btn btn-info btn-xs" href="#" disabled><b>แก้ไขบิล </b></a> -->
                     <?php endif; ?>
                   </td>
                 </tr>

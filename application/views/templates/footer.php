@@ -6,7 +6,6 @@
 
   <!-- jQuery -->
   <script src="<?php echo BASE_URL('assets/startbootstrap-sb-admin'); ?>/vendor/jquery/jquery.min.js"></script>
-  <script src="<?php echo BASE_URL('assets/bootstrap-select'); ?>/dist/js/bootstrap-select.js"></script>
 
 
   <!-- Bootstrap Core JavaScript -->
@@ -32,6 +31,7 @@
 
   <!-- Custom Theme JavaScript -->
   <script src="<?php echo BASE_URL('assets/startbootstrap-sb-admin'); ?>/dist/js/sb-admin-2.js"></script>
+  <!-- <script src="<?php echo BASE_URL('assets/bootstrap-select'); ?>/dist/js/bootstrap-select.js"></script> -->
 
   <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 
@@ -58,6 +58,7 @@
   <script src="<?php echo BASE_URL()?>/AngularService/ProductImportFormController.js"></script>
   <script src="<?php echo BASE_URL()?>/AngularService/ProductExportController.js"></script>
   <script src="<?php echo BASE_URL()?>/AngularService/ProductExportFormController.js"></script>
+  <script src="<?php echo BASE_URL()?>/AngularService/QuotationEditController.js"></script>
 
 
   <!-- Angular Datatable -->
@@ -74,10 +75,10 @@
       });
   });
 
-  $('.selectpicker').selectpicker({
-    liveSearch: true,
-    // maxOptions: 10
-  });
+  // $('.selectpickerr').selectpicker({
+  //   liveSearch: true,
+  //   // maxOptions: 10
+  // });
 
   </script>
 

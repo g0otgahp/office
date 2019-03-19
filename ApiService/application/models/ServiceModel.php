@@ -47,7 +47,7 @@ class ServiceModel extends CI_Model {
 			$this->db->insert('quotation',$input);
 			return $this->db->insert_id();
 		} else {
-			$this->db->update('quotation',$input);
+			$this->db->where('quoId',$input['quoId'])->update('quotation',$input);
 			return $input['quoId'];
 		}
 	}
@@ -55,5 +55,39 @@ class ServiceModel extends CI_Model {
 	public function SaveQuotationProduct($input)
 	{
 	 $this->db->insert_batch('quotation_order', $input);
+	}
+
+	public function SelectQuotation($id){
+		$data['quotation'] = $this->db
+		->where('quoId',$id)
+		->get('quotation')
+		->result_array();
+
+		$data['customer'] = $this->db
+		->where('customerId',$data['quotation'][0]['quoCustomerId'])
+		->get('customer')
+		->result_array();
+
+		$data['employee'] = $this->db
+		->where('profileId',$data['quotation'][0]['quoOfferId'])
+		->get('profile')
+		->result_array();
+
+		$data['quotation_order'] = $this->db
+		->where('orderQuotationId',$id)
+		->join('product','product.productId = quotation_order.orderProductId')
+		->get('quotation_order')
+		->result_array();
+
+		$i = 0;
+		foreach ($data['quotation_order'] as $row) {
+			$data['quotation_order'][$i]['productName'] = $row['orderName'];
+			$data['quotation_order'][$i]['productQty'] = $row['orderQty'];
+			$data['quotation_order'][$i]['productUnit'] = $row['orderUnit'];
+			$data['quotation_order'][$i]['productRetail'] = $row['orderPrice'];
+			$data['quotation_order'][$i]['productDiscount'] = $row['orderDiscount'];
+		$i++;
+		}
+		return $data;
 	}
 }

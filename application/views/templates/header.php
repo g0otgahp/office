@@ -11,7 +11,7 @@
 
     <link rel="icon" type="image/png" href="<?php echo BASE_URL('uploads/Login/newzeno_icon.ico') ?>"/>
 
-    <title>Newzeno : Company</title>
+    <title>Newzeno : นิวซีโน่ ประเทศไทย</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo BASE_URL('assets/startbootstrap-sb-admin'); ?>/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -35,10 +35,8 @@
     <link href="<?php echo BASE_URL('assets/startbootstrap-sb-admin'); ?>/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="<?php echo BASE_URL('assets/bootstrap-select'); ?>/dist/css/bootstrap-select.min.css">
+    <!-- <link rel="stylesheet" href="<?php echo BASE_URL('assets/bootstrap-select'); ?>/dist/css/bootstrap-select.min.css"> -->
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="<?php echo BASE_URL('assets/bootstrap-select'); ?>/dist/js/bootstrap-select.min.js"></script>
 
     <!-- (Optional) Latest compiled and minified JavaScript translation files -->
     <!-- <script src="<?php echo BASE_URL('assets/bootstrap-select'); ?>/dist/js/i18n/defaults-*.min.js"></script> -->
@@ -80,7 +78,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo SITE_URL("Dashboard"); ?>"> <b>ระบบการจัดการ : บริษัทนิวซีโน่ประเทศไทย</b></a>
+            <a class="navbar-brand" href="#"> <b>ระบบการจัดการ : บริษัท นิวซีโน่ ประเทศไทย</b></a>
         </div>
         <!-- /.navbar-header -->
         <ul class="nav navbar-top-links navbar-right">
